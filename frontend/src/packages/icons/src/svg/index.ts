@@ -1,4 +1,4 @@
-import { createIconifyIcon } from '@/packages/core/base/icons'
+import { createIconifyIcon } from '@/packages/core/base/icons/src'
 
 import './load.js'
 

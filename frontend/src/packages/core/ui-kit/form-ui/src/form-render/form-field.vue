@@ -5,7 +5,7 @@ import type { FormSchema, MaybeComponentProps } from '../types'
 
 import { computed, nextTick, onUnmounted, useTemplateRef, watch } from 'vue'
 
-import { CircleAlert } from '@/packages/core/base/icons'
+import { CircleAlert } from '@/packages/core/base/icons/src'
 import {
   FormControl,
   FormDescription,
@@ -180,7 +180,7 @@ watch(
       })
     }
   },
-  { immediate: true }
+  { immediate: true },
 )
 
 const shouldDisabled = computed(() => {
@@ -221,7 +221,7 @@ function fieldBindEvent(slotProps: Record<string, any>) {
   if (modelValue && isObject(modelValue) && bindEventField) {
     value = isEventObjectLike(modelValue)
       ? modelValue?.target?.[bindEventField]
-      : modelValue?.[bindEventField] ?? modelValue
+      : (modelValue?.[bindEventField] ?? modelValue)
   }
 
   if (bindEventField) {
@@ -316,7 +316,7 @@ onUnmounted(() => {
               'mr-2 flex-shrink-0 justify-end': !isVertical,
               'mb-1 flex-row': isVertical,
             },
-            labelClass
+            labelClass,
           )
         "
         :help="help"
@@ -372,7 +372,7 @@ onUnmounted(() => {
                     <CircleAlert
                       :class="
                         cn(
-                          'inline-flex size-5 cursor-pointer text-foreground/80 hover:text-foreground'
+                          'inline-flex size-5 cursor-pointer text-foreground/80 hover:text-foreground',
                         )
                       "
                     />

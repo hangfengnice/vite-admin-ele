@@ -16,8 +16,8 @@ import {
   useIsMobile,
   usePriorityValues,
   useSimpleLocale,
-} from '@/packages/core/composables'
-import { Expand, Shrink } from '@/packages/core/base/icons'
+} from '@/packages/core/composables/src'
+import { Expand, Shrink } from '@/packages/core/base/icons/src'
 import {
   Dialog,
   DialogContent,

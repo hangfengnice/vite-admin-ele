@@ -1,6 +1,6 @@
 import type { VxeGridInstance } from 'vxe-table'
 
-import type { ExtendedFormApi } from '@/packages/core/ui-kit/form-ui'
+import type { ExtendedFormApi } from '@/packages/core/ui-kit/form-ui/src'
 
 import type { VxeGridProps } from './types'
 
@@ -50,7 +50,7 @@ export class VxeGridApi<T extends Record<string, any> = any> {
           // this.prevState = this.state;
           this.state = this.store.state
         },
-      }
+      },
     )
 
     this.state = this.store.state
@@ -100,7 +100,7 @@ export class VxeGridApi<T extends Record<string, any> = any> {
   setState(
     stateOrFn:
       | ((prev: VxeGridProps<T>) => Partial<VxeGridProps<T>>)
-      | Partial<VxeGridProps<T>>
+      | Partial<VxeGridProps<T>>,
   ) {
     if (isFunction(stateOrFn)) {
       this.store.setState((prev) => {

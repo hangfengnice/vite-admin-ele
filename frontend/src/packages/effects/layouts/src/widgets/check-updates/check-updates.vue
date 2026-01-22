@@ -3,7 +3,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 
 import { $t } from '@/packages/locales'
 
-import { useVbenModal } from '@/packages/core/ui-kit/popup-ui'
+import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 
 interface Props {
   // 轮询时间，分钟
@@ -86,7 +86,7 @@ function start() {
   // 每 checkUpdatesInterval(默认值为1) 分钟检查一次
   timer.value = setInterval(
     checkForUpdates,
-    props.checkUpdatesInterval * 60 * 1000
+    props.checkUpdatesInterval * 60 * 1000,
   )
 }
 

@@ -8,7 +8,7 @@ import type { TreeProps } from './types'
 
 import { onMounted, ref, watchEffect } from 'vue'
 
-import { ChevronRight, IconifyIcon } from '@/packages/core/base/icons'
+import { ChevronRight, IconifyIcon } from '@/packages/core/base/icons/src'
 import { cn, get } from '@/packages/core/base/shared/src/utils'
 
 import { TreeItem, TreeRoot } from 'reka-ui'

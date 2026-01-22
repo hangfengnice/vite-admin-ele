@@ -1,6 +1,6 @@
-import type { IconifyIconStructure } from '@/packages/core/base/icons'
+import type { IconifyIconStructure } from '@/packages/core/base/icons/src'
 
-import { addIcon } from '@/packages/core/base/icons'
+import { addIcon } from '@/packages/core/base/icons/src'
 
 let loaded = false
 if (!loaded) {
@@ -17,7 +17,7 @@ function parseSvg(svgData: string): IconifyIconStructure {
   const getAttrs = (el: Element, attrs: string[]) =>
     attrs
       .map((attr) =>
-        el.hasAttribute(attr) ? `${attr}="${el.getAttribute(attr)}"` : ''
+        el.hasAttribute(attr) ? `${attr}="${el.getAttribute(attr)}"` : '',
       )
       .filter(Boolean)
       .join(' ')
@@ -74,6 +74,6 @@ async function loadSvgIcons() {
       return addIcon(`svg:${iconName}`, {
         ...parseSvg(typeof body === 'object' ? body.default : body),
       })
-    })
+    }),
   )
 }

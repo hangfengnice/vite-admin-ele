@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, useSlots } from 'vue'
 
-import { Eye, EyeOff } from '@/packages/core/base/icons'
+import { Eye, EyeOff } from '@/packages/core/base/icons/src'
 import { cn } from '@/packages/core/base/shared/src/utils'
 
 import { Input } from '../../ui'

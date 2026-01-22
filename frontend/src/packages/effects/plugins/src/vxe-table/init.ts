@@ -4,7 +4,7 @@ import { defineComponent, watch } from 'vue'
 
 import { usePreferences } from '@/packages/preferences'
 
-import { useVbenForm } from '@/packages/core/ui-kit/form-ui'
+import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
 
 import {
   VxeButton,
@@ -122,7 +122,7 @@ export function setupVbenVxeTable(setupOptions: SetupVxeTable) {
     },
     {
       immediate: true,
-    }
+    },
   )
 
   extendsDefaultFormatter(VxeUI)

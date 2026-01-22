@@ -12,7 +12,7 @@ import { preferences, usePreferences } from '@/packages/preferences'
 import { useAccessStore } from '@/packages/stores'
 import { isWindowsOs } from '@/packages/utils'
 
-import { useVbenModal } from '@/packages/core/ui-kit/popup-ui'
+import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 import {
   Badge,
   DropdownMenu,
@@ -100,7 +100,7 @@ const refTrigger = useTemplateRef('refTrigger')
 const refContent = useTemplateRef('refContent')
 const [openPopover, hoverWatcher] = useHoverToggle(
   [refTrigger, refContent],
-  () => props.hoverDelay
+  () => props.hoverDelay,
 )
 
 watch(
@@ -114,7 +114,7 @@ watch(
   },
   {
     immediate: true,
-  }
+  },
 )
 
 const altView = computed(() => (isWindowsOs() ? 'Alt' : '⌥'))

@@ -6,7 +6,7 @@ import { $t, loadLocaleMessages } from '@/packages/locales'
 import { preferences, updatePreferences } from '@/packages/preferences'
 import { capitalizeFirstLetter } from '@/packages/utils'
 
-import { useVbenDrawer } from '@/packages/core/ui-kit/popup-ui'
+import { useVbenDrawer } from '@/packages/core/ui-kit/popup-ui/src'
 import { VbenButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 import PreferencesDrawer from './preferences-drawer.vue'
@@ -39,7 +39,7 @@ const listen = computed(() => {
     if (typeof value === 'object') {
       for (const subKey of Object.keys(value)) {
         result[`update:${key}${capitalizeFirstLetter(subKey)}`] = (
-          val: any
+          val: any,
         ) => {
           updatePreferences({ [key]: { [subKey]: val } })
           if (key === 'app' && subKey === 'locale') {

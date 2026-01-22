@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import type { ToolbarType } from './types'
 import { $t } from '@/locales'
 
-import { IconifyIcon } from '@/packages/core/base/icons'
+import { IconifyIcon } from '@/packages/core/base/icons/src'
 import { preferences, usePreferences } from '@/packages/preferences'
 import { Copyright } from '@/packages/effects/layouts/src/basic/copyright'
 import AuthenticationFormView from './form.vue'

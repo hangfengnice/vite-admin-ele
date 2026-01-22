@@ -3,7 +3,7 @@ import type { VbenFormProps } from './types'
 
 import { ref, watchEffect } from 'vue'
 
-import { useForwardPropsEmits } from '@/packages/core/composables'
+import { useForwardPropsEmits } from '@/packages/core/composables/src'
 
 import FormActions from './components/form-actions.vue'
 import {

@@ -12,11 +12,11 @@ import type { ClassType, DeepPartial } from '@/packages/types'
 import type {
   BaseFormComponentType,
   VbenFormProps,
-} from '@/packages/core/ui-kit/form-ui'
+} from '@/packages/core/ui-kit/form-ui/src'
 
 import type { VxeGridApi } from './api'
 
-import { useVbenForm } from '@/packages/core/ui-kit/form-ui'
+import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
 
 export interface VxePaginationInfo {
   currentPage: number
@@ -41,7 +41,7 @@ export interface SeparatorOptions {
 
 export interface VxeGridProps<
   T extends Record<string, any> = any,
-  D extends BaseFormComponentType = BaseFormComponentType
+  D extends BaseFormComponentType = BaseFormComponentType,
 > {
   /**
    * 标题
@@ -83,10 +83,10 @@ export interface VxeGridProps<
 
 export type ExtendedVxeGridApi<
   D extends Record<string, any> = any,
-  F extends BaseFormComponentType = BaseFormComponentType
+  F extends BaseFormComponentType = BaseFormComponentType,
 > = VxeGridApi<D> & {
   useStore: <T = NoInfer<VxeGridProps<D, F>>>(
-    selector?: (state: NoInfer<VxeGridProps<any, any>>) => T
+    selector?: (state: NoInfer<VxeGridProps<any, any>>) => T,
   ) => Readonly<Ref<T>>
 }
 

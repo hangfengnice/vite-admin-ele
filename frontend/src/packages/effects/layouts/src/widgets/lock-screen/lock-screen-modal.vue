@@ -5,8 +5,8 @@ import { computed, reactive } from 'vue'
 
 import { $t } from '@/packages/locales'
 
-import { useVbenForm, z } from '@/packages/core/ui-kit/form-ui'
-import { useVbenModal } from '@/packages/core/ui-kit/popup-ui'
+import { useVbenForm, z } from '@/packages/core/ui-kit/form-ui/src'
+import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 import { VbenAvatar, VbenButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props {
@@ -49,7 +49,7 @@ const [Form, { resetForm, validate, getValues, getFieldComponentRef }] =
         },
       ]),
       showDefaultActions: false,
-    })
+    }),
   )
 
 const [Modal] = useVbenModal({

@@ -5,8 +5,8 @@ import { LockKeyhole } from '@/packages/icons'
 import { $t, useI18n } from '@/packages/locales'
 import { storeToRefs, useAccessStore } from '@/packages/stores'
 
-import { useScrollLock } from '@/packages/core/composables'
-import { useVbenForm, z } from '@/packages/core/ui-kit/form-ui'
+import { useScrollLock } from '@/packages/core/composables/src'
+import { useVbenForm, z } from '@/packages/core/ui-kit/form-ui/src'
 import { VbenAvatar, VbenButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { useDateFormat, useNow } from '@vueuse/core'
@@ -55,11 +55,11 @@ const [Form, { form, validate, getFieldComponentRef }] = useVbenForm(
       },
     ]),
     showDefaultActions: false,
-  })
+  }),
 )
 
 const validPass = computed(
-  () => lockScreenPassword?.value === form?.values?.password
+  () => lockScreenPassword?.value === form?.values?.password,
 )
 
 async function handleSubmit() {

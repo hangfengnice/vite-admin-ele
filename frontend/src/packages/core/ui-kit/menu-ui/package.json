@@ -1,5 +1,5 @@
 {
-  "name": "@/packages/core/ui-kit/menu-ui",
+  "name": "@/packages/core/ui-kit/menu-ui/src",
   "version": "5.5.9",
   "homepage": "https://github.com/vbenjs/vue-vben-admin",
   "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",

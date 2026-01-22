@@ -5,7 +5,7 @@ import type { AlertProps } from './alert'
 
 import { computed, h, nextTick, ref } from 'vue'
 
-import { useSimpleLocale } from '@/packages/core/composables'
+import { useSimpleLocale } from '@/packages/core/composables/src'
 import {
   CircleAlert,
   CircleCheckBig,
@@ -13,7 +13,7 @@ import {
   CircleX,
   Info,
   X,
-} from '@/packages/core/base/icons'
+} from '@/packages/core/base/icons/src'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -151,7 +151,7 @@ async function handleOpenChange(val: boolean) {
           {
             'border border-border': bordered,
             'shadow-3xl': !bordered,
-          }
+          },
         )
       "
     >

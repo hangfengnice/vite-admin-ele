@@ -5,7 +5,7 @@ import { computed, watch } from 'vue'
 
 import { $t } from '@/packages/locales'
 
-import { useVbenModal } from '@/packages/core/ui-kit/popup-ui'
+import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 import { Slot, VbenAvatar } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props extends AuthenticationProps {
@@ -30,7 +30,7 @@ watch(
   () => open.value,
   (val) => {
     modalApi.setState({ isOpen: val })
-  }
+  },
 )
 
 const getZIndex = computed(() => {
@@ -43,7 +43,7 @@ const getZIndex = computed(() => {
 const zIndexExcludeClass = ['ant-message', 'loading']
 function isZIndexExcludeClass(element: Element) {
   return zIndexExcludeClass.some((className) =>
-    element.classList.contains(className)
+    element.classList.contains(className),
   )
 }
 

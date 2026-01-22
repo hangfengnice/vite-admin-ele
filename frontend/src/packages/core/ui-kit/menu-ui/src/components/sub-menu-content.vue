@@ -3,8 +3,8 @@ import type { MenuItemProps } from '../types'
 
 import { computed } from 'vue'
 
-import { useNamespace } from '@/packages/core/composables'
-import { ChevronDown, ChevronRight } from '@/packages/core/base/icons'
+import { useNamespace } from '@/packages/core/composables/src'
+import { ChevronDown, ChevronRight } from '@/packages/core/base/icons/src'
 import { VbenIcon } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { useMenuContext } from '../hooks'

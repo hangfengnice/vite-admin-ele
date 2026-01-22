@@ -9,7 +9,7 @@ import {
   Circle,
   CircleCheckBig,
   LoaderCircle,
-} from '@/packages/core/base/icons'
+} from '@/packages/core/base/icons/src'
 import { cn, isFunction } from '@/packages/core/base/shared/src/utils'
 
 import { objectOmit } from '@vueuse/core'
@@ -46,7 +46,7 @@ watch(
       modelValue.value =
         innerValue.value.length > 0 ? innerValue.value[0] : undefined
     }
-  }
+  },
 )
 
 watch(
@@ -65,7 +65,7 @@ watch(
       innerValue.value = val === undefined ? [] : [val as ValueType]
     }
   },
-  { deep: true, immediate: true }
+  { deep: true, immediate: true },
 )
 
 async function onBtnClick(value: ValueType) {
@@ -74,7 +74,7 @@ async function onBtnClick(value: ValueType) {
       loadingValues.value.push(value)
       const canChange = await props.beforeChange(
         value,
-        !innerValue.value.includes(value)
+        !innerValue.value.includes(value),
       )
       if (canChange === false) {
         return

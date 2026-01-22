@@ -21,8 +21,8 @@ import {
 } from '@/packages/stores'
 import { cloneDeep, mapTree } from '@/packages/utils'
 
-import { VbenAdminLayout } from '@/packages/core/ui-kit/layout-ui'
-import { VbenBackTop, VbenLogo } from '@/packages/core/ui-kit/shadcn-ui'
+import { VbenAdminLayout } from '@/packages/core/ui-kit/layout-ui/src'
+import { VbenBackTop, VbenLogo } from '@/packages/core/ui-kit/shadcn-ui/src'
 
 import { Breadcrumb, CheckUpdates, Preferences } from '../widgets'
 import { LayoutContent, LayoutContentSpinner } from './content'
@@ -164,7 +164,7 @@ function autoCollapseMenuByRouteMeta(route: RouteLocationNormalizedLoaded) {
   // 只在双列模式下生效
   if (
     ['header-mixed-nav', 'sidebar-mixed-nav'].includes(
-      preferences.app.layout
+      preferences.app.layout,
     ) &&
     route.meta &&
     route.meta.hideInMenu
@@ -189,7 +189,7 @@ watch(
         },
       })
     }
-  }
+  },
 )
 
 const tabbarStore = useTabbarStore()

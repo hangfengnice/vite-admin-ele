@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, toRaw, unref, watch } from 'vue'
 
-import { useSimpleLocale } from '@/packages/core/composables'
+import { useSimpleLocale } from '@/packages/core/composables/src'
 import { VbenExpandableArrow } from '@/packages/core/ui-kit/shadcn-ui'
 import {
   cn,
@@ -76,7 +76,7 @@ watch(
     if (props.collapseTriggerResize) {
       triggerWindowResize()
     }
-  }
+  },
 )
 
 const actionWrapperClass = computed(() => {

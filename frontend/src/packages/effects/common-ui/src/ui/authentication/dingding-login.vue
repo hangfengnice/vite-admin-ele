@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router'
 import { SvgDingDingIcon } from '@/packages/icons'
 import { $t } from '@/packages/locales'
 
-import { alert, useVbenModal } from '@/packages/core/ui-kit/popup-ui'
+import { alert, useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 import { VbenIconButton } from '@/packages/core/ui-kit/shadcn-ui'
 import { loadScript } from '@/packages/core/base/shared/src/utils'
 
@@ -47,7 +47,7 @@ const handleQrCodeLogin = async () => {
   if (!(window as any).DTFrameLogin) {
     // 二维码登录 加载资源
     await loadScript(
-      'https://g.alicdn.com/dingding/h5-dingtalk-login/0.21.0/ddlogin.js'
+      'https://g.alicdn.com/dingding/h5-dingtalk-login/0.21.0/ddlogin.js',
     )
   }
   ;(window as any).DTFrameLogin(
@@ -74,7 +74,7 @@ const handleQrCodeLogin = async () => {
     (errorMsg: string) => {
       // 这里一般需要展示登录失败的具体原因
       alert(`Login Error: ${errorMsg}`)
-    }
+    },
   )
 }
 
@@ -85,7 +85,7 @@ const handleLogin = () => {
     modalApi.open()
   } else {
     window.location.href = `https://login.dingtalk.com/oauth2/auth?redirect_uri=${encodeURIComponent(
-      getRedirectUri()
+      getRedirectUri(),
     )}&response_type=code&client_id=${clientId}&scope=openid&corpid=${corpId}&prompt=consent`
   }
 }

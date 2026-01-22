@@ -1,6 +1,6 @@
 # @/packages/icons
 
-用于多个 `app` 公用的图标文件，继承了 `@/packages/core/base/icons` 的所有能力。业务上有通用图标可以放在这里。
+用于多个 `app` 公用的图标文件，继承了 `@/packages/core/base/icons/src` 的所有能力。业务上有通用图标可以放在这里。
 
 ## 用法
 

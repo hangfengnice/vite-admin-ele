@@ -1,11 +1,11 @@
 {
-  "name": "vue3-admin",
+  "name": "vite-admin-ele",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "vite build --mode production",
     "preview": "vite preview"
   },
   "dependencies": {

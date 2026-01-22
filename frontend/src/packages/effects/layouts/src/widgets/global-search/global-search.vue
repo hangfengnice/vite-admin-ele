@@ -13,7 +13,7 @@ import {
 import { $t } from '@/packages/locales'
 import { isWindowsOs } from '@/packages/utils'
 
-import { useVbenModal } from '@/packages/core/ui-kit/popup-ui'
+import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 
 import { useMagicKeys, whenever } from '@vueuse/core'
 
@@ -28,7 +28,7 @@ const props = withDefaults(
   {
     enableShortcutKey: true,
     menus: () => [],
-  }
+  },
 )
 
 const keyword = ref('')

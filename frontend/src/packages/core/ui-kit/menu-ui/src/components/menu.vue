@@ -21,8 +21,8 @@ import {
   watchEffect,
 } from 'vue'
 
-import { useNamespace } from '@/packages/core/composables'
-import { Ellipsis } from '@/packages/core/base/icons'
+import { useNamespace } from '@/packages/core/composables/src'
+import { Ellipsis } from '@/packages/core/base/icons/src'
 
 import { useResizeObserver } from '@vueuse/core'
 
@@ -56,7 +56,7 @@ const slots: SetupContext['slots'] = useSlots()
 const menu = ref<HTMLUListElement>()
 const sliceIndex = ref(-1)
 const openedMenus = ref<MenuProvider['openedMenus']>(
-  props.defaultOpeneds && !props.collapse ? [...props.defaultOpeneds] : []
+  props.defaultOpeneds && !props.collapse ? [...props.defaultOpeneds] : [],
 )
 const activePath = ref<MenuProvider['activePath']>(props.defaultActive)
 const items = ref<MenuProvider['items']>({})
@@ -89,7 +89,7 @@ watch(
   () => props.collapse,
   (value) => {
     if (value) openedMenus.value = []
-  }
+  },
 )
 
 watch(items.value, initMenu)
@@ -101,7 +101,7 @@ watch(
       activePath.value = ''
     }
     updateActiveName(currentActive)
-  }
+  },
 )
 
 let resizeStopper: UseResizeObserverReturn['stop']
@@ -131,7 +131,7 @@ createMenuContext(
     subMenus,
     theme: toRef(props, 'theme'),
     items,
-  })
+  }),
 )
 
 createSubMenuContext({
@@ -156,7 +156,7 @@ function calcSliceIndex() {
     (item) =>
       // remove comment type node #12634
       item.nodeName !== '#comment' &&
-      (item.nodeName !== '#text' || item.nodeValue)
+      (item.nodeName !== '#text' || item.nodeValue),
   ) as HTMLElement[]
 
   const moreItemWidth = 46
@@ -205,7 +205,7 @@ function handleResize() {
 }
 
 const enableScroll = computed(
-  () => props.scrollToActive && props.mode === 'vertical' && !props.collapse
+  () => props.scrollToActive && props.mode === 'vertical' && !props.collapse,
 )
 
 const { scrollToActiveItem } = useMenuScroll(activePath, {
@@ -298,7 +298,7 @@ function openMenu(path: string, parentPaths: string[]) {
       parentPaths = activeParentPaths
     }
     openedMenus.value = openedMenus.value.filter((path: string) =>
-      parentPaths.includes(path)
+      parentPaths.includes(path),
     )
   }
   openedMenus.value.push(path)
@@ -393,7 +393,10 @@ $namespace: vben;
   background: var(--menu-item-background-color);
   border: none;
   border-radius: var(--menu-item-radius);
-  transition: background 0.15s ease, color 0.15s ease, padding 0.15s ease,
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    padding 0.15s ease,
     border-color 0.15s ease;
 
   &.is-disabled {

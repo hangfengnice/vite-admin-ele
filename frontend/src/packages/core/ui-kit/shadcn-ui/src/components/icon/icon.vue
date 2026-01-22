@@ -3,7 +3,7 @@ import type { Component } from 'vue'
 
 import { computed } from 'vue'
 
-import { IconDefault, IconifyIcon } from '@/packages/core/base/icons'
+import { IconDefault, IconifyIcon } from '@/packages/core/base/icons/src'
 import {
   isFunction,
   isHttpUrl,

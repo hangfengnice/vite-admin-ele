@@ -2,7 +2,7 @@ import type { RouteLocationNormalizedGeneric } from 'vue-router'
 
 import type { TabDefinition } from '@/packages/types'
 
-import type { IContextMenuItem } from '@/packages/core/ui-kit/tabs-ui'
+import type { IContextMenuItem } from '@/packages/core/ui-kit/tabs-ui/src'
 
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -61,7 +61,7 @@ export function useTabbar() {
     ],
     ([tabs]) => {
       currentTabs.value = tabs.map((item) => wrapperTabLocale(item))
-    }
+    },
   )
 
   /**
@@ -100,7 +100,7 @@ export function useTabbar() {
     () => {
       initAffixTabs()
     },
-    { immediate: true }
+    { immediate: true },
   )
 
   watch(
@@ -112,7 +112,7 @@ export function useTabbar() {
         meta: meta || route.meta,
       })
     },
-    { immediate: true }
+    { immediate: true },
   )
 
   const createContextMenus = (tab: TabDefinition) => {

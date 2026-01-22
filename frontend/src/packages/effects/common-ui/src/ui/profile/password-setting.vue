@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type { Recordable } from '@/packages/types'
 
-import type { VbenFormSchema } from '@/packages/core/ui-kit/form-ui'
+import type { VbenFormSchema } from '@/packages/core/ui-kit/form-ui/src'
 
 import { computed, reactive } from 'vue'
 
-import { useVbenForm } from '@/packages/core/ui-kit/form-ui'
+import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
 import { VbenButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props {
@@ -31,7 +31,7 @@ const [Form, formApi] = useVbenForm(
     layout: 'horizontal',
     schema: computed(() => props.formSchema),
     showDefaultActions: false,
-  })
+  }),
 )
 
 async function handleSubmit() {

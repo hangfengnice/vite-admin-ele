@@ -2,7 +2,7 @@ import type { VxeGridSlots, VxeGridSlotTypes } from 'vxe-table'
 
 import type { SlotsType } from 'vue'
 
-import type { BaseFormComponentType } from '@/packages/core/ui-kit/form-ui'
+import type { BaseFormComponentType } from '@/packages/core/ui-kit/form-ui/src'
 
 import type { ExtendedVxeGridApi, VxeGridProps } from './types'
 
@@ -21,7 +21,7 @@ type FilteredSlots<T> = {
 
 export function useVbenVxeGrid<
   T extends Record<string, any> = any,
-  D extends BaseFormComponentType = BaseFormComponentType
+  D extends BaseFormComponentType = BaseFormComponentType,
 >(options: VxeGridProps<T, D>) {
   // const IS_REACTIVE = isReactive(options);
   const api = new VxeGridApi(options)
@@ -51,7 +51,7 @@ export function useVbenVxeGrid<
           'toolbar-tools': VxeGridSlotTypes.DefaultSlotParams<T>
         } & FilteredSlots<T>
       >,
-    }
+    },
   )
   // Add reactivity support
   // if (IS_REACTIVE) {

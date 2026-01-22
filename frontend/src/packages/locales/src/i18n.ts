@@ -11,7 +11,7 @@ import type {
 import { unref } from 'vue'
 import { createI18n } from 'vue-i18n'
 
-import { useSimpleLocale } from '@/packages/core/composables'
+import { useSimpleLocale } from '@/packages/core/composables/src'
 
 const i18n = createI18n({
   globalInjection: true,
@@ -26,7 +26,7 @@ const { setSimpleLocale } = useSimpleLocale()
 
 const localesMap = loadLocalesMapFromDir(
   /\.\/langs\/([^/]+)\/(.*)\.json$/,
-  modules
+  modules,
 )
 let loadMessages: LoadMessageFn
 
@@ -54,7 +54,7 @@ function loadLocalesMap(modules: Record<string, () => Promise<unknown>>) {
  */
 function loadLocalesMapFromDir(
   regexp: RegExp,
-  modules: Record<string, () => Promise<unknown>>
+  modules: Record<string, () => Promise<unknown>>,
 ): Record<Locale, ImportLocaleFn> {
   const localesRaw: Record<Locale, Record<string, () => Promise<unknown>>> = {}
   const localesMap: Record<Locale, ImportLocaleFn> = {}
@@ -110,7 +110,7 @@ async function setupI18n(app: App, options: LocaleSetupOptions = {}) {
   i18n.global.setMissingHandler((locale, key) => {
     if (options.missingWarn && key.includes('.')) {
       console.warn(
-        `[intlify] Not found '${key}' key in '${locale}' locale messages.`
+        `[intlify] Not found '${key}' key in '${locale}' locale messages.`,
       )
     }
   })

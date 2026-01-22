@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronsLeft, ChevronsRight } from '@/packages/core/base/icons'
+import { ChevronsLeft, ChevronsRight } from '@/packages/core/base/icons/src'
 
 const collapsed = defineModel<boolean>('collapsed')
 

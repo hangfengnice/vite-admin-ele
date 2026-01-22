@@ -25,7 +25,7 @@ import {
   usePreferences,
 } from '@/packages/preferences'
 
-import { useVbenDrawer } from '@/packages/core/ui-kit/popup-ui'
+import { useVbenDrawer } from '@/packages/core/ui-kit/popup-ui/src'
 import {
   VbenButton,
   VbenIconButton,

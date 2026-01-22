@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { BreadcrumbProps } from './types'
 
-import { ChevronDown } from '@/packages/core/base/icons'
+import { ChevronDown } from '@/packages/core/base/icons/src'
 
 import {
   Breadcrumb,

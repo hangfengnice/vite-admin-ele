@@ -3,7 +3,7 @@ import type { MenuItemProps, MenuItemRegistered } from '../types'
 
 import { computed, onBeforeUnmount, onMounted, reactive, useSlots } from 'vue'
 
-import { useNamespace } from '@/packages/core/composables'
+import { useNamespace } from '@/packages/core/composables/src'
 import { VbenIcon, VbenTooltip } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { MenuBadge } from '../components'
@@ -28,18 +28,18 @@ const { parentMenu, parentPaths } = useMenu()
 
 const active = computed(() => props.path === rootMenu?.activePath)
 const menuIcon = computed(() =>
-  active.value ? props.activeIcon || props.icon : props.icon
+  active.value ? props.activeIcon || props.icon : props.icon,
 )
 
 const isTopLevelMenuItem = computed(
-  () => parentMenu.value?.type.name === 'Menu'
+  () => parentMenu.value?.type.name === 'Menu',
 )
 
 const collapseShowTitle = computed(
   () =>
     rootMenu.props?.collapseShowTitle &&
     isTopLevelMenuItem.value &&
-    rootMenu.props.collapse
+    rootMenu.props.collapse,
 )
 
 const showTooltip = computed(
@@ -47,7 +47,7 @@ const showTooltip = computed(
     rootMenu.props.mode === 'vertical' &&
     isTopLevelMenuItem.value &&
     rootMenu.props?.collapse &&
-    slots.title
+    slots.title,
 )
 
 const item: MenuItemRegistered = reactive({

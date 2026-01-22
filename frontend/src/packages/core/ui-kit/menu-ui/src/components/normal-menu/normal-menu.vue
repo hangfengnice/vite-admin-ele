@@ -3,7 +3,7 @@ import type { MenuRecordRaw } from '@/packages/core/base/typings'
 
 import type { NormalMenuProps } from './normal-menu'
 
-import { useNamespace } from '@/packages/core/composables'
+import { useNamespace } from '@/packages/core/composables/src'
 import { VbenIcon } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props extends NormalMenuProps {}
@@ -119,7 +119,9 @@ $namespace: vben;
     color: hsl(var(--foreground) / 90%);
     cursor: pointer;
     border-radius: var(--menu-item-radius);
-    transition: background 0.15s ease, padding 0.15s ease,
+    transition:
+      background 0.15s ease,
+      padding 0.15s ease,
       border-color 0.15s ease;
 
     &.is-active {

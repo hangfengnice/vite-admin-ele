@@ -6,7 +6,7 @@ import type { AlertProps, BeforeCloseScope, PromptProps } from './alert'
 
 import { h, nextTick, ref, render } from 'vue'
 
-import { useSimpleLocale } from '@/packages/core/composables'
+import { useSimpleLocale } from '@/packages/core/composables/src'
 import { Input, VbenRenderContent } from '@/packages/core/ui-kit/shadcn-ui'
 import { isFunction, isString } from '@/packages/core/base/shared/src/utils'
 
@@ -19,18 +19,18 @@ const { $t } = useSimpleLocale()
 export function vbenAlert(options: AlertProps): Promise<void>
 export function vbenAlert(
   message: string,
-  options?: Partial<AlertProps>
+  options?: Partial<AlertProps>,
 ): Promise<void>
 export function vbenAlert(
   message: string,
   title?: string,
-  options?: Partial<AlertProps>
+  options?: Partial<AlertProps>,
 ): Promise<void>
 
 export function vbenAlert(
   arg0: AlertProps | string,
   arg1?: Partial<AlertProps> | string,
-  arg2?: Partial<AlertProps>
+  arg2?: Partial<AlertProps>,
 ): Promise<void> {
   return new Promise((resolve, reject) => {
     const options: AlertProps = isString(arg0)
@@ -98,18 +98,18 @@ export function vbenAlert(
 export function vbenConfirm(options: AlertProps): Promise<void>
 export function vbenConfirm(
   message: string,
-  options?: Partial<AlertProps>
+  options?: Partial<AlertProps>,
 ): Promise<void>
 export function vbenConfirm(
   message: string,
   title?: string,
-  options?: Partial<AlertProps>
+  options?: Partial<AlertProps>,
 ): Promise<void>
 
 export function vbenConfirm(
   arg0: AlertProps | string,
   arg1?: Partial<AlertProps> | string,
-  arg2?: Partial<AlertProps>
+  arg2?: Partial<AlertProps>,
 ): Promise<void> {
   const defaultProps: Partial<AlertProps> = {
     showCancel: true,
@@ -130,7 +130,7 @@ export function vbenConfirm(
 }
 
 export async function vbenPrompt<T = any>(
-  options: PromptProps<T>
+  options: PromptProps<T>,
 ): Promise<T | undefined> {
   const {
     component: _component,
@@ -169,14 +169,14 @@ export async function vbenPrompt<T = any>(
     inputComponentRef.value = h(
       _component || Input,
       currentProps,
-      componentSlots
+      componentSlots,
     )
 
     // 返回包含静态内容和输入组件的数组
     return h(
       'div',
       { class: 'flex flex-col gap-2' },
-      { default: () => [...staticContents, inputComponentRef.value] }
+      { default: () => [...staticContents, inputComponentRef.value] },
     )
   }
 
@@ -207,13 +207,13 @@ export async function vbenPrompt<T = any>(
             if (
               isFunction(componentRef.el.focus) &&
               ['BUTTON', 'INPUT', 'SELECT', 'TEXTAREA'].includes(
-                componentRef.el.tagName
+                componentRef.el.tagName,
               )
             ) {
               componentRef.el.focus()
             } else if (isFunction(componentRef.el.querySelector)) {
               const focusableElement = componentRef.el.querySelector(
-                'input, select, textarea, button'
+                'input, select, textarea, button',
               )
               if (focusableElement && isFunction(focusableElement.focus)) {
                 focusableElement.focus()

@@ -1,5 +1,5 @@
 {
-  "name": "@/packages/core/base/icons",
+  "name": "@/packages/core/base/icons/src",
   "version": "5.5.9",
   "homepage": "https://github.com/vbenjs/vue-vben-admin",
   "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",

@@ -9,8 +9,8 @@ import {
   SCROLL_FIXED_CLASS,
   useLayoutFooterStyle,
   useLayoutHeaderStyle,
-} from '@/packages/core/composables'
-import { IconifyIcon } from '@/packages/core/base/icons'
+} from '@/packages/core/composables/src'
+import { IconifyIcon } from '@/packages/core/base/icons/src'
 import { VbenIconButton } from '@/packages/core/ui-kit/shadcn-ui'
 import { ELEMENT_ID_MAIN_CONTENT } from '@/packages/core/base/shared/src/constants'
 
@@ -193,7 +193,7 @@ const isSideMode = computed(
     currentLayout.value === 'sidebar-mixed-nav' ||
     currentLayout.value === 'sidebar-nav' ||
     currentLayout.value === 'header-mixed-nav' ||
-    currentLayout.value === 'header-sidebar-nav'
+    currentLayout.value === 'header-sidebar-nav',
 )
 
 /**
@@ -381,7 +381,7 @@ watch(
   },
   {
     immediate: true,
-  }
+  },
 )
 
 watch(
@@ -391,7 +391,7 @@ watch(
   },
   {
     immediate: true,
-  }
+  },
 )
 
 watch(
@@ -401,7 +401,7 @@ watch(
   },
   {
     immediate: true,
-  }
+  },
 )
 
 {
@@ -425,7 +425,7 @@ watch(
     },
     {
       immediate: true,
-    }
+    },
   )
 }
 
@@ -460,7 +460,7 @@ watch(
       if (isScrolling.value) {
         checkHeaderIsHidden(directions.top, directions.bottom, arrivedState.top)
       }
-    }
+    },
   )
 }
 

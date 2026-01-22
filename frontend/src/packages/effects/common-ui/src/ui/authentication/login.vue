@@ -4,7 +4,7 @@ defineOptions({
 })
 import type { Recordable } from '@/packages/types'
 
-import type { VbenFormSchema } from '@/packages/core/ui-kit/form-ui'
+import type { VbenFormSchema } from '@/packages/core/ui-kit/form-ui/src'
 
 import type { AuthenticationProps } from './types'
 
@@ -13,7 +13,7 @@ import { useRouter } from 'vue-router'
 
 import { $t } from '@/packages/locales'
 
-import { useVbenForm } from '@/packages/core/ui-kit/form-ui'
+import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
 import { VbenButton, VbenCheckbox } from '@/packages/core/ui-kit/shadcn-ui'
 
 import Title from './auth-title.vue'

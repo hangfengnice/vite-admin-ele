@@ -7,8 +7,8 @@ import {
   useIsMobile,
   usePriorityValues,
   useSimpleLocale,
-} from '@/packages/core/composables'
-import { X } from '@/packages/core/base/icons'
+} from '@/packages/core/composables/src'
+import { X } from '@/packages/core/base/icons/src'
 import {
   Separator,
   Sheet,
@@ -157,7 +157,7 @@ watch(
     if (value && !unref(hasOpened)) {
       hasOpened.value = true
     }
-  }
+  },
 )
 function handleClosed() {
   isClosed.value = true
@@ -206,7 +206,7 @@ const getForceMount = computed(() => {
             {
               'px-4 py-3': closable,
               'pl-2': closable && closeIconPlacement === 'left',
-            }
+            },
           )
         "
       >
@@ -288,7 +288,7 @@ const getForceMount = computed(() => {
         :class="
           cn(
             'w-full flex-row items-center justify-end border-t p-2 px-3',
-            footerClass
+            footerClass,
           )
         "
       >

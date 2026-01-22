@@ -1,11 +1,11 @@
-import type { Sortable } from '@/packages/core/composables'
+import type { Sortable } from '@/packages/core/composables/src'
 import type { EmitType } from '@/packages/core/base/typings'
 
 import type { TabsProps } from './types'
 
 import { nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 
-import { useIsMobile, useSortable } from '@/packages/core/composables'
+import { useIsMobile, useSortable } from '@/packages/core/composables/src'
 
 // 可能会找到拖拽的子元素，这里需要确保拖拽的dom时tab元素
 function findParentElement(element: HTMLElement) {
@@ -22,7 +22,7 @@ export function useTabsDrag(props: TabsProps, emit: EmitType) {
     await nextTick()
 
     const el = document.querySelectorAll(
-      `.${props.contentClass}`
+      `.${props.contentClass}`,
     )?.[0] as HTMLElement
 
     if (!el) {
@@ -115,7 +115,7 @@ export function useTabsDrag(props: TabsProps, emit: EmitType) {
     () => {
       sortableInstance.value?.destroy()
       init()
-    }
+    },
   )
 
   onUnmounted(() => {

@@ -11,8 +11,8 @@ export * from './page'
 export * from './resize'
 export * from './tippy'
 export * from './tree'
-export * from '@/packages/core/ui-kit/form-ui'
-export * from '@/packages/core/ui-kit/popup-ui'
+export * from '@/packages/core/ui-kit/form-ui/src'
+export * from '@/packages/core/ui-kit/popup-ui/src'
 
 // 给文档用
 export {

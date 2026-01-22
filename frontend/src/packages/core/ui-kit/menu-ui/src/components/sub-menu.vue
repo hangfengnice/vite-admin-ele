@@ -5,7 +5,7 @@ import type { MenuItemRegistered, MenuProvider, SubMenuProps } from '../types'
 
 import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 
-import { useNamespace } from '@/packages/core/composables'
+import { useNamespace } from '@/packages/core/composables/src'
 import { VbenHoverCard } from '@/packages/core/ui-kit/shadcn-ui'
 
 import {
@@ -54,7 +54,7 @@ const opened = computed(() => {
   return rootMenu?.openedMenus.includes(props.path)
 })
 const isTopLevelMenuSubmenu = computed(
-  () => parentMenu.value?.type.name === 'Menu'
+  () => parentMenu.value?.type.name === 'Menu',
 )
 const mode = computed(() => rootMenu?.props.mode ?? 'vertical')
 const rounded = computed(() => rootMenu?.props.rounded)
@@ -170,7 +170,7 @@ function handleMouseleave(deepDispatch = false) {
 }
 
 const menuIcon = computed(() =>
-  active.value ? props.activeIcon || props.icon : props.icon
+  active.value ? props.activeIcon || props.icon : props.icon,
 )
 
 const item = reactive({

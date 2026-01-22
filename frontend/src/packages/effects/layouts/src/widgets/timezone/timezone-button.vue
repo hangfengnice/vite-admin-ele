@@ -5,7 +5,7 @@ import { createIconifyIcon } from '@/packages/icons'
 import { $t } from '@/packages/locales'
 import { useTimezoneStore } from '@/packages/stores'
 
-import { useVbenModal } from '@/packages/core/ui-kit/popup-ui'
+import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 import {
   RadioGroup,
   RadioGroupItem,

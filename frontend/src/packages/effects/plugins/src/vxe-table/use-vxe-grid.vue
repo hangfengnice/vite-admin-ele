@@ -10,7 +10,7 @@ import type {
 
 import type { SetupContext } from 'vue'
 
-import type { VbenFormProps } from '@/packages/core/ui-kit/form-ui'
+import type { VbenFormProps } from '@/packages/core/ui-kit/form-ui/src'
 
 import type { ExtendedVxeGridApi, VxeGridProps } from './types'
 
@@ -187,8 +187,8 @@ const options = computed(() => {
       {},
       toRaw(toolbarOptions.value),
       toRaw(gridOptions.value),
-      globalGridConfig
-    )
+      globalGridConfig,
+    ),
   )
 
   if (mergedOptions.proxyConfig) {
@@ -223,7 +223,7 @@ const options = computed(() => {
         className: 'mt-2 w-full',
         layouts: isMobile.value ? mobileLayouts : layouts,
         size: 'mini' as const,
-      }
+      },
     )
   }
   if (mergedOptions.formConfig) {
@@ -258,7 +258,7 @@ const delegatedSlots = computed(() => {
   for (const key of Object.keys(slots)) {
     if (
       !['empty', 'form', 'loading', TOOLBAR_ACTIONS, TOOLBAR_TOOLS].includes(
-        key
+        key,
       )
     ) {
       resultSlots.push(key)
@@ -293,7 +293,7 @@ async function init() {
   const defaultGridOptions: VxeTableGridProps = mergeWithArrayOverride(
     {},
     toRaw(gridOptions.value),
-    toRaw(globalGridConfig)
+    toRaw(globalGridConfig),
   )
   // 内部主动加载数据，防止form的默认值影响
   const autoLoad = defaultGridOptions.proxyConfig?.autoLoad
@@ -301,7 +301,7 @@ async function init() {
   if (enableProxyConfig && autoLoad) {
     props.api.grid.commitProxy?.(
       'query',
-      formOptions.value ? (await formApi.getValues()) ?? {} : {}
+      formOptions.value ? ((await formApi.getValues()) ?? {}) : {},
     )
     // props.api.reload(formApi.form?.values ?? {});
   }
@@ -312,13 +312,13 @@ async function init() {
   // 因为第一次初始化之后会把defaultGridOptions和gridOptions合并后缓存进State
   if (formConfig && formConfig.enabled) {
     console.warn(
-      '[Vben Vxe Table]: The formConfig in the grid is not supported, please use the `formOptions` props'
+      '[Vben Vxe Table]: The formConfig in the grid is not supported, please use the `formOptions` props',
     )
   }
   props.api?.setState?.({ gridOptions: defaultGridOptions })
   // form 由 vben-form 代替，所以需要保证query相关事件可以拿到参数
   extendProxyOptions(props.api, defaultGridOptions, () =>
-    formApi.getLatestSubmissionValues()
+    formApi.getLatestSubmissionValues(),
   )
 }
 
@@ -330,7 +330,7 @@ watch(
       const finalFormOptions: VbenFormProps = mergeWithArrayOverride(
         {},
         formOptions.value,
-        prev
+        prev,
       )
       return {
         ...finalFormOptions,
@@ -340,7 +340,7 @@ watch(
   },
   {
     immediate: true,
-  }
+  },
 )
 
 const isCompactForm = computed(() => {
@@ -368,7 +368,7 @@ onUnmounted(() => {
           {
             'pt-0': showToolbar && !formOptions,
           },
-          gridClass
+          gridClass,
         )
       "
       v-bind="options"
@@ -421,8 +421,8 @@ onUnmounted(() => {
                   ? 'pb-8'
                   : 'pb-4'
                 : isSeparator
-                ? 'pb-4'
-                : 'pb-0'
+                  ? 'pb-4'
+                  : 'pb-0',
             )
           "
         >

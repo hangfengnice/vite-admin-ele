@@ -1,11 +1,11 @@
 <script lang="ts" setup>
 import type { MenuRecordRaw } from '@/packages/types'
 
-// import type { MenuProps } from '@/packages/core/ui-kit/menu-ui'
+// import type { MenuProps } from '@/packages/core/ui-kit/menu-ui/src'
 
 import { useRoute } from 'vue-router'
 
-import { Menu } from '@/packages/core/ui-kit/menu-ui'
+import { Menu } from '@/packages/core/ui-kit/menu-ui/src'
 
 import { useNavigation } from './use-navigation'
 

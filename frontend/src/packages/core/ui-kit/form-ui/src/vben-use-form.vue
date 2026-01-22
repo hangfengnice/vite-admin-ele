@@ -6,7 +6,7 @@ import type { ExtendedFormApi, VbenFormProps } from './types'
 // import { toRaw, watch } from 'vue';
 import { nextTick, onMounted, watch } from 'vue'
 
-import { useForwardPriorityValues } from '@/packages/core/composables'
+import { useForwardPriorityValues } from '@/packages/core/composables/src'
 import {
   cloneDeep,
   get,
@@ -101,14 +101,14 @@ onMounted(async () => {
             const values = await forward.value.formApi?.getValues()
             forward.value.handleValuesChange(
               cloneDeep(values ?? {}) as Record<string, any>,
-              changedFields
+              changedFields,
             )
           }
         }
       }
       handleValuesChangeDebounced()
     },
-    { deep: true }
+    { deep: true },
   )
 })
 </script>

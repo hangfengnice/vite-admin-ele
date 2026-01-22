@@ -1,1 +1,1 @@
-import '@/packages/core/base/design'
+import '@/packages/core/base/design/src'

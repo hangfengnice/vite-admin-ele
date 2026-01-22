@@ -1,12 +1,12 @@
 {
-  "name": "@/packages/core/composables",
+  "name": "@/packages/core/composables/src",
   "version": "5.5.9",
   "homepage": "https://github.com/vbenjs/vue-vben-admin",
   "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
-    "directory": "packages/core/composables"
+    "directory": "packages/core/composables/src"
   },
   "license": "MIT",
   "type": "module",

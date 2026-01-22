@@ -10,7 +10,7 @@ import {
   TabsToolMore,
   TabsToolScreen,
   TabsView,
-} from '@/packages/core/ui-kit/tabs-ui'
+} from '@/packages/core/ui-kit/tabs-ui/src'
 
 import { useTabbar } from './use-tabbar'
 

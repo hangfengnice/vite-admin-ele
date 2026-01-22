@@ -1,5 +1,5 @@
 {
-  "name": "@/packages/core/ui-kit/popup-ui",
+  "name": "@/packages/core/ui-kit/popup-ui/src",
   "version": "5.2.1",
   "homepage": "https://github.com/vbenjs/vue-vben-admin",
   "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
