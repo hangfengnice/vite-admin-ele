@@ -1,0 +1,37 @@
+{
+  "name": "@/packages/plugins",
+  "version": "5.5.9",
+  "homepage": "https://github.com/vbenjs/vue-vben-admin",
+  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
+    "directory": "packages/effects/plugins"
+  },
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    "./echarts": {
+      "types": "./src/echarts/index.ts",
+      "default": "./src/echarts/index.ts"
+    },
+    "./vxe-table": {
+      "types": "./src/vxe-table/index.ts",
+      "default": "./src/vxe-table/index.ts"
+    }
+  },
+  "dependencies": {
+    "@/packages/effects/hooks": "workspace:*",
+    "@/packages/icons": "workspace:*",
+    "@/packages/locales": "workspace:*",
+    "@/packages/preferences": "workspace:*",
+    "@/packages/types": "workspace:*",
+    "@/packages/utils": "workspace:*",
+    "@vueuse/core": "catalog:",
+    "vxe-pc-ui": "catalog:",
+    "vxe-table": "catalog:"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@/packages/effects/layouts",
+  "version": "5.5.9",
+  "homepage": "https://github.com/vbenjs/vue-vben-admin",
+  "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
+    "directory": "packages/effects/layouts"
+  },
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "dependencies": {
+    "@/packages/constants": "workspace:*",
+    "@/packages/effects/hooks": "workspace:*",
+    "@/packages/locales": "workspace:*",
+    "@/packages/preferences": "workspace:*",
+    "@/packages/stores": "workspace:*",
+    "@/packages/types": "workspace:*",
+    "@/packages/utils": "workspace:*",
+    "@vueuse/core": "catalog:"
+  }
+}
