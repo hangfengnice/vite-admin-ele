@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { useContentMaximize, useTabs } from '@/packages/effects/hooks'
-import { preferences } from '@/packages/preferences'
+import { preferences } from '@/packages/core/preferences/src'
 import { useTabbarStore } from '@/packages/stores'
 
 import {

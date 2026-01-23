@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { BreadcrumbProps } from './types'
 
-import { VbenIcon } from '../icon'
+import { SUIIcon } from '../icon'
 
 interface Props extends BreadcrumbProps {}
 
@@ -30,7 +30,7 @@ function handleClick(index: number, path?: string) {
             @click.stop="handleClick(index, item.path)"
           >
             <span class="flex-center z-10 h-full">
-              <VbenIcon
+              <SUIIcon
                 v-if="showIcon"
                 :icon="item.icon"
                 class="mr-1 size-4 flex-shrink-0"

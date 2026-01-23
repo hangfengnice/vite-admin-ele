@@ -1,7 +1,7 @@
 import type { RequestClient } from './request-client'
 import type { MakeErrorMessageFn, ResponseInterceptorConfig } from './types'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 import { isFunction } from '@/packages/utils'
 
 import axios from 'axios'
@@ -110,7 +110,7 @@ export const authenticateResponseInterceptor = ({
 }
 
 export const errorMessageResponseInterceptor = (
-  makeErrorMessage?: MakeErrorMessageFn
+  makeErrorMessage?: MakeErrorMessageFn,
 ): ResponseInterceptorConfig => {
   return {
     rejected: (error: any) => {

@@ -4,7 +4,7 @@ import type { Component } from 'vue'
 import type { ThemeModeType } from '@/packages/types'
 
 import { MoonStar, Sun, SunMoon } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import SwitchItem from '../switch-item.vue'
 

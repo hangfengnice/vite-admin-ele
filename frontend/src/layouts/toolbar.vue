@@ -3,7 +3,7 @@ import type { ToolbarType } from './types'
 
 import { computed } from 'vue'
 
-import { preferences } from '@/packages/preferences'
+import { preferences } from '@/packages/core/preferences/src'
 
 import {
   AuthenticationColorToggle,

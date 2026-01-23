@@ -5,7 +5,7 @@ import type {
   SelectOption,
 } from '@/packages/types'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import SelectItem from '../select-item.vue'
 import SwitchItem from '../switch-item.vue'

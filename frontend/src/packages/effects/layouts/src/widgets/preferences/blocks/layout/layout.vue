@@ -6,7 +6,7 @@ import type { LayoutType } from '@/packages/types'
 import { computed } from 'vue'
 
 import { CircleHelp } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import { VbenTooltip } from '@/packages/core/ui-kit/shadcn-ui'
 

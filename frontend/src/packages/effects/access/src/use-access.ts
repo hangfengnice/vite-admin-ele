@@ -1,6 +1,6 @@
 import { computed } from 'vue'
 
-import { preferences, updatePreferences } from '@/packages/preferences'
+import { preferences, updatePreferences } from '@/packages/core/preferences/src'
 import { useAccessStore, useUserStore } from '@/packages/stores'
 
 function useAccess() {

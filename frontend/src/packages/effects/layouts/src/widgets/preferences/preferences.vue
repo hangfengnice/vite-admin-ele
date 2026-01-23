@@ -2,12 +2,12 @@
 import { computed } from 'vue'
 
 import { Settings } from '@/packages/icons'
-import { $t, loadLocaleMessages } from '@/packages/locales'
-import { preferences, updatePreferences } from '@/packages/preferences'
+import { $t, loadLocaleMessages } from '@/locales'
+import { preferences, updatePreferences } from '@/packages/core/preferences/src'
 import { capitalizeFirstLetter } from '@/packages/utils'
 
 import { useVbenDrawer } from '@/packages/core/ui-kit/popup-ui/src'
-import { VbenButton } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 import PreferencesDrawer from './preferences-drawer.vue'
 
@@ -60,12 +60,12 @@ const listen = computed(() => {
 
     <div @click="() => drawerApi.open()">
       <slot>
-        <VbenButton
+        <SUIButton
           :title="$t('preferences.title')"
           class="bg-primary flex-col-center size-10 cursor-pointer rounded-l-lg rounded-r-none border-none"
         >
           <Settings class="size-5" />
-        </VbenButton>
+        </SUIButton>
       </slot>
     </div>
   </div>

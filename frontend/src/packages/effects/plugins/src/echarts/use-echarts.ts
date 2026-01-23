@@ -8,7 +8,7 @@ import type EchartsUI from './echarts-ui.vue'
 
 import { computed, nextTick, watch } from 'vue'
 
-import { usePreferences } from '@/packages/preferences'
+import { usePreferences } from '@/packages/core/preferences/src'
 
 import {
   tryOnUnmounted,
@@ -69,7 +69,7 @@ function useEcharts(chartRef: Ref<EchartsUIType>) {
 
   const renderEcharts = (
     options: EChartsOption,
-    clear = true
+    clear = true,
   ): Promise<Nullable<echarts.ECharts>> => {
     cacheOptions = options
     const currentOptions = {

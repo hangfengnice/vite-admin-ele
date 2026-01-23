@@ -5,9 +5,9 @@ import { computed, defineAsyncComponent } from 'vue'
 import { useRouter } from 'vue-router'
 
 import { ArrowLeft, RotateCw } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
-import { VbenButton } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props extends FallbackProps {}
 
@@ -28,10 +28,10 @@ const Icon403 = defineAsyncComponent(() => import('./icons/icon-403.vue'))
 const Icon404 = defineAsyncComponent(() => import('./icons/icon-404.vue'))
 const Icon500 = defineAsyncComponent(() => import('./icons/icon-500.vue'))
 const IconHello = defineAsyncComponent(
-  () => import('./icons/icon-coming-soon.vue')
+  () => import('./icons/icon-coming-soon.vue'),
 )
 const IconOffline = defineAsyncComponent(
-  () => import('./icons/icon-offline.vue')
+  () => import('./icons/icon-offline.vue'),
 )
 
 const titleText = computed(() => {
@@ -151,14 +151,14 @@ function refresh() {
         {{ descText }}
       </p>
       <slot v-if="$slots.action" name="action"></slot>
-      <VbenButton v-else-if="showBack" size="lg" @click="back">
+      <SUIButton v-else-if="showBack" size="lg" @click="back">
         <ArrowLeft class="mr-2 size-4" />
         {{ $t('common.backToHome') }}
-      </VbenButton>
-      <VbenButton v-else-if="showRefresh" size="lg" @click="refresh">
+      </SUIButton>
+      <SUIButton v-else-if="showRefresh" size="lg" @click="refresh">
         <RotateCw class="mr-2 size-4" />
         {{ $t('common.refresh') }}
-      </VbenButton>
+      </SUIButton>
     </div>
   </div>
 </template>

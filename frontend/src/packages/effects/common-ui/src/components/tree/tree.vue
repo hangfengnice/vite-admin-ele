@@ -2,7 +2,7 @@
 // import type { TreeProps } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { Inbox } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import { treePropsDefaults, VbenTree } from '@/packages/core/ui-kit/shadcn-ui'
 

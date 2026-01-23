@@ -5,7 +5,7 @@ import { computed, ref, useAttrs, watch, watchEffect } from 'vue'
 
 import { usePagination } from '@/packages/effects/hooks'
 import { EmptyIcon, Grip, listIcons } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import {
   Button,
@@ -18,8 +18,8 @@ import {
   PaginationListItem,
   PaginationNext,
   PaginationPrev,
-  VbenIcon,
-  VbenIconButton,
+  SUIIcon,
+  SUIIconButton,
   VbenPopover,
 } from '@/packages/core/ui-kit/shadcn-ui'
 import { isFunction } from '@/packages/core/base/shared/src/utils'
@@ -82,7 +82,7 @@ watchDebounced(
       innerIcons.value = await fetchIconsData(prefix)
     }
   },
-  { immediate: true, debounce: 500, maxWait: 1000 }
+  { immediate: true, debounce: 500, maxWait: 1000 },
 )
 
 const currentList = computed(() => {
@@ -111,13 +111,13 @@ const currentList = computed(() => {
 
 const showList = computed(() => {
   return currentList.value.filter((item) =>
-    item.includes(keywordDebounce.value)
+    item.includes(keywordDebounce.value),
   )
 })
 
 const { paginationList, total, setCurrentPage, currentPage } = usePagination(
   showList,
-  props.pageSize
+  props.pageSize,
 )
 
 watchEffect(() => {
@@ -128,7 +128,7 @@ watch(
   () => currentSelect.value,
   (v) => {
     emit('change', v)
-  }
+  },
 )
 
 const handleClick = (icon: string) => {
@@ -200,7 +200,7 @@ defineExpose({ toggleOpenState, open, close })
           v-bind="getBindAttrs"
         >
           <template #[iconSlot]>
-            <VbenIcon
+            <SUIIcon
               :icon="currentSelect || Grip"
               class="size-4"
               aria-hidden="true"
@@ -217,14 +217,14 @@ defineExpose({ toggleOpenState, open, close })
             :aria-label="$t('ui.iconPicker.placeholder')"
             aria-expanded="visible"
           />
-          <VbenIcon
+          <SUIIcon
             :icon="currentSelect || Grip"
             class="absolute right-1 top-1 size-6"
             aria-hidden="true"
           />
         </div>
       </template>
-      <VbenIcon
+      <SUIIcon
         :icon="currentSelect || Grip"
         v-else
         class="size-4"
@@ -247,20 +247,20 @@ defineExpose({ toggleOpenState, open, close })
 
     <template v-if="paginationList.length > 0">
       <div class="grid max-h-[360px] w-full grid-cols-6 justify-items-center">
-        <VbenIconButton
+        <SUIIconButton
           v-for="(item, index) in paginationList"
           :key="index"
           :tooltip="item"
           tooltip-side="top"
           @click="handleClick(item)"
         >
-          <VbenIcon
+          <SUIIcon
             :class="{
               'text-primary transition-all': currentSelect === item,
             }"
             :icon="item"
           />
-        </VbenIconButton>
+        </SUIIconButton>
       </div>
       <div
         v-if="total >= pageSize"

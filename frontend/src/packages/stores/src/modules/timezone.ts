@@ -1,6 +1,6 @@
 import { ref, unref } from 'vue'
 
-import { DEFAULT_TIME_ZONE_OPTIONS } from '@/packages/core/preferences'
+import { DEFAULT_TIME_ZONE_OPTIONS } from '@/packages/core/preferences/src'
 import {
   getCurrentTimezone,
   setCurrentTimezone,
@@ -32,7 +32,7 @@ const getDefaultTimezoneHandler = (): TimezoneHandler => {
             label: item.label,
             value: item.timezone,
           }
-        })
+        }),
       )
     },
   }
@@ -120,7 +120,7 @@ const useTimezoneStore = defineStore(
       // 持久化
       pick: ['timezone'],
     },
-  }
+  },
 )
 
 export { setTimezoneHandler, useTimezoneStore }

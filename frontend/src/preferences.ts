@@ -1,4 +1,9 @@
-import { defineOverridesPreferences } from '@/packages/preferences'
+import type { Preferences } from '@/packages/core/preferences/src'
+import type { DeepPartial } from '@/packages/core/base/typings'
+
+function defineOverridesPreferences(preferences: DeepPartial<Preferences>) {
+  return preferences
+}
 
 /**
  * @description 项目配置文件

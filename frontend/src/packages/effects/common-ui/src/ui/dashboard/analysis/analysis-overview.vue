@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
   VbenCountToAnimator,
-  VbenIcon,
+  SUIIcon,
 } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props {
@@ -39,7 +39,7 @@ withDefaults(defineProps<Props>(), {
             class="text-xl"
             prefix=""
           />
-          <VbenIcon :icon="item.icon" class="size-8 flex-shrink-0" />
+          <SUIIcon :icon="item.icon" class="size-8 flex-shrink-0" />
         </CardContent>
         <CardFooter class="justify-between">
           <span>{{ item.totalTitle }}</span>

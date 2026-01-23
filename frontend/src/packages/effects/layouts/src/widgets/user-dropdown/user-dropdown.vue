@@ -7,8 +7,8 @@ import { computed, useTemplateRef, watch } from 'vue'
 
 import { useHoverToggle } from '@/packages/effects/hooks'
 import { LockKeyhole, LogOut } from '@/packages/icons'
-import { $t } from '@/packages/locales'
-import { preferences, usePreferences } from '@/packages/preferences'
+import { $t } from '@/locales'
+import { preferences, usePreferences } from '@/packages/core/preferences/src'
 import { useAccessStore } from '@/packages/stores'
 import { isWindowsOs } from '@/packages/utils'
 
@@ -23,7 +23,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
   VbenAvatar,
-  VbenIcon,
+  SUIIcon,
 } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { useMagicKeys, whenever } from '@vueuse/core'
@@ -230,7 +230,7 @@ if (enableShortcutKey.value) {
           class="mx-1 flex cursor-pointer items-center rounded-sm py-1 leading-8"
           @click="menu.handler"
         >
-          <VbenIcon :icon="menu.icon" class="mr-2 size-4" />
+          <SUIIcon :icon="menu.icon" class="mr-2 size-4" />
           {{ menu.text }}
         </DropdownMenuItem>
         <DropdownMenuSeparator />

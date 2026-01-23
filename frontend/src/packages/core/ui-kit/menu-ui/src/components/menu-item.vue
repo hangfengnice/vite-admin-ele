@@ -4,7 +4,7 @@ import type { MenuItemProps, MenuItemRegistered } from '../types'
 import { computed, onBeforeUnmount, onMounted, reactive, useSlots } from 'vue'
 
 import { useNamespace } from '@/packages/core/composables/src'
-import { VbenIcon, VbenTooltip } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIIcon, VbenTooltip } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { MenuBadge } from '../components'
 import { useMenu, useMenuContext, useSubMenuContext } from '../hooks'
@@ -99,7 +99,7 @@ onBeforeUnmount(() => {
     >
       <template #trigger>
         <div :class="[nsMenu.be('tooltip', 'trigger')]">
-          <VbenIcon :class="nsMenu.e('icon')" :icon="menuIcon" fallback />
+          <SUIIcon :class="nsMenu.e('icon')" :icon="menuIcon" fallback />
           <slot></slot>
           <span v-if="collapseShowTitle" :class="nsMenu.e('name')">
             <slot name="title"></slot>
@@ -114,7 +114,7 @@ onBeforeUnmount(() => {
         class="right-2"
         v-bind="props"
       />
-      <VbenIcon :class="nsMenu.e('icon')" :icon="menuIcon" />
+      <SUIIcon :class="nsMenu.e('icon')" :icon="menuIcon" />
       <slot></slot>
       <slot name="title"></slot>
     </div>

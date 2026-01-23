@@ -2,12 +2,12 @@
 import { computed, reactive, ref } from 'vue'
 
 import { LockKeyhole } from '@/packages/icons'
-import { $t, useI18n } from '@/packages/locales'
+import { $t, useI18n } from '@/locales'
 import { storeToRefs, useAccessStore } from '@/packages/stores'
 
 import { useScrollLock } from '@/packages/core/composables/src'
 import { useVbenForm, z } from '@/packages/core/ui-kit/form-ui/src'
-import { VbenAvatar, VbenButton } from '@/packages/core/ui-kit/shadcn-ui'
+import { VbenAvatar, SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { useDateFormat, useNow } from '@vueuse/core'
 
@@ -133,23 +133,23 @@ useScrollLock()
           <div class="enter-x mb-2 w-full items-center">
             <Form />
           </div>
-          <VbenButton class="enter-x w-full" @click="handleSubmit">
+          <SUIButton class="enter-x w-full" @click="handleSubmit">
             {{ $t('ui.widgets.lockScreen.entry') }}
-          </VbenButton>
-          <VbenButton
+          </SUIButton>
+          <SUIButton
             class="enter-x my-2 w-full"
             variant="ghost"
             @click="$emit('toLogin')"
           >
             {{ $t('ui.widgets.lockScreen.backToLogin') }}
-          </VbenButton>
-          <VbenButton
+          </SUIButton>
+          <SUIButton
             class="enter-x mr-2 w-full"
             variant="ghost"
             @click="toggleUnlockForm"
           >
             {{ $t('common.back') }}
-          </VbenButton>
+          </SUIButton>
         </div>
       </div>
     </transition>

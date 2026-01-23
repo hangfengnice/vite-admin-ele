@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import type { BuiltinThemePreset } from '@/packages/preferences'
+import type { BuiltinThemePreset } from '@/packages/core/preferences/src'
 import type { BuiltinThemeType } from '@/packages/types'
 
 import { computed, ref, watch } from 'vue'
 
 import { UserRoundPen } from '@/packages/icons'
-import { $t } from '@/packages/locales'
-import { BUILT_IN_THEME_PRESETS } from '@/packages/preferences'
+import { $t } from '@/locales'
+import { BUILT_IN_THEME_PRESETS } from '@/packages/core/preferences/src'
 import { convertToHsl, TinyColor } from '@/packages/utils'
 
 import { useThrottleFn } from '@vueuse/core'
@@ -27,7 +27,7 @@ const updateThemeColorPrimary = useThrottleFn(
   },
   300,
   true,
-  true
+  true,
 )
 
 const inputValue = computed(() => {
@@ -106,7 +106,7 @@ watch(
   () => [modelValue.value, props.isDark] as [BuiltinThemeType, boolean],
   ([themeType, isDark], [_, isDarkPrev]) => {
     const theme = builtinThemePresets.value.find(
-      (item) => item.type === themeType
+      (item) => item.type === themeType,
     )
     if (theme) {
       const primaryColor = isDark
@@ -117,7 +117,7 @@ watch(
         themeColorPrimary.value = primaryColor || theme.color
       }
     }
-  }
+  },
 )
 </script>
 

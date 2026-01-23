@@ -25,9 +25,9 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  VbenButton,
+  SUIButton,
   VbenHelpTooltip,
-  VbenIconButton,
+  SUIIconButton,
   VbenLoading,
   VisuallyHidden,
 } from '@/packages/core/ui-kit/shadcn-ui'
@@ -314,14 +314,14 @@ function handleClosed() {
         <slot></slot>
       </div>
       <VbenLoading v-if="showLoading || submitting" spinning />
-      <VbenIconButton
+      <SUIIconButton
         v-if="fullscreenButton"
         class="flex-center absolute right-10 top-3 hidden size-6 rounded-full px-1 text-lg text-foreground/80 opacity-70 transition-opacity hover:bg-accent hover:text-accent-foreground hover:opacity-100 focus:outline-none disabled:pointer-events-none sm:block"
         @click="handleFullscreen"
       >
         <Shrink v-if="fullscreen" class="size-3.5" />
         <Expand v-else class="size-3.5" />
-      </VbenIconButton>
+      </SUIIconButton>
 
       <DialogFooter
         v-if="showFooter"
@@ -339,7 +339,7 @@ function handleClosed() {
         <slot name="prepend-footer"></slot>
         <slot name="footer">
           <component
-            :is="components.DefaultButton || VbenButton"
+            :is="components.DefaultButton || SUIButton"
             v-if="showCancelButton"
             variant="ghost"
             :disabled="submitting"
@@ -351,7 +351,7 @@ function handleClosed() {
           </component>
           <slot name="center-footer"></slot>
           <component
-            :is="components.PrimaryButton || VbenButton"
+            :is="components.PrimaryButton || SUIButton"
             v-if="showConfirmButton"
             :disabled="confirmDisabled"
             :loading="confirmLoading || submitting"

@@ -9,7 +9,7 @@ import type {
 import { h } from 'vue'
 
 import {
-  VbenButton,
+  SUIButton,
   VbenCheckbox,
   Input as VbenInput,
   VbenInputPassword,
@@ -25,8 +25,8 @@ const DEFAULT_MODEL_PROP_NAME = 'modelValue'
 export const DEFAULT_FORM_COMMON_CONFIG: FormCommonConfig = {}
 
 export const COMPONENT_MAP: Record<BaseFormComponentType, Component> = {
-  DefaultButton: h(VbenButton, { size: 'sm', variant: 'outline' }),
-  PrimaryButton: h(VbenButton, { size: 'sm', variant: 'default' }),
+  DefaultButton: h(SUIButton, { size: 'sm', variant: 'outline' }),
+  PrimaryButton: h(SUIButton, { size: 'sm', variant: 'default' }),
   VbenCheckbox,
   VbenInput,
   VbenInputPassword,
@@ -41,7 +41,7 @@ export const COMPONENT_BIND_EVENT_MAP: Partial<
 }
 
 export function setupVbenForm<
-  T extends BaseFormComponentType = BaseFormComponentType
+  T extends BaseFormComponentType = BaseFormComponentType,
 >(options: VbenFormAdapterOptions<T>) {
   const { config, defineRules } = options
 

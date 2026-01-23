@@ -1,7 +1,7 @@
 import type { Router } from 'vue-router'
 
 import { LOGIN_PATH } from '@/packages/constants'
-import { preferences } from '@/packages/preferences'
+import { preferences } from '@/packages/core/preferences/src'
 import { useAccessStore, useUserStore } from '@/packages/stores'
 import { startProgress, stopProgress } from '@/packages/utils'
 

@@ -5,7 +5,7 @@ import { computed } from 'vue'
 
 import { useNamespace } from '@/packages/core/composables/src'
 import { ChevronDown, ChevronRight } from '@/packages/core/base/icons/src'
-import { VbenIcon } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIIcon } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { useMenuContext } from '../hooks'
 
@@ -82,7 +82,7 @@ const iconArrowStyle = computed(() => {
   >
     <slot></slot>
 
-    <VbenIcon
+    <SUIIcon
       v-if="!isMenuMore"
       :class="nsMenu.e('icon')"
       :icon="icon"

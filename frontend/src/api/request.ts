@@ -3,14 +3,13 @@
  */
 import type { RequestClientOptions } from '@/api/request'
 
-import { useAppConfig } from '@/packages/effects/hooks'
-import { preferences } from '@/packages/preferences'
+import { preferences } from '@/packages/core/preferences/src'
 import {
   authenticateResponseInterceptor,
   defaultResponseInterceptor,
   errorMessageResponseInterceptor,
   RequestClient,
-} from '@/packages/effects/request'
+} from './request-client'
 import { useAccessStore } from '@/packages/stores'
 
 import { ElMessage } from 'element-plus'
@@ -19,7 +18,7 @@ import { useAuthStore } from '@/store'
 
 import { refreshTokenApi } from './core'
 
-const { apiURL } = useAppConfig(import.meta.env, import.meta.env.PROD)
+const apiURL = '/api'
 
 function createRequestClient(baseURL: string, options?: RequestClientOptions) {
   const client = new RequestClient({

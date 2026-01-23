@@ -2,10 +2,10 @@
 import { useRoute } from 'vue-router'
 
 import { SvgDingDingIcon } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import { alert, useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
-import { VbenIconButton } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIIconButton } from '@/packages/core/ui-kit/shadcn-ui'
 import { loadScript } from '@/packages/core/base/shared/src/utils'
 
 interface Props {
@@ -93,13 +93,13 @@ const handleLogin = () => {
 
 <template>
   <div>
-    <VbenIconButton
+    <SUIIconButton
       @click="handleLogin"
       :tooltip="$t('authentication.dingdingLogin')"
       tooltip-side="top"
     >
       <SvgDingDingIcon />
-    </VbenIconButton>
+    </SUIIconButton>
     <Modal>
       <div id="dingding_qrcode_login_element"></div>
     </Modal>

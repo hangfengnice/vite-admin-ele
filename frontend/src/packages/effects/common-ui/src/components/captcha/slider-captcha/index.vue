@@ -7,7 +7,7 @@ import type {
 
 import { reactive, unref, useTemplateRef, watch, watchEffect } from 'vue'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import { cn } from '@/packages/core/base/shared/src/utils'
 
@@ -63,7 +63,7 @@ watch(
       emit('success', { isPassing, time: time.toFixed(1) })
       modelValue.value = isPassing
     }
-  }
+  },
 )
 
 watchEffect(() => {
@@ -90,7 +90,7 @@ function handleDragStart(e: MouseEvent | TouchEvent) {
     getEventPageX(e) -
     Number.parseInt(
       actionRef.value.getStyle().left.replace('px', '') || '0',
-      10
+      10,
     )
   state.startTime = Date.now()
   state.isMoving = true
@@ -146,7 +146,7 @@ function handleDragOver(e: MouseEvent | TouchEvent) {
             const contentEl = unref(contentRef)
             if (contentEl) {
               contentEl.getEl().style.width = `${Number.parseInt(
-                barEl.getEl().style.width
+                barEl.getEl().style.width,
               )}px`
             }
           } else {
@@ -203,7 +203,7 @@ function resume() {
     :class="
       cn(
         'border-border bg-background-deep relative flex h-10 w-full items-center overflow-hidden rounded-md border text-center',
-        props.class
+        props.class,
       )
     "
     :style="wrapperStyle"

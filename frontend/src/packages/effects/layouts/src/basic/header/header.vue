@@ -3,13 +3,10 @@ import { computed, useSlots } from 'vue'
 
 import { useRefresh } from '@/packages/effects/hooks'
 import { RotateCw } from '@/packages/icons'
-import { preferences, usePreferences } from '@/packages/preferences'
+import { preferences, usePreferences } from '@/packages/core/preferences/src'
 import { useAccessStore } from '@/packages/stores'
 
-import {
-  VbenFullScreen,
-  VbenIconButton,
-} from '@/packages/core/ui-kit/shadcn-ui'
+import { VbenFullScreen, SUIIconButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 import {
   GlobalSearch,
@@ -129,9 +126,9 @@ function clearPreferencesAndLogout() {
   >
     <slot :name="slot.name">
       <template v-if="slot.name === 'refresh'">
-        <VbenIconButton class="my-0 mr-1 rounded-md" @click="refresh">
+        <SUIIconButton class="my-0 mr-1 rounded-md" @click="refresh">
           <RotateCw class="size-4" />
-        </VbenIconButton>
+        </SUIIconButton>
       </template>
     </slot>
   </template>

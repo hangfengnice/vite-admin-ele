@@ -1,4 +1,7 @@
-import { updatePreferences, usePreferences } from '@/packages/preferences'
+import {
+  updatePreferences,
+  usePreferences,
+} from '@/packages/core/preferences/src'
 /**
  * 主体区域最大化
  */

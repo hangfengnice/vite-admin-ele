@@ -2,7 +2,7 @@ import type { SetupVxeTable } from './types'
 
 import { defineComponent, watch } from 'vue'
 
-import { usePreferences } from '@/packages/preferences'
+import { usePreferences } from '@/packages/core/preferences/src'
 
 import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
 

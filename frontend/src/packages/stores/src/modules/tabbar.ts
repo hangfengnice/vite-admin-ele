@@ -9,7 +9,7 @@ import type { TabDefinition } from '@/packages/core/base/typings'
 
 import { toRaw } from 'vue'
 
-import { preferences } from '@/packages/core/preferences'
+import { preferences } from '@/packages/core/preferences/src'
 import {
   openRouteInNewWindow,
   startProgress,
@@ -60,7 +60,7 @@ export const useTabbarStore = defineStore('core-tabbar', {
     async _bulkCloseByKeys(keys: string[]) {
       const keySet = new Set(keys)
       this.tabs = this.tabs.filter(
-        (item) => !keySet.has(getTabKeyFromTab(item))
+        (item) => !keySet.has(getTabKeyFromTab(item)),
       )
 
       await this.updateCacheTabs()
@@ -133,13 +133,14 @@ export const useTabbarStore = defineStore('core-tabbar', {
         ) {
           // 关闭第一个
           const index = this.tabs.findIndex(
-            (item) => item.name === routeTab.name
+            (item) => item.name === routeTab.name,
           )
           index !== -1 && this.tabs.splice(index, 1)
         } else if (maxCount > 0 && this.tabs.length >= maxCount) {
           // 关闭第一个
           const index = this.tabs.findIndex(
-            (item) => !Reflect.has(item.meta, 'affixTab') || !item.meta.affixTab
+            (item) =>
+              !Reflect.has(item.meta, 'affixTab') || !item.meta.affixTab,
           )
           index !== -1 && this.tabs.splice(index, 1)
         }
@@ -209,7 +210,7 @@ export const useTabbarStore = defineStore('core-tabbar', {
       for (const key of closeKeys) {
         if (key !== getTabKeyFromTab(tab)) {
           const closeTab = this.tabs.find(
-            (item) => getTabKeyFromTab(item) === key
+            (item) => getTabKeyFromTab(item) === key,
           )
           if (!closeTab) {
             continue
@@ -255,7 +256,7 @@ export const useTabbarStore = defineStore('core-tabbar', {
         return
       }
       const index = this.getTabs.findIndex(
-        (item) => getTabKeyFromTab(item) === getTabKey(currentRoute.value)
+        (item) => getTabKeyFromTab(item) === getTabKey(currentRoute.value),
       )
 
       const before = this.getTabs[index - 1]
@@ -282,7 +283,7 @@ export const useTabbarStore = defineStore('core-tabbar', {
     async closeTabByKey(key: string, router: Router) {
       const originKey = decodeURIComponent(key)
       const index = this.tabs.findIndex(
-        (item) => getTabKeyFromTab(item) === originKey
+        (item) => getTabKeyFromTab(item) === originKey,
       )
       if (index === -1) {
         return
@@ -300,7 +301,7 @@ export const useTabbarStore = defineStore('core-tabbar', {
      */
     getTabByKey(key: string) {
       return this.getTabs.find(
-        (item) => getTabKeyFromTab(item) === key
+        (item) => getTabKeyFromTab(item) === key,
       ) as TabDefinition
     },
     /**
@@ -618,7 +619,7 @@ function getTabKey(tab: RouteLocationNormalized | RouteRecordNormalized) {
   if (pageKey) {
     rawKey = pageKey
   } else {
-    rawKey = fullPathKey === false ? path : fullPath ?? path
+    rawKey = fullPathKey === false ? path : (fullPath ?? path)
   }
   try {
     return decodeURIComponent(rawKey)

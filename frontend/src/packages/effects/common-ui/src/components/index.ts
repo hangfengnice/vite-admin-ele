@@ -17,10 +17,10 @@ export * from '@/packages/core/ui-kit/popup-ui/src'
 // 给文档用
 export {
   VbenAvatar,
-  VbenButton,
-  VbenButtonGroup,
+  SUIButton,
+  SUIButtonGroup,
   VbenCheckbox,
-  VbenCheckButtonGroup,
+  SUICheckButtonGroup,
   VbenContextMenu,
   VbenCountToAnimator,
   VbenFullScreen,

@@ -1,35 +1,39 @@
 {
-  "name": "@/packages/core/preferences",
+  "name": "@/packages/core/ui-kit/form-ui",
   "version": "5.5.9",
   "homepage": "https://github.com/vbenjs/vue-vben-admin",
   "bugs": "https://github.com/vbenjs/vue-vben-admin/issues",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vbenjs/vue-vben-admin.git",
-    "directory": "packages/core/preferences"
+    "directory": "packages/@vben-core/uikit/form-ui"
   },
   "license": "MIT",
   "type": "module",
   "scripts": {
-    "#build": "pnpm unbuild"
+    "build": "pnpm unbuild",
+    "prepublishOnly": "npm run build"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "sideEffects": [
     "**/*.css"
   ],
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
   "exports": {
     ".": {
       "types": "./src/index.ts",
       "development": "./src/index.ts",
-      "default": "./src/index.ts",
-      "#default": "./dist/index.mjs"
+      "default": "./dist/index.mjs"
     }
   },
-  "dependencies": {
-    "@vueuse/core": "catalog:",
-    "vue": "catalog:"
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "default": "./dist/index.mjs"
+      }
+    }
   }
 }

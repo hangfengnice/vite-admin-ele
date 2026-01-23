@@ -1,10 +1,11 @@
 <script setup lang="ts">
+defineOptions({
+  name: 'LoginExpiredModal',
+})
+
 import type { AuthenticationProps } from './types'
-
 import { computed, watch } from 'vue'
-
-import { $t } from '@/packages/locales'
-
+import { $t } from '@/locales'
 import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 import { Slot, VbenAvatar } from '@/packages/core/ui-kit/shadcn-ui'
 
@@ -12,10 +13,6 @@ interface Props extends AuthenticationProps {
   avatar?: string
   zIndex?: number
 }
-
-defineOptions({
-  name: 'LoginExpiredModal',
-})
 
 const props = withDefaults(defineProps<Props>(), {
   avatar: '',

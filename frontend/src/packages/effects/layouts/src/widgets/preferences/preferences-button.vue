@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { Settings } from '@/packages/icons'
 
-import { VbenIconButton } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIIconButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 import Preferences from './preferences.vue'
 
@@ -13,8 +13,8 @@ function clearPreferencesAndLogout() {
 </script>
 <template>
   <Preferences @clear-preferences-and-logout="clearPreferencesAndLogout">
-    <VbenIconButton class="hover:animate-[shrink_0.3s_ease-in-out]">
+    <SUIIconButton class="hover:animate-[shrink_0.3s_ease-in-out]">
       <Settings class="text-foreground size-4" />
-    </VbenIconButton>
+    </SUIIconButton>
   </Preferences>
 </template>

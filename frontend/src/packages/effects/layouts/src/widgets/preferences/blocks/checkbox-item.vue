@@ -6,7 +6,7 @@ import { useSlots } from 'vue'
 import { CircleHelp } from '@/packages/icons'
 
 import {
-  VbenCheckButtonGroup,
+  SUICheckButtonGroup,
   VbenTooltip,
 } from '@/packages/core/ui-kit/shadcn-ui'
 
@@ -28,7 +28,7 @@ withDefaults(
     items: () => [],
     onBtnClick: () => {},
     multiple: false,
-  }
+  },
 )
 
 const inputValue = defineModel<string[]>()
@@ -54,7 +54,7 @@ const slots = useSlots()
         <slot name="tip"></slot>
       </VbenTooltip>
     </span>
-    <VbenCheckButtonGroup
+    <SUICheckButtonGroup
       v-model="inputValue"
       class="h-8 w-[165px]"
       :options="items"

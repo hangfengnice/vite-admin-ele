@@ -1,4 +1,8 @@
 <script setup lang="ts">
+defineOptions({
+  name: 'ThirdPartyLogin',
+})
+
 import { useAppConfig } from '@/packages/effects/hooks'
 import {
   SvgGithubIcon,
@@ -6,19 +10,14 @@ import {
   SvgQQChatIcon,
   SvgWeChatIcon,
 } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
-import { VbenIconButton } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIIconButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 import DingdingLogin from './dingding-login.vue'
+import { ref } from 'vue'
 
-defineOptions({
-  name: 'ThirdPartyLogin',
-})
-
-const {
-  auth: { dingding: dingdingAuthConfig },
-} = useAppConfig(import.meta.env, import.meta.env.PROD)
+const dingdingAuthConfig = ref({ corpId: '', clientId: '' })
 </script>
 
 <template>
@@ -32,34 +31,34 @@ const {
     </div>
 
     <div class="mt-4 flex flex-wrap justify-center">
-      <VbenIconButton
+      <SUIIconButton
         :tooltip="$t('authentication.wechatLogin')"
         tooltip-side="top"
         class="mb-3"
       >
         <SvgWeChatIcon />
-      </VbenIconButton>
-      <VbenIconButton
+      </SUIIconButton>
+      <SUIIconButton
         :tooltip="$t('authentication.qqLogin')"
         tooltip-side="top"
         class="mb-3"
       >
         <SvgQQChatIcon />
-      </VbenIconButton>
-      <VbenIconButton
+      </SUIIconButton>
+      <SUIIconButton
         :tooltip="$t('authentication.githubLogin')"
         tooltip-side="top"
         class="mb-3"
       >
         <SvgGithubIcon />
-      </VbenIconButton>
-      <VbenIconButton
+      </SUIIconButton>
+      <SUIIconButton
         :tooltip="$t('authentication.googleLogin')"
         tooltip-side="top"
         class="mb-3"
       >
         <SvgGoogleIcon />
-      </VbenIconButton>
+      </SUIIconButton>
       <DingdingLogin
         v-if="dingdingAuthConfig"
         :corp-id="dingdingAuthConfig.corpId"

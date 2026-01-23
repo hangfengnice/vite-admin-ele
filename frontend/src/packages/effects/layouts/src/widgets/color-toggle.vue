@@ -6,9 +6,9 @@ import {
   COLOR_PRESETS,
   preferences,
   updatePreferences,
-} from '@/packages/preferences'
+} from '@/packages/core/preferences/src'
 
-import { VbenIconButton } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIIconButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 defineOptions({
   name: 'AuthenticationColorToggle',
@@ -30,7 +30,7 @@ function handleUpdate(colorPrimary: string, type: BuiltinThemeType) {
       class="flex w-0 overflow-hidden transition-all duration-500 ease-out group-hover:w-60"
     >
       <template v-for="preset in COLOR_PRESETS" :key="preset.color">
-        <VbenIconButton
+        <SUIIconButton
           class="flex-center flex-shrink-0"
           @click="handleUpdate(preset.color, preset.type)"
         >
@@ -53,12 +53,12 @@ function handleUpdate(colorPrimary: string, type: BuiltinThemeType) {
               />
             </svg>
           </div>
-        </VbenIconButton>
+        </SUIIconButton>
       </template>
     </div>
 
-    <VbenIconButton>
+    <SUIIconButton>
       <Palette class="text-primary size-4" />
-    </VbenIconButton>
+    </SUIIconButton>
   </div>
 </template>

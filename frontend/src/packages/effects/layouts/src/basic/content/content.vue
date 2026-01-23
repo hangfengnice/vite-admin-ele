@@ -8,7 +8,7 @@ import type {
 import { computed } from 'vue'
 import { RouterView } from 'vue-router'
 
-import { preferences, usePreferences } from '@/packages/preferences'
+import { preferences, usePreferences } from '@/packages/core/preferences/src'
 import { getTabKey, storeToRefs, useTabbarStore } from '@/packages/stores'
 
 import { IFrameRouterView } from '../../iframe'
@@ -61,12 +61,12 @@ function getTransitionName(_route: RouteLocationNormalizedLoaded) {
  */
 function transformComponent(
   component: VNode,
-  route: RouteLocationNormalizedLoadedGeneric
+  route: RouteLocationNormalizedLoadedGeneric,
 ) {
   // 组件视图未找到，如果有设置后备视图，则返回后备视图，如果没有，则抛出错误
   if (!component) {
     console.error(
-      'Component view not found，please check the route configuration'
+      'Component view not found，please check the route configuration',
     )
     return undefined
   }

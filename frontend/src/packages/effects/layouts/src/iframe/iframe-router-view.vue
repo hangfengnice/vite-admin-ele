@@ -4,7 +4,7 @@ import type { RouteLocationNormalized } from 'vue-router'
 import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { preferences } from '@/packages/preferences'
+import { preferences } from '@/packages/core/preferences/src'
 import { useTabbarStore } from '@/packages/stores'
 
 import { VbenSpinner } from '@/packages/core/ui-kit/shadcn-ui'
@@ -25,7 +25,7 @@ const iframeRoutes = computed(() => {
 })
 
 const tabNames = computed(
-  () => new Set(iframeRoutes.value.map((item) => item.name as string))
+  () => new Set(iframeRoutes.value.map((item) => item.name as string)),
 )
 
 const showIframe = computed(() => iframeRoutes.value.length > 0)

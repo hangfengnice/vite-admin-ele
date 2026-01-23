@@ -1,7 +1,7 @@
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { preferences } from '@/packages/preferences'
+import { preferences } from '@/packages/core/preferences/src'
 
 function useContentSpinner() {
   const spinning = ref(false)

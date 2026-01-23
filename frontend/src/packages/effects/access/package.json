@@ -20,7 +20,7 @@
     }
   },
   "dependencies": {
-    "@/packages/preferences": "workspace:*",
+    "@/packages/core/preferences": "workspace:*",
     "@/packages/stores": "workspace:*",
     "@/packages/types": "workspace:*",
     "@/packages/utils": "workspace:*",

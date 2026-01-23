@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { SupportedLanguagesType } from '@/packages/locales'
+import type { SupportedLanguagesType } from '@/locales'
 
 import { SUPPORT_LANGUAGES } from '@/packages/constants'
 import { Languages } from '@/packages/icons'
-import { loadLocaleMessages } from '@/packages/locales'
-import { preferences, updatePreferences } from '@/packages/preferences'
+import { loadLocaleMessages } from '@/locales'
+import { preferences, updatePreferences } from '@/packages/core/preferences/src'
 
 import {
   VbenDropdownRadioMenu,
-  VbenIconButton,
+  SUIIconButton,
 } from '@/packages/core/ui-kit/shadcn-ui'
 
 defineOptions({
@@ -34,9 +34,9 @@ async function handleUpdate(value: string | undefined) {
       :model-value="preferences.app.locale"
       @update:model-value="handleUpdate"
     >
-      <VbenIconButton class="hover:animate-[shrink_0.3s_ease-in-out]">
+      <SUIIconButton class="hover:animate-[shrink_0.3s_ease-in-out]">
         <Languages class="text-foreground size-4" />
-      </VbenIconButton>
+      </SUIIconButton>
     </VbenDropdownRadioMenu>
   </div>
 </template>

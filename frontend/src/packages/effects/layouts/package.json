@@ -22,8 +22,8 @@
   "dependencies": {
     "@/packages/constants": "workspace:*",
     "@/packages/effects/hooks": "workspace:*",
-    "@/packages/locales": "workspace:*",
-    "@/packages/preferences": "workspace:*",
+    "@/locales": "workspace:*",
+    "@/packages/core/preferences": "workspace:*",
     "@/packages/stores": "workspace:*",
     "@/packages/types": "workspace:*",
     "@/packages/utils": "workspace:*",

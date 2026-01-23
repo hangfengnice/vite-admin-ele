@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watch } from 'vue'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import {
   NumberField,
@@ -33,7 +33,7 @@ watch(
       modelValue.value = max
     }
   },
-  { immediate: true }
+  { immediate: true },
 )
 </script>
 

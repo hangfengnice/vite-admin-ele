@@ -6,7 +6,7 @@ import type { VbenFormSchema } from '@/packages/core/ui-kit/form-ui/src'
 import { computed, reactive } from 'vue'
 
 import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
-import { VbenButton } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props {
   formSchema?: VbenFormSchema[]
@@ -49,8 +49,8 @@ defineExpose({
 <template>
   <div @keydown.enter.prevent="handleSubmit">
     <Form />
-    <VbenButton type="submit" class="mt-4" @click="handleSubmit">
+    <SUIButton type="submit" class="mt-4" @click="handleSubmit">
       更新基本信息
-    </VbenButton>
+    </SUIButton>
   </div>
 </template>

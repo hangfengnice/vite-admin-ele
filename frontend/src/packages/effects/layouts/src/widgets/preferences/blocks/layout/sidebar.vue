@@ -3,7 +3,7 @@ import type { LayoutType } from '@/packages/types'
 
 import { onMounted } from 'vue'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import CheckboxItem from '../checkbox-item.vue'
 import NumberFieldItem from '../number-field-item.vue'
@@ -14,10 +14,10 @@ defineProps<{ currentLayout?: LayoutType; disabled: boolean }>()
 const sidebarEnable = defineModel<boolean>('sidebarEnable')
 const sidebarWidth = defineModel<number>('sidebarWidth')
 const sidebarCollapsedShowTitle = defineModel<boolean>(
-  'sidebarCollapsedShowTitle'
+  'sidebarCollapsedShowTitle',
 )
 const sidebarAutoActivateChild = defineModel<boolean>(
-  'sidebarAutoActivateChild'
+  'sidebarAutoActivateChild',
 )
 const sidebarCollapsed = defineModel<boolean>('sidebarCollapsed')
 const sidebarExpandOnHover = defineModel<boolean>('sidebarExpandOnHover')

@@ -2,12 +2,12 @@
 import type { ThemeModeType } from '@/packages/types'
 
 import { MoonStar, Sun, SunMoon } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 import {
   preferences,
   updatePreferences,
   usePreferences,
-} from '@/packages/preferences'
+} from '@/packages/core/preferences/src'
 
 import {
   ToggleGroup,

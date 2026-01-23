@@ -1,33 +1,18 @@
-import type { Language } from 'element-plus/es/locale'
+import { i18n, localesMap, setupI18n, loadLocaleMessages } from './i18n'
 
+import { type LocaleSetupOptions, type SupportedLanguagesType } from './typing'
+import type { Language } from 'element-plus/es/locale'
 import type { App } from 'vue'
 
-import type {
-  LocaleSetupOptions,
-  SupportedLanguagesType,
-} from '@/packages/locales'
-
-import { ref } from 'vue'
-
-import {
-  $t,
-  setupI18n as coreSetup,
-  loadLocalesMapFromDir,
-} from '@/packages/locales'
-import { preferences } from '@/packages/preferences'
-
+import { preferences } from '@/packages/core/preferences/src'
 import dayjs from 'dayjs'
 import enLocale from 'element-plus/es/locale/lang/en'
 import defaultLocale from 'element-plus/es/locale/lang/zh-cn'
-
+import { ref } from 'vue'
 const elementLocale = ref<Language>(defaultLocale)
 
-const modules = import.meta.glob('./langs/**/*.json')
+const $t = i18n.global.t
 
-const localesMap = loadLocalesMapFromDir(
-  /\.\/langs\/([^/]+)\/(.*)\.json$/,
-  modules
-)
 /**
  * 加载应用特有的语言包
  * 这里也可以改造为从服务端获取翻译数据
@@ -93,8 +78,8 @@ async function loadElementLocale(lang: SupportedLanguagesType) {
   }
 }
 
-async function setupI18n(app: App, options: LocaleSetupOptions = {}) {
-  await coreSetup(app, {
+async function setupI18nEle(app: App, options: LocaleSetupOptions = {}) {
+  await setupI18n(app, {
     defaultLocale: preferences.app.locale,
     loadMessages,
     missingWarn: !import.meta.env.PROD,
@@ -102,4 +87,5 @@ async function setupI18n(app: App, options: LocaleSetupOptions = {}) {
   })
 }
 
-export { $t, elementLocale, setupI18n }
+export { $t, elementLocale, i18n, setupI18nEle, loadLocaleMessages }
+export { useI18n } from 'vue-i18n'

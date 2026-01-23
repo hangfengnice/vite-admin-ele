@@ -5,10 +5,10 @@ import { nextTick, onMounted, ref, shallowRef, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
 import { SearchX, X } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 import { mapTree, traverseTreeValues, uniqueByField } from '@/packages/utils'
 
-import { VbenIcon, VbenScrollbar } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIIcon, VbenScrollbar } from '@/packages/core/ui-kit/shadcn-ui'
 import { isHttpUrl } from '@/packages/core/base/shared/src/utils'
 
 import { onKeyStroke, useLocalStorage, useThrottleFn } from '@vueuse/core'
@@ -22,14 +22,14 @@ const props = withDefaults(
   {
     keyword: '',
     menus: () => [],
-  }
+  },
 )
 const emit = defineEmits<{ close: [] }>()
 
 const router = useRouter()
 const searchHistory = useLocalStorage<MenuRecordRaw[]>(
   `__search-history-${location.hostname}__`,
-  []
+  [],
 )
 const activeIndex = ref(-1)
 const searchItems = shallowRef<MenuRecordRaw[]>([])
@@ -78,7 +78,7 @@ function search(searchKey: string) {
 // the scroll bar needs to scroll automatically
 function scrollIntoView() {
   const element = document.querySelector(
-    `[data-search-item="${activeIndex.value}"]`
+    `[data-search-item="${activeIndex.value}"]`,
   )
 
   if (element) {
@@ -198,7 +198,7 @@ watch(
     } else {
       searchResults.value = [...searchHistory.value]
     }
-  }
+  },
 )
 
 onMounted(() => {
@@ -268,7 +268,7 @@ onMounted(() => {
           @click="handleEnter"
           @mouseenter="handleMouseenter"
         >
-          <VbenIcon
+          <SUIIcon
             :icon="item.icon"
             class="mr-2 size-5 flex-shrink-0"
             fallback

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { SupportedLanguagesType } from '@/packages/locales'
+import type { SupportedLanguagesType } from '@/locales'
 import type {
   BreadcrumbStyleType,
   BuiltinThemeType,
@@ -17,18 +17,18 @@ import type { SegmentedItem } from '@/packages/core/ui-kit/shadcn-ui'
 import { computed, ref } from 'vue'
 
 import { Copy, Pin, PinOff, RotateCw } from '@/packages/icons'
-import { $t, loadLocaleMessages } from '@/packages/locales'
+import { $t, loadLocaleMessages } from '@/locales'
 import {
   clearCache,
   preferences,
   resetPreferences,
   usePreferences,
-} from '@/packages/preferences'
+} from '@/packages/core/preferences/src'
 
 import { useVbenDrawer } from '@/packages/core/ui-kit/popup-ui/src'
 import {
-  VbenButton,
-  VbenIconButton,
+  SUIButton,
+  SUIIconButton,
   VbenSegmented,
 } from '@/packages/core/ui-kit/shadcn-ui'
 import { globalShareState } from '@/packages/core/base/shared/src/global-state'
@@ -248,7 +248,7 @@ async function handleReset() {
     >
       <template #extra>
         <div class="flex items-center">
-          <VbenIconButton
+          <SUIIconButton
             :disabled="!diffPreference"
             :tooltip="$t('preferences.resetTip')"
             class="relative"
@@ -259,8 +259,8 @@ async function handleReset() {
               class="bg-primary absolute right-0.5 top-0.5 h-2 w-2 rounded"
             ></span>
             <RotateCw class="size-4" />
-          </VbenIconButton>
-          <VbenIconButton
+          </SUIIconButton>
+          <SUIIconButton
             :tooltip="
               appEnableStickyPreferencesNavigationBar
                 ? $t('preferences.disableStickyPreferencesNavigationBar')
@@ -278,7 +278,7 @@ async function handleReset() {
               class="size-4"
             />
             <Pin v-else class="size-4" />
-          </VbenIconButton>
+          </SUIIconButton>
         </div>
       </template>
 
@@ -458,7 +458,7 @@ async function handleReset() {
       </div>
 
       <template #footer>
-        <VbenButton
+        <SUIButton
           :disabled="!diffPreference"
           class="mx-4 w-full"
           size="sm"
@@ -467,8 +467,8 @@ async function handleReset() {
         >
           <Copy class="mr-2 size-3" />
           {{ $t('preferences.copyPreferences') }}
-        </VbenButton>
-        <VbenButton
+        </SUIButton>
+        <SUIButton
           :disabled="!diffPreference"
           class="mr-4 w-full"
           size="sm"
@@ -476,7 +476,7 @@ async function handleReset() {
           @click="handleClearCache"
         >
           {{ $t('preferences.clearAndLogout') }}
-        </VbenButton>
+        </SUIButton>
       </template>
     </Drawer>
   </div>

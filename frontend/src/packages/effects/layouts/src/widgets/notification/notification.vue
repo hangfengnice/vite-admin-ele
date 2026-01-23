@@ -4,11 +4,11 @@ import type { NotificationItem } from './types'
 import { useRouter } from 'vue-router'
 
 import { Bell, CircleCheckBig, CircleX, MailCheck } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import {
-  VbenButton,
-  VbenIconButton,
+  SUIButton,
+  SUIIconButton,
   VbenPopover,
   VbenScrollbar,
 } from '@/packages/core/ui-kit/shadcn-ui'
@@ -93,26 +93,26 @@ function navigateTo(
   >
     <template #trigger>
       <div class="flex-center mr-2 h-full" @click.stop="toggle()">
-        <VbenIconButton class="bell-button text-foreground relative">
+        <SUIIconButton class="bell-button text-foreground relative">
           <span
             v-if="dot"
             class="bg-primary absolute right-0.5 top-0.5 h-2 w-2 rounded"
           ></span>
           <Bell class="size-4" />
-        </VbenIconButton>
+        </SUIIconButton>
       </div>
     </template>
 
     <div class="relative">
       <div class="flex items-center justify-between p-4 py-3">
         <div class="text-foreground">{{ $t('ui.widgets.notifications') }}</div>
-        <VbenIconButton
+        <SUIIconButton
           :disabled="notifications.length <= 0"
           :tooltip="$t('ui.widgets.markAllAsRead')"
           @click="handleMakeAll"
         >
           <MailCheck class="size-4" />
-        </VbenIconButton>
+        </SUIIconButton>
       </div>
       <VbenScrollbar v-if="notifications.length > 0">
         <ul class="!flex max-h-[360px] w-full flex-col">
@@ -146,7 +146,7 @@ function navigateTo(
               <div
                 class="absolute right-3 top-1/2 flex -translate-y-1/2 flex-col gap-2"
               >
-                <VbenIconButton
+                <SUIIconButton
                   v-if="!item.isRead"
                   size="xs"
                   variant="ghost"
@@ -155,8 +155,8 @@ function navigateTo(
                   @click.stop="emit('read', item)"
                 >
                   <CircleCheckBig class="size-4" />
-                </VbenIconButton>
-                <VbenIconButton
+                </SUIIconButton>
+                <SUIIconButton
                   v-if="item.isRead"
                   size="xs"
                   variant="ghost"
@@ -165,7 +165,7 @@ function navigateTo(
                   @click.stop="emit('remove', item)"
                 >
                   <CircleX class="size-4" />
-                </VbenIconButton>
+                </SUIIconButton>
               </div>
             </li>
           </template>
@@ -181,17 +181,17 @@ function navigateTo(
       <div
         class="border-border flex items-center justify-between border-t px-4 py-3"
       >
-        <VbenButton
+        <SUIButton
           :disabled="notifications.length <= 0"
           size="sm"
           variant="ghost"
           @click="handleClear"
         >
           {{ $t('ui.widgets.clearNotifications') }}
-        </VbenButton>
-        <VbenButton size="sm" @click="handleViewAll">
+        </SUIButton>
+        <SUIButton size="sm" @click="handleViewAll">
           {{ $t('ui.widgets.viewAll') }}
-        </VbenButton>
+        </SUIButton>
       </div>
     </div>
   </VbenPopover>

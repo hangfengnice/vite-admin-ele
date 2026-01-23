@@ -4,7 +4,7 @@ import type {
 } from '@/packages/types'
 
 import { generateAccessible } from '@/packages/effects/access'
-import { preferences } from '@/packages/preferences'
+import { preferences } from '@/packages/core/preferences/src'
 
 import { ElMessage } from 'element-plus'
 

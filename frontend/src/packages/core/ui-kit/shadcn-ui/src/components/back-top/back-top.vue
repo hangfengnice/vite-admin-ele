@@ -5,7 +5,7 @@ import { computed } from 'vue'
 
 import { ArrowUpToLine } from '@/packages/core/base/icons/src'
 
-import { VbenButton } from '../button'
+import { SUIButton } from '../button'
 import { useBackTop } from './use-backtop'
 
 interface Props extends BacktopProps {}
@@ -29,7 +29,7 @@ const { handleClick, visible } = useBackTop(props)
 </script>
 <template>
   <transition name="fade-down">
-    <VbenButton
+    <SUIButton
       v-if="visible"
       :style="backTopStyle"
       class="data z-popup fixed bottom-10 size-10 rounded-full bg-background shadow-float duration-500 hover:bg-heavy dark:bg-accent dark:hover:bg-heavy"
@@ -38,6 +38,6 @@ const { handleClick, visible } = useBackTop(props)
       @click="handleClick"
     >
       <ArrowUpToLine class="size-4" />
-    </VbenButton>
+    </SUIButton>
   </transition>
 </template>

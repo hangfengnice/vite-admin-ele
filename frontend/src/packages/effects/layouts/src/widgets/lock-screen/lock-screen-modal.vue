@@ -3,11 +3,11 @@ import type { Recordable } from '@/packages/types'
 
 import { computed, reactive } from 'vue'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import { useVbenForm, z } from '@/packages/core/ui-kit/form-ui/src'
 import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
-import { VbenAvatar, VbenButton } from '@/packages/core/ui-kit/shadcn-ui'
+import { VbenAvatar, SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props {
   avatar?: string
@@ -101,9 +101,9 @@ async function handleSubmit() {
           </div>
         </div>
         <Form />
-        <VbenButton class="mt-1 w-full" @click="handleSubmit">
+        <SUIButton class="mt-1 w-full" @click="handleSubmit">
           {{ $t('ui.widgets.lockScreen.screenButton') }}
-        </VbenButton>
+        </SUIButton>
       </div>
     </div>
   </Modal>

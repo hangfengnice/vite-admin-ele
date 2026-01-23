@@ -8,7 +8,7 @@ import type {
 
 import { computed, reactive, unref, useTemplateRef, watch } from 'vue'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import { useTimeoutFn } from '@vueuse/core'
 
@@ -52,7 +52,7 @@ watch(
       emit('success', { isPassing, time: time.toFixed(1) })
     }
     modalValue.value = isPassing
-  }
+  },
 )
 
 const getImgWrapStyleRef = computed(() => {
@@ -89,7 +89,7 @@ function handleDragBarMove(data: SliderRotateVerifyPassingData) {
     return
   }
   const currentRotate = Math.ceil(
-    (moveX / denominator) * 1.5 * maxDegree! * unref(getFactorRef)
+    (moveX / denominator) * 1.5 * maxDegree! * unref(getFactorRef),
   )
   state.currentRotate = currentRotate
   setImgRotate(state.randomRotate - currentRotate)
@@ -98,7 +98,7 @@ function handleDragBarMove(data: SliderRotateVerifyPassingData) {
 function handleImgOnLoad() {
   const { maxDegree, minDegree } = props
   const ranRotate = Math.floor(
-    minDegree! + Math.random() * (maxDegree! - minDegree!)
+    minDegree! + Math.random() * (maxDegree! - minDegree!),
   ) // 生成随机角度
   state.randomRotate = ranRotate
   setImgRotate(ranRotate)

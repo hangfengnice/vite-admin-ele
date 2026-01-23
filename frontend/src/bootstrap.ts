@@ -2,7 +2,7 @@ import { createApp, watchEffect } from 'vue'
 
 import { registerAccessDirective } from './packages/effects/access'
 import { registerLoadingDirective } from '@/packages/effects/common-ui/src'
-import { preferences } from './packages/preferences'
+import { preferences } from './packages/core/preferences/src'
 import { initStores } from './packages/stores'
 import './packages/styles/src/ele/index.css'
 import '@/style/tailwind.css'
@@ -13,7 +13,7 @@ import './packages/styles/src/index'
 import { useTitle } from '@vueuse/core'
 import { ElLoading } from 'element-plus'
 
-import { $t, setupI18n } from './locales'
+import { $t, setupI18nEle } from './locales'
 
 import { initComponentAdapter } from './adapter/component'
 import { initSetupVbenForm } from './adapter/form'
@@ -47,7 +47,7 @@ async function bootstrap(namespace: string) {
   })
 
   // 国际化 i18n 配置
-  await setupI18n(app)
+  await setupI18nEle(app)
 
   // 配置 pinia-tore
   await initStores(app, { namespace })

@@ -3,7 +3,7 @@ import type { ZodTypeAny } from 'zod'
 
 import type { Component, HtmlHTMLAttributes, Ref } from 'vue'
 
-import type { VbenButtonProps } from '@/packages/core/ui-kit/shadcn-ui'
+import type { SUIButtonProps } from '@/packages/core/ui-kit/shadcn-ui'
 import type { ClassType, MaybeComputedRef } from '@/packages/core/base/typings'
 
 import type { FormApi } from './form-api'
@@ -76,17 +76,17 @@ export type FormSchemaRuleType =
 
 type FormItemDependenciesCondition<T = boolean | PromiseLike<boolean>> = (
   value: Partial<Record<string, any>>,
-  actions: FormActions
+  actions: FormActions,
 ) => T
 
 type FormItemDependenciesConditionWithRules = (
   value: Partial<Record<string, any>>,
-  actions: FormActions
+  actions: FormActions,
 ) => FormSchemaRuleType | PromiseLike<FormSchemaRuleType>
 
 type FormItemDependenciesConditionWithProps = (
   value: Partial<Record<string, any>>,
-  actions: FormActions
+  actions: FormActions,
 ) => MaybeComponentProps | PromiseLike<MaybeComponentProps>
 
 export interface FormItemDependencies {
@@ -132,7 +132,7 @@ export interface FormItemDependencies {
 type ComponentProps =
   | ((
       value: Partial<Record<string, any>>,
-      actions: FormActions
+      actions: FormActions,
     ) => MaybeComponentProps)
   | MaybeComponentProps
 
@@ -210,21 +210,26 @@ export interface FormCommonConfig {
 
 type RenderComponentContentType = (
   value: Partial<Record<string, any>>,
-  api: FormActions
+  api: FormActions,
 ) => Record<string, any>
 
 export type HandleSubmitFn = (
-  values: Record<string, any>
+  values: Record<string, any>,
 ) => Promise<void> | void
 
 export type HandleResetFn = (
-  values: Record<string, any>
+  values: Record<string, any>,
 ) => Promise<void> | void
 
 export type FieldMappingTime = [
   string,
   [string, string],
-  (((value: any, fieldName: string) => any) | [string, string] | null | string)?
+  (
+    | ((value: any, fieldName: string) => any)
+    | [string, string]
+    | null
+    | string
+  )?,
 ][]
 
 export type ArrayToStringFields = Array<
@@ -234,7 +239,7 @@ export type ArrayToStringFields = Array<
 >
 
 export interface FormSchema<
-  T extends BaseFormComponentType = BaseFormComponentType
+  T extends BaseFormComponentType = BaseFormComponentType,
 > extends FormCommonConfig {
   /** 组件 */
   component: Component | T
@@ -267,7 +272,7 @@ export interface FormFieldProps extends FormSchema {
 }
 
 export interface FormRenderProps<
-  T extends BaseFormComponentType = BaseFormComponentType
+  T extends BaseFormComponentType = BaseFormComponentType,
 > {
   /**
    * 表单字段数组映射字符串配置 默认使用","
@@ -336,18 +341,18 @@ export interface FormRenderProps<
   wrapperClass?: WrapperClassType
 }
 
-export interface ActionButtonOptions extends VbenButtonProps {
+export interface ActionButtonOptions extends SUIButtonProps {
   [key: string]: any
   content?: MaybeComputedRef<string>
   show?: boolean
 }
 
 export interface VbenFormProps<
-  T extends BaseFormComponentType = BaseFormComponentType
+  T extends BaseFormComponentType = BaseFormComponentType,
 > extends Omit<
-    FormRenderProps<T>,
-    'componentBindEventMap' | 'componentMap' | 'form'
-  > {
+  FormRenderProps<T>,
+  'componentBindEventMap' | 'componentMap' | 'form'
+> {
   /**
    * 操作按钮是否反转（提交按钮前置）
    */
@@ -391,7 +396,7 @@ export interface VbenFormProps<
    */
   handleValuesChange?: (
     values: Record<string, any>,
-    fieldsChanged: string[]
+    fieldsChanged: string[],
   ) => void
   /**
    * 重置按钮参数
@@ -430,12 +435,12 @@ export interface VbenFormProps<
 
 export type ExtendedFormApi = FormApi & {
   useStore: <T = NoInfer<VbenFormProps>>(
-    selector?: (state: NoInfer<VbenFormProps>) => T
+    selector?: (state: NoInfer<VbenFormProps>) => T,
   ) => Readonly<Ref<T>>
 }
 
 export interface VbenFormAdapterOptions<
-  T extends BaseFormComponentType = BaseFormComponentType
+  T extends BaseFormComponentType = BaseFormComponentType,
 > {
   config?: {
     baseModelPropName?: string
@@ -448,12 +453,12 @@ export interface VbenFormAdapterOptions<
     required?: (
       value: any,
       params: any,
-      ctx: Record<string, any>
+      ctx: Record<string, any>,
     ) => boolean | string
     selectRequired?: (
       value: any,
       params: any,
-      ctx: Record<string, any>
+      ctx: Record<string, any>,
     ) => boolean | string
   }
 }

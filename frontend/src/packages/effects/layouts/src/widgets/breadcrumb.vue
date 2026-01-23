@@ -6,7 +6,7 @@ import type { IBreadcrumb } from '@/packages/core/ui-kit/shadcn-ui'
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import { VbenBreadcrumbView } from '@/packages/core/ui-kit/shadcn-ui'
 

@@ -27,8 +27,8 @@ import {
 
 import { usePriorityValues } from '@/packages/effects/hooks'
 import { EmptyIcon } from '@/packages/icons'
-import { $t } from '@/packages/locales'
-import { usePreferences } from '@/packages/preferences'
+import { $t } from '@/locales'
+import { usePreferences } from '@/packages/core/preferences/src'
 import {
   cloneDeep,
   cn,

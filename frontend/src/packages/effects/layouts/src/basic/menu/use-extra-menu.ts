@@ -5,7 +5,7 @@ import type { MenuRecordRaw } from '@/packages/types'
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { preferences } from '@/packages/preferences'
+import { preferences } from '@/packages/core/preferences/src'
 import { useAccessStore } from '@/packages/stores'
 import { findRootMenuByPath } from '@/packages/utils'
 
@@ -25,7 +25,7 @@ function useExtraMenu(useRootMenus?: ComputedRef<MenuRecordRaw[]>) {
   const sidebarExtraVisible = ref<boolean>(false)
   const extraActiveMenu = ref('')
   const parentLevel = computed(() =>
-    preferences.app.layout === 'header-mixed-nav' ? 1 : 0
+    preferences.app.layout === 'header-mixed-nav' ? 1 : 0,
   )
 
   /**
@@ -48,7 +48,7 @@ function useExtraMenu(useRootMenus?: ComputedRef<MenuRecordRaw[]>) {
       await navigation(
         defaultSubMap.has(menu.path)
           ? (defaultSubMap.get(menu.path) as string)
-          : menu.path
+          : menu.path,
       )
     }
   }
@@ -60,7 +60,7 @@ function useExtraMenu(useRootMenus?: ComputedRef<MenuRecordRaw[]>) {
    */
   const handleDefaultSelect = async (
     menu: MenuRecordRaw,
-    rootMenu?: MenuRecordRaw
+    rootMenu?: MenuRecordRaw,
   ) => {
     extraMenus.value = rootMenu?.children ?? extraRootMenus.value ?? []
     extraActiveMenu.value = menu.parents?.[parentLevel.value] ?? menu.path
@@ -80,7 +80,7 @@ function useExtraMenu(useRootMenus?: ComputedRef<MenuRecordRaw[]>) {
 
     const { findMenu, rootMenu, rootMenuPath } = findRootMenuByPath(
       menus.value,
-      route.path
+      route.path,
     )
     extraActiveMenu.value = rootMenuPath ?? findMenu?.path ?? ''
     extraMenus.value = rootMenu?.children ?? []
@@ -100,7 +100,7 @@ function useExtraMenu(useRootMenus?: ComputedRef<MenuRecordRaw[]>) {
     const { findMenu, rootMenu, rootMenuPath } = findRootMenuByPath(
       menus.value,
       currentPath,
-      parentLevel.value
+      parentLevel.value,
     )
     extraRootMenus.value = rootMenu?.children ?? []
     if (rootMenuPath) defaultSubMap.set(rootMenuPath, currentPath)
@@ -116,7 +116,7 @@ function useExtraMenu(useRootMenus?: ComputedRef<MenuRecordRaw[]>) {
     ([path]) => {
       calcExtraMenus(path || '')
     },
-    { immediate: true }
+    { immediate: true },
   )
 
   return {

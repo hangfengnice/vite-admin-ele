@@ -144,4 +144,5 @@ export {
   loadLocalesMap,
   loadLocalesMapFromDir,
   setupI18n,
+  localesMap,
 }

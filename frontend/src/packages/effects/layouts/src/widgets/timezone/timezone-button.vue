@@ -2,14 +2,14 @@
 import { ref, unref } from 'vue'
 
 import { createIconifyIcon } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 import { useTimezoneStore } from '@/packages/stores'
 
 import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 import {
   RadioGroup,
   RadioGroupItem,
-  VbenIconButton,
+  SUIIconButton,
 } from '@/packages/core/ui-kit/shadcn-ui'
 
 const TimezoneIcon = createIconifyIcon('fluent-mdl2:world-clock')
@@ -54,13 +54,13 @@ const handleClick = () => {
 
 <template>
   <div>
-    <VbenIconButton
+    <SUIIconButton
       :tooltip="$t('ui.widgets.timezone.setTimezone')"
       class="hover:animate-[shrink_0.3s_ease-in-out]"
       @click="handleClick"
     >
       <TimezoneIcon class="text-foreground size-4" />
-    </VbenIconButton>
+    </SUIIconButton>
     <Modal :title="$t('ui.widgets.timezone.setTimezone')">
       <div class="timezone-container">
         <RadioGroup v-model="timezoneRef" class="flex flex-col gap-2">

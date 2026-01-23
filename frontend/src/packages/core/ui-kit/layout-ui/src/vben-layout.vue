@@ -11,7 +11,7 @@ import {
   useLayoutHeaderStyle,
 } from '@/packages/core/composables/src'
 import { IconifyIcon } from '@/packages/core/base/icons/src'
-import { VbenIconButton } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIIconButton } from '@/packages/core/ui-kit/shadcn-ui'
 import { ELEMENT_ID_MAIN_CONTENT } from '@/packages/core/base/shared/src/constants'
 
 import { useMouse, useScroll, useThrottleFn } from '@vueuse/core'
@@ -553,14 +553,14 @@ const idMainContent = ELEMENT_ID_MAIN_CONTENT
           </template>
 
           <template #toggle-button>
-            <VbenIconButton
+            <SUIIconButton
               v-if="showHeaderToggleButton"
               class="my-0 mr-1 rounded-md"
               @click="handleHeaderToggle"
             >
               <IconifyIcon v-if="showSidebar" icon="ep:fold" />
               <IconifyIcon v-else icon="ep:expand" />
-            </VbenIconButton>
+            </SUIIconButton>
           </template>
           <slot name="header"></slot>
         </LayoutHeader>

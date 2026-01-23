@@ -5,7 +5,7 @@ import type { App, SetupContext } from 'vue'
 import { h, watchEffect } from 'vue'
 import { setDefaultProps, Tippy as TippyComponent } from 'vue-tippy'
 
-import { usePreferences } from '@/packages/core/preferences'
+import { usePreferences } from '@/packages/core/preferences/src'
 
 import useTippyDirective from './directive'
 
@@ -62,6 +62,6 @@ export const Tippy = (props: any, { attrs, slots }: SetupContext) => {
       ...attrs,
       theme,
     },
-    slots
+    slots,
   )
 }

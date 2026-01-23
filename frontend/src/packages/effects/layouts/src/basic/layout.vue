@@ -8,12 +8,12 @@ import { computed, onMounted, useSlots, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { useRefresh } from '@/packages/effects/hooks'
-import { $t, i18n } from '@/packages/locales'
+import { $t, i18n } from '@/locales'
 import {
   preferences,
   updatePreferences,
   usePreferences,
-} from '@/packages/preferences'
+} from '@/packages/core/preferences/src'
 import {
   useAccessStore,
   useTabbarStore,

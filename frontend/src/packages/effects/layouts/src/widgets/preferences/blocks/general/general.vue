@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SUPPORT_LANGUAGES } from '@/packages/constants'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import InputItem from '../input-item.vue'
 import SelectItem from '../select-item.vue'

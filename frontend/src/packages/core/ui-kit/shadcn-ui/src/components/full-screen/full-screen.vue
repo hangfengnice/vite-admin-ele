@@ -3,7 +3,7 @@ import { Maximize, Minimize } from '@/packages/core/base/icons/src'
 
 import { useFullscreen } from '@vueuse/core'
 
-import { VbenIconButton } from '../button'
+import { SUIIconButton } from '../button'
 
 defineOptions({ name: 'FullScreen' })
 
@@ -21,11 +21,11 @@ isFullscreen.value = !!(
 )
 </script>
 <template>
-  <VbenIconButton
+  <SUIIconButton
     class="hover:animate-[shrink_0.3s_ease-in-out]"
     @click="toggle"
   >
     <Minimize v-if="isFullscreen" class="size-4 text-foreground" />
     <Maximize v-else class="size-4 text-foreground" />
-  </VbenIconButton>
+  </SUIIconButton>
 </template>

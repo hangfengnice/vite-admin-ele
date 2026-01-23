@@ -4,7 +4,7 @@ import type { NotificationItem } from '@/packages/effects/layouts'
 import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { AuthenticationLoginExpiredModal } from '@/packages/effects/common-ui/src'
+import { AuthenticationLoginExpiredModal } from '@/views/_core/authentication/login-expired-modal.vue'
 import { VBEN_DOC_URL, VBEN_GITHUB_URL } from '@/packages/constants'
 import { useWatermark } from '@/packages/effects/hooks'
 import { BookOpenText, CircleHelp, SvgGithubIcon } from '@/packages/icons'
@@ -14,7 +14,7 @@ import {
   Notification,
   UserDropdown,
 } from '@/packages/effects/layouts'
-import { preferences } from '@/packages/preferences'
+import { preferences } from '@/packages/core/preferences/src'
 import { useAccessStore, useUserStore } from '@/packages/stores'
 import { openWindow } from '@/packages/utils'
 
@@ -163,7 +163,7 @@ watch(
   },
   {
     immediate: true,
-  }
+  },
 )
 </script>
 

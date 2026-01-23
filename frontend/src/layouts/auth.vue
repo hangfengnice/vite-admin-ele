@@ -4,7 +4,7 @@ import type { ToolbarType } from './types'
 import { $t } from '@/locales'
 
 import { IconifyIcon } from '@/packages/core/base/icons/src'
-import { preferences, usePreferences } from '@/packages/preferences'
+import { preferences, usePreferences } from '@/packages/core/preferences/src'
 import { Copyright } from '@/packages/effects/layouts/src/basic/copyright'
 import AuthenticationFormView from './form.vue'
 import SloganIcon from './icons/slogan.vue'

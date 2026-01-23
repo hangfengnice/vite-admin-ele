@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { cn } from '@/packages/core/base/shared/src/utils'
 
-defineOptions({ name: 'VbenButtonGroup' })
+defineOptions({ name: 'SUIButtonGroup' })
 
 withDefaults(
   defineProps<{
@@ -9,7 +9,7 @@ withDefaults(
     gap?: number
     size?: 'large' | 'middle' | 'small'
   }>(),
-  { border: false, gap: 0, size: 'middle' }
+  { border: false, gap: 0, size: 'middle' },
 )
 </script>
 <template>

@@ -3,7 +3,7 @@ import type { SelectOption } from '@/packages/types'
 
 import { computed } from 'vue'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import SelectItem from '../select-item.vue'
 import SwitchItem from '../switch-item.vue'
@@ -20,7 +20,7 @@ const widgetThemeToggle = defineModel<boolean>('widgetThemeToggle')
 const widgetSidebarToggle = defineModel<boolean>('widgetSidebarToggle')
 const widgetLockScreen = defineModel<boolean>('widgetLockScreen')
 const appPreferencesButtonPosition = defineModel<string>(
-  'appPreferencesButtonPosition'
+  'appPreferencesButtonPosition',
 )
 const widgetRefresh = defineModel<boolean>('widgetRefresh')
 

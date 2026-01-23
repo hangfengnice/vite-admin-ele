@@ -3,7 +3,7 @@ import type { PointSelectionCaptchaCardProps } from '../types'
 
 import { computed } from 'vue'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import {
   Card,

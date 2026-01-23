@@ -21,7 +21,7 @@ import {
   RotateCw,
   X,
 } from '@/packages/icons'
-import { $t, useI18n } from '@/packages/locales'
+import { $t, useI18n } from '@/locales'
 import { getTabKey, useAccessStore, useTabbarStore } from '@/packages/stores'
 import { filterTree } from '@/packages/utils'
 

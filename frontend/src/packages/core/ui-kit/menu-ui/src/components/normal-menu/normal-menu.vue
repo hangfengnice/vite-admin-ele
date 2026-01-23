@@ -4,7 +4,7 @@ import type { MenuRecordRaw } from '@/packages/core/base/typings'
 import type { NormalMenuProps } from './normal-menu'
 
 import { useNamespace } from '@/packages/core/composables/src'
-import { VbenIcon } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUIIcon } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props extends NormalMenuProps {}
 
@@ -50,7 +50,7 @@ function menuIcon(menu: MenuRecordRaw) {
         @click="() => emit('select', menu)"
         @mouseenter="() => emit('enter', menu)"
       >
-        <VbenIcon :class="e('icon')" :icon="menuIcon(menu)" fallback />
+        <SUIIcon :class="e('icon')" :icon="menuIcon(menu)" fallback />
 
         <span :class="e('name')" class="truncate">{{ menu.name }}</span>
       </li>

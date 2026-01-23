@@ -16,7 +16,7 @@ import {
   watch,
 } from 'vue'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import SliderCaptcha from '../slider-captcha/index.vue'
 
@@ -117,7 +117,7 @@ watch(
       emit('success', { isPassing, time: time.toFixed(1) })
     }
     modalValue.value = isPassing
-  }
+  },
 )
 
 function resetCanvas() {
@@ -166,7 +166,7 @@ function initCanvas() {
       sx,
       sy,
       pieceLength,
-      pieceLength
+      pieceLength,
     )
     pieceCanvas.width = pieceLength
     pieceCanvasCtx.putImageData(imageData, 0, sy)
@@ -183,11 +183,11 @@ function draw(ctx1: CanvasRenderingContext2D, ctx2: CanvasRenderingContext2D) {
   const { canvasWidth, canvasHeight, squareLength, circleRadius } = props
   state.pieceX = getRandomNumberByRange(
     squareLength + 2 * circleRadius,
-    canvasWidth - (squareLength + 2 * circleRadius)
+    canvasWidth - (squareLength + 2 * circleRadius),
   )
   state.pieceY = getRandomNumberByRange(
     3 * circleRadius,
-    canvasHeight - (squareLength + 2 * circleRadius)
+    canvasHeight - (squareLength + 2 * circleRadius),
   )
   drawPiece(ctx1, state.pieceX, state.pieceY, CanvasOpr.Fill)
   drawPiece(ctx2, state.pieceX, state.pieceY, CanvasOpr.Clip)
@@ -198,7 +198,7 @@ function drawPiece(
   ctx: CanvasRenderingContext2D,
   x: number,
   y: number,
-  opr: CanvasOpr
+  opr: CanvasOpr,
 ) {
   const { squareLength, circleRadius } = props
   ctx.beginPath()
@@ -208,7 +208,7 @@ function drawPiece(
     y - circleRadius + 2,
     circleRadius,
     0.72 * PI,
-    2.26 * PI
+    2.26 * PI,
   )
   ctx.lineTo(x + squareLength, y)
   ctx.arc(
@@ -216,7 +216,7 @@ function drawPiece(
     y + squareLength / 2,
     circleRadius,
     1.21 * PI,
-    2.78 * PI
+    2.78 * PI,
   )
   ctx.lineTo(x + squareLength, y + squareLength)
   ctx.lineTo(x, y + squareLength)
@@ -226,7 +226,7 @@ function drawPiece(
     circleRadius + 0.4,
     2.76 * PI,
     1.24 * PI,
-    true
+    true,
   )
   ctx.lineTo(x, y)
   ctx.lineWidth = 2

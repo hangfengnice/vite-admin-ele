@@ -1,6 +1,6 @@
 import { reactive, watch } from 'vue'
 
-import { preferences, usePreferences } from '@/packages/preferences'
+import { preferences, usePreferences } from '@/packages/core/preferences/src'
 import { convertToRgb, updateCSSVariables } from '@/packages/utils'
 
 /**
@@ -66,7 +66,7 @@ export function useAntdDesignTokens() {
       tokens.colorBgLayout = getCssVariableValue('--background-deep')
       tokens.colorBgMask = getCssVariableValue('--overlay')
     },
-    { immediate: true }
+    { immediate: true },
   )
 
   return {
@@ -153,7 +153,7 @@ export function useNaiveDesignTokens() {
 
       commonTokens.borderRadius = getCssVariableValue('--radius', false)
     },
-    { immediate: true }
+    { immediate: true },
   )
   return {
     commonTokens,
@@ -316,6 +316,6 @@ export function useElementPlusDesignTokens() {
 
       updateCSSVariables(variables, `__vben_design_styles__`)
     },
-    { immediate: true }
+    { immediate: true },
   )
 }

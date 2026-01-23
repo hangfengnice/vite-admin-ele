@@ -26,8 +26,8 @@
   "dependencies": {
     "@/packages/effects/hooks": "workspace:*",
     "@/packages/icons": "workspace:*",
-    "@/packages/locales": "workspace:*",
-    "@/packages/preferences": "workspace:*",
+    "@/locales": "workspace:*",
+    "@/packages/core/preferences": "workspace:*",
     "@/packages/types": "workspace:*",
     "@/packages/utils": "workspace:*",
     "@vueuse/core": "catalog:",

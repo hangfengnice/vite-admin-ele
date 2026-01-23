@@ -1,11 +1,11 @@
 <script setup lang="ts">
 defineOptions({
   name: 'AuthenticationFormView',
-});
+})
 
 defineProps<{
-  dataSide?: 'bottom' | 'left' | 'right' | 'top';
-}>();
+  dataSide?: 'bottom' | 'left' | 'right' | 'top'
+}>()
 </script>
 
 <template>
@@ -28,11 +28,10 @@ defineProps<{
     </RouterView>
 
     <!-- Footer Copyright -->
-
     <div
       class="text-muted-foreground absolute bottom-3 flex text-center text-xs"
     >
-      <slot name="copyright"> </slot>
+      <slot name="copyright"></slot>
     </div>
   </div>
 </template>

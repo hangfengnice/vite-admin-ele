@@ -6,16 +6,16 @@ import type { VbenDropdownMenuItem } from '@/packages/core/ui-kit/shadcn-ui'
 import { computed } from 'vue'
 
 import { InspectionPanel, PanelLeft, PanelRight } from '@/packages/icons'
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 import {
   preferences,
   updatePreferences,
   usePreferences,
-} from '@/packages/preferences'
+} from '@/packages/core/preferences/src'
 
 import {
   VbenDropdownRadioMenu,
-  VbenIconButton,
+  SUIIconButton,
 } from '@/packages/core/ui-kit/shadcn-ui'
 
 defineOptions({
@@ -58,10 +58,10 @@ function handleUpdate(value: string | undefined) {
     :model-value="preferences.app.authPageLayout"
     @update:model-value="handleUpdate"
   >
-    <VbenIconButton>
+    <SUIIconButton>
       <PanelRight v-if="authPanelRight" class="size-4" />
       <PanelLeft v-if="authPanelLeft" class="size-4" />
       <InspectionPanel v-if="authPanelCenter" class="size-4" />
-    </VbenIconButton>
+    </SUIIconButton>
   </VbenDropdownRadioMenu>
 </template>

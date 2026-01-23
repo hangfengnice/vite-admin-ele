@@ -6,7 +6,7 @@ import type { TabConfig, TabsProps } from '../../types'
 import { computed } from 'vue'
 
 import { Pin, X } from '@/packages/core/base/icons/src'
-import { VbenContextMenu, VbenIcon } from '@/packages/core/ui-kit/shadcn-ui'
+import { VbenContextMenu, SUIIcon } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props extends TabsProps {}
 
@@ -129,7 +129,7 @@ function onMouseDown(e: MouseEvent, tab: TabConfig) {
             <div
               class="mx-3 mr-4 flex h-full items-center overflow-hidden rounded-tl-[5px] rounded-tr-[5px] pr-3 text-accent-foreground transition-all duration-300 group-[.is-active]:text-primary dark:group-[.is-active]:text-accent-foreground"
             >
-              <VbenIcon
+              <SUIIcon
                 v-if="showIcon"
                 :icon="tab.icon"
                 class="mr-2 flex size-4 items-center overflow-hidden"

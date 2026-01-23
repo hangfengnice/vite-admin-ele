@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { useAuthStore } from '@/stores/auth.ts'
+import { useAuthStore } from '@/store'
 import { router } from '@/router/index.ts'
 
 const service = axios.create({

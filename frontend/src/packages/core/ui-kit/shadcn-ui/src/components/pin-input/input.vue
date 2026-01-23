@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import type { PinInputProps } from './types';
+import type { PinInputProps } from './types'
 
-import { computed, onBeforeUnmount, ref, useId, watch } from 'vue';
+import { computed, onBeforeUnmount, ref, useId, watch } from 'vue'
 
-import { PinInput, PinInputGroup, PinInputInput } from '../../ui';
-import { VbenButton } from '../button';
+import { PinInput, PinInputGroup, PinInputInput } from '../../ui'
+import { SUIButton } from '../button'
 
 defineOptions({
   inheritAttrs: false,
-});
+})
 
 const {
   codeLength = 6,
@@ -17,75 +17,75 @@ const {
   handleSendCode = async () => {},
   loading = false,
   maxTime = 60,
-} = defineProps<PinInputProps>();
+} = defineProps<PinInputProps>()
 
 const emit = defineEmits<{
-  complete: [];
-  sendError: [error: any];
-}>();
+  complete: []
+  sendError: [error: any]
+}>()
 
-const timer = ref<ReturnType<typeof setTimeout>>();
+const timer = ref<ReturnType<typeof setTimeout>>()
 
-const modelValue = defineModel<string>();
+const modelValue = defineModel<string>()
 
-const inputValue = ref<string[]>([]);
-const countdown = ref(0);
+const inputValue = ref<string[]>([])
+const countdown = ref(0)
 
 const btnText = computed(() => {
-  const countdownValue = countdown.value;
-  return createText?.(countdownValue);
-});
+  const countdownValue = countdown.value
+  return createText?.(countdownValue)
+})
 
 const btnLoading = computed(() => {
-  return loading || countdown.value > 0;
-});
+  return loading || countdown.value > 0
+})
 
 watch(
   () => modelValue.value,
   () => {
-    inputValue.value = modelValue.value?.split('') ?? [];
+    inputValue.value = modelValue.value?.split('') ?? []
   },
-);
+)
 
 watch(inputValue, (val) => {
-  modelValue.value = val.join('');
-});
+  modelValue.value = val.join('')
+})
 
 function handleComplete(e: string[]) {
-  modelValue.value = e.join('');
-  emit('complete');
+  modelValue.value = e.join('')
+  emit('complete')
 }
 
 async function handleSend(e: Event) {
   try {
-    e?.preventDefault();
-    countdown.value = maxTime;
-    startCountdown();
-    await handleSendCode();
+    e?.preventDefault()
+    countdown.value = maxTime
+    startCountdown()
+    await handleSendCode()
   } catch (error) {
-    console.error('Failed to send code:', error);
+    console.error('Failed to send code:', error)
     // Consider emitting an error event or showing a notification
-    emit('sendError', error);
+    emit('sendError', error)
   }
 }
 
 function startCountdown() {
   if (countdown.value > 0) {
     timer.value = setTimeout(() => {
-      countdown.value--;
-      startCountdown();
-    }, 1000);
+      countdown.value--
+      startCountdown()
+    }, 1000)
   }
 }
 
 onBeforeUnmount(() => {
-  countdown.value = 0;
-  clearTimeout(timer.value);
-});
+  countdown.value = 0
+  clearTimeout(timer.value)
+})
 
-const id = useId();
+const id = useId()
 
-const pinType = 'text' as const;
+const pinType = 'text' as const
 </script>
 
 <template>
@@ -107,7 +107,7 @@ const pinType = 'text' as const;
           :index="index"
         />
       </PinInputGroup>
-      <VbenButton
+      <SUIButton
         :disabled="disabled"
         :loading="btnLoading"
         class="flex-grow"
@@ -116,7 +116,7 @@ const pinType = 'text' as const;
         @click="handleSend"
       >
         {{ btnText }}
-      </VbenButton>
+      </SUIButton>
     </div>
   </PinInput>
 </template>

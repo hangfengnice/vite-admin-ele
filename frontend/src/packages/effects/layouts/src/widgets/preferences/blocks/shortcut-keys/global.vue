@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 import { isWindowsOs } from '@/packages/utils'
 
 import SwitchItem from '../switch-item.vue'
@@ -12,7 +12,7 @@ defineOptions({
 
 const shortcutKeysEnable = defineModel<boolean>('shortcutKeysEnable')
 const shortcutKeysGlobalSearch = defineModel<boolean>(
-  'shortcutKeysGlobalSearch'
+  'shortcutKeysGlobalSearch',
 )
 const shortcutKeysLogout = defineModel<boolean>('shortcutKeysLogout')
 // const shortcutKeysPreferences = defineModel<boolean>('shortcutKeysPreferences');

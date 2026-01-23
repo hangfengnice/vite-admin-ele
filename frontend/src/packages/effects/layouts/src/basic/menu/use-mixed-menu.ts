@@ -3,7 +3,7 @@ import type { MenuRecordRaw } from '@/packages/types'
 import { computed, onBeforeMount, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { preferences, usePreferences } from '@/packages/preferences'
+import { preferences, usePreferences } from '@/packages/core/preferences/src'
 import { useAccessStore } from '@/packages/stores'
 import { findRootMenuByPath } from '@/packages/utils'
 
@@ -24,7 +24,7 @@ function useMixedMenu() {
   const needSplit = computed(
     () =>
       (preferences.navigation.split && isMixedNav.value) ||
-      isHeaderMixedNav.value
+      isHeaderMixedNav.value,
   )
 
   const sidebarVisible = computed(() => {
@@ -103,7 +103,7 @@ function useMixedMenu() {
       navigation(
         defaultSubMap.has(rootMenu.path)
           ? (defaultSubMap.get(rootMenu.path) as string)
-          : rootMenu.path
+          : rootMenu.path,
       )
     }
   }
@@ -116,7 +116,7 @@ function useMixedMenu() {
   const handleMenuOpen = (key: string, parentsPath: string[]) => {
     if (parentsPath.length <= 1 && preferences.sidebar.autoActivateChild) {
       navigation(
-        defaultSubMap.has(key) ? (defaultSubMap.get(key) as string) : key
+        defaultSubMap.has(key) ? (defaultSubMap.get(key) as string) : key,
       )
     }
   }
@@ -147,7 +147,7 @@ function useMixedMenu() {
       calcSideMenus(currentPath)
       if (rootMenuPath.value) defaultSubMap.set(rootMenuPath.value, currentPath)
     },
-    { immediate: true }
+    { immediate: true },
   )
 
   // 初始化计算侧边菜单

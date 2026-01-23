@@ -3,7 +3,7 @@ import type { SelectOption } from '@/packages/types'
 
 import { computed } from 'vue'
 
-import { $t } from '@/packages/locales'
+import { $t } from '@/locales'
 
 import NumberFieldItem from '../number-field-item.vue'
 import SelectItem from '../select-item.vue'
@@ -25,7 +25,7 @@ const tabbarShowMore = defineModel<boolean>('tabbarShowMore')
 const tabbarShowMaximize = defineModel<boolean>('tabbarShowMaximize')
 const tabbarMaxCount = defineModel<number>('tabbarMaxCount')
 const tabbarMiddleClickToClose = defineModel<boolean>(
-  'tabbarMiddleClickToClose'
+  'tabbarMiddleClickToClose',
 )
 
 const styleItems = computed((): SelectOption[] => [

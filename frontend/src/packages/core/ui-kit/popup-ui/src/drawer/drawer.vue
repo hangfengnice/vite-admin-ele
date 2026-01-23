@@ -18,9 +18,9 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-  VbenButton,
+  SUIButton,
   VbenHelpTooltip,
-  VbenIconButton,
+  SUIIconButton,
   VbenLoading,
   VisuallyHidden,
 } from '@/packages/core/ui-kit/shadcn-ui'
@@ -218,9 +218,9 @@ const getForceMount = computed(() => {
             class="ml-[2px] cursor-pointer rounded-full opacity-80 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary"
           >
             <slot name="close-icon">
-              <VbenIconButton>
+              <SUIIconButton>
                 <X class="size-4" />
-              </VbenIconButton>
+              </SUIIconButton>
             </slot>
           </SheetClose>
           <Separator
@@ -259,9 +259,9 @@ const getForceMount = computed(() => {
             class="ml-[2px] cursor-pointer rounded-full opacity-80 transition-opacity hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-secondary"
           >
             <slot name="close-icon">
-              <VbenIconButton>
+              <SUIIconButton>
                 <X class="size-4" />
-              </VbenIconButton>
+              </SUIIconButton>
             </slot>
           </SheetClose>
         </div>
@@ -295,7 +295,7 @@ const getForceMount = computed(() => {
         <slot name="prepend-footer"></slot>
         <slot name="footer">
           <component
-            :is="components.DefaultButton || VbenButton"
+            :is="components.DefaultButton || SUIButton"
             v-if="showCancelButton"
             variant="ghost"
             :disabled="submitting"
@@ -307,7 +307,7 @@ const getForceMount = computed(() => {
           </component>
           <slot name="center-footer"></slot>
           <component
-            :is="components.PrimaryButton || VbenButton"
+            :is="components.PrimaryButton || SUIButton"
             v-if="showConfirmButton"
             :loading="confirmLoading || submitting"
             @click="() => drawerApi?.onConfirm()"

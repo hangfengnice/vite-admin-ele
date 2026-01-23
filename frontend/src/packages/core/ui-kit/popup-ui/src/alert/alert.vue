@@ -21,7 +21,7 @@ import {
   AlertDialogContent,
   AlertDialogDescription,
   AlertDialogTitle,
-  VbenButton,
+  SUIButton,
   VbenLoading,
   VbenRenderContent,
 } from '@/packages/core/ui-kit/shadcn-ui'
@@ -161,7 +161,7 @@ async function handleOpenChange(val: boolean) {
             <component :is="getIconRender" class="mr-2" />
             <span class="flex-auto">{{ $t(title) }}</span>
             <AlertDialogCancel v-if="showCancel" as-child>
-              <VbenButton
+              <SUIButton
                 variant="ghost"
                 size="icon"
                 class="rounded-full"
@@ -169,7 +169,7 @@ async function handleOpenChange(val: boolean) {
                 @click="handleCancel"
               >
                 <X class="size-4 text-muted-foreground" />
-              </VbenButton>
+              </SUIButton>
             </AlertDialogCancel>
           </div>
         </AlertDialogTitle>
@@ -186,7 +186,7 @@ async function handleOpenChange(val: boolean) {
           <VbenRenderContent :content="footer" />
           <AlertDialogCancel v-if="showCancel" as-child>
             <component
-              :is="components.DefaultButton || VbenButton"
+              :is="components.DefaultButton || SUIButton"
               :disabled="loading"
               variant="ghost"
               @click="handleCancel"
@@ -196,7 +196,7 @@ async function handleOpenChange(val: boolean) {
           </AlertDialogCancel>
           <AlertDialogAction as-child>
             <component
-              :is="components.PrimaryButton || VbenButton"
+              :is="components.PrimaryButton || SUIButton"
               :loading="loading"
               @click="handleConfirm"
             >
