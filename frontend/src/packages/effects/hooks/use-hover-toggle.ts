@@ -4,7 +4,7 @@ import type { Ref } from 'vue'
 
 import { computed, effectScope, onUnmounted, ref, unref, watch } from 'vue'
 
-import { isFunction } from '@/packages/utils'
+import { isFunction } from '@/utils'
 
 import { useElementHover } from '@vueuse/core'
 
@@ -26,7 +26,7 @@ const DEFAULT_ENTER_DELAY = 0 // 鼠标进入延迟时间，默认为 0（立即
  */
 export function useHoverToggle(
   refElement: Arrayable<MaybeElementRef> | Ref<HTMLElement[] | null>,
-  delay: (() => number) | HoverDelayOptions | number = DEFAULT_LEAVE_DELAY
+  delay: (() => number) | HoverDelayOptions | number = DEFAULT_LEAVE_DELAY,
 ) {
   // 兼容旧版本API
   const normalizedOptions: HoverDelayOptions =
@@ -139,7 +139,7 @@ export function useHoverToggle(
     (val) => {
       setValueDelay(!val)
     },
-    { immediate: true }
+    { immediate: true },
   )
 
   const controller = {

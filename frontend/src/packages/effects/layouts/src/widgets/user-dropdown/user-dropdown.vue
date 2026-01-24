@@ -10,7 +10,7 @@ import { LockKeyhole, LogOut } from '@/packages/icons'
 import { $t } from '@/locales'
 import { preferences, usePreferences } from '@/packages/core/preferences/src'
 import { useAccessStore } from '@/stores'
-import { isWindowsOs } from '@/packages/utils'
+import { isWindowsOs } from '@/utils'
 
 import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 import {

@@ -2,7 +2,7 @@
 import type { TabsEmits, TabsProps } from './types'
 
 import { useForwardPropsEmits } from '@/packages/core/composables'
-import { ChevronLeft, ChevronRight } from '@/packages/core/base/icons/src'
+import { ChevronLeft, ChevronRight } from '@/packages/icons'
 import { VbenScrollbar } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { Tabs, TabsChrome } from './components'

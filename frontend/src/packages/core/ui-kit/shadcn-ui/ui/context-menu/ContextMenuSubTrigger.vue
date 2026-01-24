@@ -3,7 +3,7 @@ import type { ContextMenuSubTriggerProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { ChevronRight } from 'lucide-vue-next'
 import { ContextMenuSubTrigger, useForwardProps } from 'reka-ui'

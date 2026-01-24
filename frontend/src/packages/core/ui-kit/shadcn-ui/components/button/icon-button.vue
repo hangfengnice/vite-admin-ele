@@ -4,7 +4,7 @@ import type { SUIButtonProps } from './button'
 
 import { computed, useSlots } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { VbenTooltip } from '../tooltip'
 import SUIButton from './button.vue'

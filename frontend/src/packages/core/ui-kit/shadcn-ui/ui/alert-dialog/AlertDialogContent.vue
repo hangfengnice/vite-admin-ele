@@ -5,7 +5,7 @@ import type { ClassType } from '@/packages/core/base/typings'
 
 import { computed, ref } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import {
   AlertDialogContent,
@@ -26,7 +26,7 @@ const props = withDefaults(
       zIndex?: number
     }
   >(),
-  { modal: true }
+  { modal: true },
 )
 const emits = defineEmits<
   AlertDialogContentEmits & { close: []; closed: []; opened: [] }
@@ -88,7 +88,7 @@ defineExpose({
             'top-[10vh]': !centered,
             'top-1/2 -translate-y-1/2': centered,
           },
-          props.class
+          props.class,
         )
       "
     >

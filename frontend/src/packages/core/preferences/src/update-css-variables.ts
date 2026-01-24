@@ -1,7 +1,7 @@
 import type { Preferences } from './types'
 
-import { generatorColorVariables } from '@/packages/core/base/shared/src/color'
-import { updateCSSVariables as executeUpdateCSSVariables } from '@/packages/core/base/shared/src/utils'
+import { generatorColorVariables } from '@/utils/color'
+import { updateCSSVariables as executeUpdateCSSVariables } from '@/utils'
 
 import { BUILT_IN_THEME_PRESETS } from './constants'
 
@@ -36,7 +36,7 @@ function updateCSSVariables(preferences: Preferences) {
 
   // 获取当前的内置主题
   const currentBuiltType = [...BUILT_IN_THEME_PRESETS].find(
-    (item) => item.type === builtinType
+    (item) => item.type === builtinType,
   )
 
   let builtinTypeColorPrimary: string | undefined = ''
@@ -72,11 +72,11 @@ function updateCSSVariables(preferences: Preferences) {
     const fontSize = theme.fontSize
     document.documentElement.style.setProperty(
       '--font-size-base',
-      `${fontSize}px`
+      `${fontSize}px`,
     )
     document.documentElement.style.setProperty(
       '--menu-font-size',
-      `calc(${fontSize}px * 0.875)`
+      `calc(${fontSize}px * 0.875)`,
     )
   }
 }

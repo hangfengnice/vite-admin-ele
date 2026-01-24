@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { CircleX } from '@/packages/core/base/icons/src'
+import { CircleX } from '@/packages/icons'
 
 import {
   Select,

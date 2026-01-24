@@ -3,7 +3,7 @@ import type { NumberFieldDecrementProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { Minus } from 'lucide-vue-next'
 import { NumberFieldDecrement, useForwardProps } from 'reka-ui'
@@ -26,7 +26,7 @@ const forwarded = useForwardProps(delegatedProps)
     :class="
       cn(
         'absolute left-0 top-1/2 -translate-y-1/2 p-3 disabled:cursor-not-allowed disabled:opacity-20',
-        props.class
+        props.class,
       )
     "
   >

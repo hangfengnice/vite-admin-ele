@@ -22,7 +22,7 @@ import {
 } from 'vue'
 
 import { useNamespace } from '@/packages/core/composables'
-import { Ellipsis } from '@/packages/core/base/icons/src'
+import { Ellipsis } from '@/packages/icons'
 
 import { useResizeObserver } from '@vueuse/core'
 

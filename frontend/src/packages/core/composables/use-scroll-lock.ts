@@ -1,7 +1,4 @@
-import {
-  getScrollbarWidth,
-  needsScrollbar,
-} from '@/packages/core/base/shared/src/utils'
+import { getScrollbarWidth, needsScrollbar } from '@/utils'
 
 import {
   useScrollLock as _useScrollLock,
@@ -22,7 +19,7 @@ export function useScrollLock() {
     document.body.style.paddingRight = `${scrollbarWidth}px`
 
     const layoutFixedNodes = document.querySelectorAll<HTMLElement>(
-      `.${SCROLL_FIXED_CLASS}`
+      `.${SCROLL_FIXED_CLASS}`,
     )
     const nodes = [...layoutFixedNodes]
     if (nodes.length > 0) {
@@ -41,7 +38,7 @@ export function useScrollLock() {
     }
     isLocked.value = false
     const layoutFixedNodes = document.querySelectorAll<HTMLElement>(
-      `.${SCROLL_FIXED_CLASS}`
+      `.${SCROLL_FIXED_CLASS}`,
     )
     const nodes = [...layoutFixedNodes]
     if (nodes.length > 0) {

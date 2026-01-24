@@ -16,11 +16,11 @@ import {
   isFunction,
   isString,
   mapTree,
-} from '@/packages/utils'
+} from '@/utils'
 
 async function generateAccessible(
   mode: AccessModeType,
-  options: GenerateMenuAndRoutesOptions
+  options: GenerateMenuAndRoutesOptions,
 ) {
   const { router } = options
 
@@ -45,7 +45,7 @@ async function generateAccessible(
       if (names?.includes(route.name)) {
         // 找到已存在的路由索引并更新，不更新会造成切换用户时，一级目录未更新，homePath 在二级目录导致的404问题
         const index = root.children?.findIndex(
-          (item) => item.name === route.name
+          (item) => item.name === route.name,
         )
         if (index !== undefined && index !== -1 && root.children) {
           root.children[index] = route
@@ -78,7 +78,7 @@ async function generateAccessible(
  */
 async function generateRoutes(
   mode: AccessModeType,
-  options: GenerateMenuAndRoutesOptions
+  options: GenerateMenuAndRoutesOptions,
 ) {
   const { forbiddenComponent, roles, routes } = options
 
@@ -92,7 +92,7 @@ async function generateRoutes(
       resultRoutes = await generateRoutesByFrontend(
         routes,
         roles || [],
-        forbiddenComponent
+        forbiddenComponent,
       )
       break
     }

@@ -7,7 +7,7 @@ import { useRoute } from 'vue-router'
 
 import { preferences } from '@/packages/core/preferences/src'
 import { useAccessStore } from '@/stores'
-import { findRootMenuByPath } from '@/packages/utils'
+import { findRootMenuByPath } from '@/utils'
 
 import { useNavigation } from './use-navigation'
 

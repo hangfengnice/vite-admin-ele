@@ -5,7 +5,7 @@ import type { HTMLAttributes } from 'vue'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { SplitterGroup, useForwardPropsEmits } from 'reka-ui'
 
@@ -28,7 +28,7 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
     :class="
       cn(
         'flex h-full w-full data-[panel-group-direction=vertical]:flex-col',
-        props.class
+        props.class,
       )
     "
   >

@@ -1,10 +1,7 @@
 import { ref, unref } from 'vue'
 
 import { DEFAULT_TIME_ZONE_OPTIONS } from '@/packages/core/preferences/src'
-import {
-  getCurrentTimezone,
-  setCurrentTimezone,
-} from '@/packages/core/base/shared/src/utils'
+import { getCurrentTimezone, setCurrentTimezone } from '@/utils'
 
 import { acceptHMRUpdate, defineStore } from 'pinia'
 

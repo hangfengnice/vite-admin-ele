@@ -3,11 +3,7 @@ import type { Component, PropType } from 'vue'
 
 import { defineComponent, h } from 'vue'
 
-import {
-  isFunction,
-  isObject,
-  isString,
-} from '@/packages/core/base/shared/src/utils'
+import { isFunction, isObject, isString } from '@/utils'
 
 export default defineComponent({
   name: 'RenderContent',

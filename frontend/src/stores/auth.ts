@@ -5,7 +5,9 @@ import { useRouter } from 'vue-router'
 
 import { LOGIN_PATH } from '@/packages/constants'
 import { preferences } from '@/packages/core/preferences/src'
-import { resetAllStores, useAccessStore, useUserStore } from '@/stores'
+import { resetAllStores } from '@/stores/setup'
+import { useUserStore } from '@/stores/modules/user'
+import { useAccessStore } from '@/stores/modules/access'
 
 import { ElNotification } from 'element-plus'
 import { defineStore } from 'pinia'

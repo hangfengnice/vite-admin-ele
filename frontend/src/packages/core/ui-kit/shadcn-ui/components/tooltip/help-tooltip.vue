@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { CircleHelp } from 'lucide-vue-next'
 
@@ -20,7 +20,7 @@ defineProps<{ triggerClass?: string }>()
           :class="
             cn(
               'inline-flex size-5 cursor-pointer text-foreground/80 hover:text-foreground',
-              triggerClass
+              triggerClass,
             )
           "
         />

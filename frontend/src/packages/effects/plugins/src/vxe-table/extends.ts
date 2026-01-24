@@ -4,12 +4,12 @@ import type { Recordable } from '@/packages/types'
 
 import type { VxeGridApi } from './api'
 
-import { formatDate, formatDateTime, isFunction } from '@/packages/utils'
+import { formatDate, formatDateTime, isFunction } from '@/utils'
 
 export function extendProxyOptions(
   api: VxeGridApi,
   options: VxeGridProps,
-  getFormValues: () => Recordable<any>
+  getFormValues: () => Recordable<any>,
 ) {
   ;[
     'query',
@@ -27,7 +27,7 @@ function extendProxyOption(
   key: string,
   api: VxeGridApi,
   options: VxeGridProps,
-  getFormValues: () => Recordable<any>
+  getFormValues: () => Recordable<any>,
 ) {
   const { proxyConfig } = options
   const configFn = (proxyConfig?.ajax as Recordable<any>)?.[key]
@@ -51,7 +51,7 @@ function extendProxyOption(
         ...(customValues instanceof PointerEvent ? {} : customValues),
         ...formValues,
       },
-      ...args
+      ...args,
     )
     return data
   }

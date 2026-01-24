@@ -3,7 +3,7 @@ import type { BacktopProps } from './backtop'
 
 import { computed } from 'vue'
 
-import { ArrowUpToLine } from '@/packages/core/base/icons/src'
+import { ArrowUpToLine } from '@/packages/icons'
 
 import { SUIButton } from '../button'
 import { useBackTop } from './use-backtop'

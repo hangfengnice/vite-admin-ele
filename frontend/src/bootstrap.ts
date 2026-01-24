@@ -4,9 +4,10 @@ import { registerAccessDirective } from './packages/effects/access'
 import { registerLoadingDirective } from '@/packages/effects/common-ui/src'
 import { preferences } from './packages/core/preferences/src'
 import { initStores } from './stores'
-import './packages/styles/src/ele/index.css'
+
 import '@/style/tailwind.css'
-import './packages/styles/src/index'
+import './packages/core/base/design/src/index'
+import './style/ele.css'
 
 // import '@/packages/icons/register'
 

@@ -3,7 +3,7 @@ import type { ContextMenuLabelProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { ContextMenuLabel } from 'reka-ui'
 
@@ -25,7 +25,7 @@ const delegatedProps = computed(() => {
       cn(
         'px-2 py-1.5 text-sm font-semibold text-foreground',
         inset && 'pl-8',
-        props.class
+        props.class,
       )
     "
   >

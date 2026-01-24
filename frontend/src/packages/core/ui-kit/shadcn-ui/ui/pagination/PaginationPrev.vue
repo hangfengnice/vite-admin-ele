@@ -3,7 +3,7 @@ import type { PaginationPrevProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { ChevronLeft } from 'lucide-vue-next'
 import { PaginationPrev } from 'reka-ui'
@@ -14,7 +14,7 @@ const props = withDefaults(
   defineProps<PaginationPrevProps & { class?: any }>(),
   {
     asChild: true,
-  }
+  },
 )
 
 const delegatedProps = computed(() => {

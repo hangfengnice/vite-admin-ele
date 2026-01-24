@@ -5,7 +5,7 @@ import type { ClassType } from '@/packages/core/base/typings'
 
 import { computed, ref } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { X } from 'lucide-vue-next'
 import { DialogClose, DialogContent, useForwardPropsEmits } from 'reka-ui'
@@ -32,7 +32,7 @@ const props = withDefaults(
     animationType: 'slide',
     closeDisabled: false,
     showClose: true,
-  }
+  },
 )
 const emits = defineEmits<
   DialogContentEmits & { close: []; closed: []; opened: [] }
@@ -107,7 +107,7 @@ defineExpose({
             'data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-top-[48%]':
               animationType === 'slide',
           },
-          props.class
+          props.class,
         )
       "
     >
@@ -119,7 +119,7 @@ defineExpose({
         :class="
           cn(
             'flex-center absolute right-3 top-3 h-6 w-6 rounded-full px-1 text-lg text-foreground/80 opacity-70 transition-opacity hover:bg-accent hover:text-accent-foreground hover:opacity-100 focus:outline-none disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground',
-            props.closeClass
+            props.closeClass,
           )
         "
         @click="() => emits('close')"

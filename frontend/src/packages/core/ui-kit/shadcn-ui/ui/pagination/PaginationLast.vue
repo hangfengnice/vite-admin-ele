@@ -3,7 +3,7 @@ import type { PaginationLastProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { ChevronsRight } from 'lucide-vue-next'
 import { PaginationLast } from 'reka-ui'
@@ -14,7 +14,7 @@ const props = withDefaults(
   defineProps<PaginationLastProps & { class?: any }>(),
   {
     asChild: true,
-  }
+  },
 )
 
 const delegatedProps = computed(() => {

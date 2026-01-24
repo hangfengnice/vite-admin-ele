@@ -6,14 +6,14 @@ import type {
 
 import { computed, ref, watch } from 'vue'
 
-import { isBoolean, isFunction } from '@/packages/core/base/shared/src/utils'
+import { isBoolean, isFunction } from '@/utils'
 
 import { useFormValues } from 'vee-validate'
 
 import { injectRenderFormProps } from './context'
 
 export default function useDependencies(
-  getDependencies: () => FormItemDependencies | undefined
+  getDependencies: () => FormItemDependencies | undefined,
 ) {
   const values = useFormValues()
 
@@ -110,7 +110,7 @@ export default function useDependencies(
         await trigger(formValues, formApi)
       }
     },
-    { deep: true, immediate: true }
+    { deep: true, immediate: true },
   )
 
   return {

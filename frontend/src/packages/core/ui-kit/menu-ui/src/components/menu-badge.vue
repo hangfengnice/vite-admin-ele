@@ -3,7 +3,7 @@ import type { MenuRecordBadgeRaw } from '@/packages/core/base/typings'
 
 import { computed } from 'vue'
 
-import { isValidColor } from '@/packages/core/base/shared/src/color'
+import { isValidColor } from '@/utils/color'
 
 import BadgeDot from './menu-badge-dot.vue'
 

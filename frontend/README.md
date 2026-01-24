@@ -7,3 +7,5 @@
 Ctrl + U mac # 清除光标前的所有内容
 Ctrl + K # 清除光标后的所有内容
 Ctrl + W # 最常用！
+
+pnpm --filter frontend add -D @types/lodash.clonedeep

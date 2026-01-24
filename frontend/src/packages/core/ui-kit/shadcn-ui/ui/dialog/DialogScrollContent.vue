@@ -3,7 +3,7 @@ import type { DialogContentEmits, DialogContentProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { X } from 'lucide-vue-next'
 import {
@@ -16,7 +16,7 @@ import {
 
 const props = withDefaults(
   defineProps<DialogContentProps & { class?: any; zIndex?: number }>(),
-  { zIndex: 1000 }
+  { zIndex: 1000 },
 )
 const emits = defineEmits<DialogContentEmits>()
 
@@ -39,20 +39,20 @@ const forwarded = useForwardPropsEmits(delegatedProps, emits)
         :class="
           cn(
             'relative z-50 my-8 grid w-full max-w-lg gap-4 border border-border bg-background p-6 shadow-lg duration-200 sm:rounded-lg md:w-full',
-            props.class
+            props.class,
           )
         "
         :style="{ zIndex }"
         v-bind="forwarded"
         @pointer-down-outside="
           (event) => {
-            const originalEvent = event.detail.originalEvent;
-            const target = originalEvent.target as HTMLElement;
+            const originalEvent = event.detail.originalEvent
+            const target = originalEvent.target as HTMLElement
             if (
               originalEvent.offsetX > target.clientWidth ||
               originalEvent.offsetY > target.clientHeight
             ) {
-              event.preventDefault();
+              event.preventDefault()
             }
           }
         "

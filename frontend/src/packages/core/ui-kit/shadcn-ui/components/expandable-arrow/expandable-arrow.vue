@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { ChevronDown } from '@/packages/core/base/icons/src'
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { ChevronDown } from '@/packages/icons'
+import { cn } from '@/utils'
 
 const props = defineProps<{
   class?: string

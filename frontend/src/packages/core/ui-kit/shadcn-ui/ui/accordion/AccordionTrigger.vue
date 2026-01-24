@@ -3,7 +3,7 @@ import type { AccordionTriggerProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { ChevronDown } from 'lucide-vue-next'
 import { AccordionHeader, AccordionTrigger } from 'reka-ui'
@@ -24,7 +24,7 @@ const delegatedProps = computed(() => {
       :class="
         cn(
           'flex flex-1 items-center justify-between py-4 text-sm font-medium transition-all hover:underline [&[data-state=open]>svg]:rotate-180',
-          props.class
+          props.class,
         )
       "
     >

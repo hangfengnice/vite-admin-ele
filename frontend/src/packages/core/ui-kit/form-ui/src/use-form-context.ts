@@ -7,11 +7,7 @@ import type { ExtendedFormApi, FormActions, VbenFormProps } from './types'
 import { computed, unref, useSlots } from 'vue'
 
 import { createContext } from '@/packages/core/ui-kit/shadcn-ui'
-import {
-  isString,
-  mergeWithArrayOverride,
-  set,
-} from '@/packages/core/base/shared/src/utils'
+import { isString, mergeWithArrayOverride, set } from '@/utils'
 
 import { useForm } from 'vee-validate'
 import { object, ZodIntersection, ZodNumber, ZodObject, ZodString } from 'zod'
@@ -21,14 +17,14 @@ type ExtendFormProps = VbenFormProps & { formApi?: ExtendedFormApi }
 
 export const [injectFormProps, provideFormProps] =
   createContext<[ComputedRef<ExtendFormProps> | ExtendFormProps, FormActions]>(
-    'VbenFormProps'
+    'VbenFormProps',
   )
 
 export const [injectComponentRefMap, provideComponentRefMap] =
   createContext<Map<string, unknown>>('ComponentRefMap')
 
 export function useFormInitial(
-  props: ComputedRef<VbenFormProps> | VbenFormProps
+  props: ComputedRef<VbenFormProps> | VbenFormProps,
 ) {
   const slots = useSlots()
   const initialValues = generateInitialValues()

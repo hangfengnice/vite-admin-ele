@@ -10,11 +10,8 @@ import type { TabDefinition } from '@/packages/core/base/typings'
 import { toRaw } from 'vue'
 
 import { preferences } from '@/packages/core/preferences/src'
-import {
-  openRouteInNewWindow,
-  startProgress,
-  stopProgress,
-} from '@/packages/core/base/shared/src/utils'
+import { openRouteInNewWindow } from '@/utils'
+import { startProgress, stopProgress } from '@/utils/helpers/nprogress'
 
 import { acceptHMRUpdate, defineStore } from 'pinia'
 

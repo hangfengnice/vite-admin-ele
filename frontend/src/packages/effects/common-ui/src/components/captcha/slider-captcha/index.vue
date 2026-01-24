@@ -9,7 +9,7 @@ import { reactive, unref, useTemplateRef, watch, watchEffect } from 'vue'
 
 import { $t } from '@/locales'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { useTimeoutFn } from '@vueuse/core'
 

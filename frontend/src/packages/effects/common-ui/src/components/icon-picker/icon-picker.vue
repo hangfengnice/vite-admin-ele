@@ -22,7 +22,7 @@ import {
   SUIIconButton,
   VbenPopover,
 } from '@/packages/core/ui-kit/shadcn-ui'
-import { isFunction } from '@/packages/core/base/shared/src/utils'
+import { isFunction } from '@/utils'
 
 import { objectOmit, refDebounced, watchDebounced } from '@vueuse/core'
 

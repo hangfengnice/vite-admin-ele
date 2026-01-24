@@ -16,7 +16,7 @@ import { computed, useAttrs } from 'vue'
 
 import { $t } from '@/locales'
 
-import { isBoolean } from '@/packages/core/base/shared/src/utils'
+import { isBoolean } from '@/utils'
 
 // @ts-ignore
 import JsonBigint from 'json-bigint'

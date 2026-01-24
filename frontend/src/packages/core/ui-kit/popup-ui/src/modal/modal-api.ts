@@ -1,7 +1,7 @@
 import type { ModalApiOptions, ModalState } from './modal'
 
 import { Store } from '@/packages/core/base/shared/src/store'
-import { bindMethods, isFunction } from '@/packages/core/base/shared/src/utils'
+import { bindMethods, isFunction } from '@/utils'
 
 export class ModalApi {
   // 共享数据
@@ -79,7 +79,7 @@ export class ModalApi {
             this.api.onOpenChange?.(!!state?.isOpen)
           }
         },
-      }
+      },
     )
 
     this.state = this.store.state
@@ -174,7 +174,9 @@ export class ModalApi {
   }
 
   setState(
-    stateOrFn: ((prev: ModalState) => Partial<ModalState>) | Partial<ModalState>
+    stateOrFn:
+      | ((prev: ModalState) => Partial<ModalState>)
+      | Partial<ModalState>,
   ) {
     if (isFunction(stateOrFn)) {
       this.store.setState(stateOrFn)

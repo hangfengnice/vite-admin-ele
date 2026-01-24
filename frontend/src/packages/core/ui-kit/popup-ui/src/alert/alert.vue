@@ -13,7 +13,7 @@ import {
   CircleX,
   Info,
   X,
-} from '@/packages/core/base/icons/src'
+} from '@/packages/icons'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -26,7 +26,7 @@ import {
   VbenRenderContent,
 } from '@/packages/core/ui-kit/shadcn-ui'
 import { globalShareState } from '@/packages/core/base/shared/src/global-state'
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { provideAlertContext } from './alert'
 

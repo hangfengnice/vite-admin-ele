@@ -5,7 +5,7 @@ import type { TabConfig, TabsProps } from '../../types'
 
 import { computed } from 'vue'
 
-import { Pin, X } from '@/packages/core/base/icons/src'
+import { Pin, X } from '@/packages/icons'
 import { VbenContextMenu, SUIIcon } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props extends TabsProps {}

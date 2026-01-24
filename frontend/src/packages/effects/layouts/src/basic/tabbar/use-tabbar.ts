@@ -23,7 +23,7 @@ import {
 } from '@/packages/icons'
 import { $t, useI18n } from '@/locales'
 import { getTabKey, useAccessStore, useTabbarStore } from '@/stores'
-import { filterTree } from '@/packages/utils'
+import { filterTree } from '@/utils'
 
 export function useTabbar() {
   const router = useRouter()

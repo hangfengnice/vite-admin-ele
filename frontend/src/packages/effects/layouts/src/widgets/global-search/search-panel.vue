@@ -6,10 +6,10 @@ import { useRouter } from 'vue-router'
 
 import { SearchX, X } from '@/packages/icons'
 import { $t } from '@/locales'
-import { mapTree, traverseTreeValues, uniqueByField } from '@/packages/utils'
+import { mapTree, traverseTreeValues, uniqueByField } from '@/utils'
 
 import { SUIIcon, VbenScrollbar } from '@/packages/core/ui-kit/shadcn-ui'
-import { isHttpUrl } from '@/packages/core/base/shared/src/utils'
+import { isHttpUrl } from '@/utils'
 
 import { onKeyStroke, useLocalStorage, useThrottleFn } from '@vueuse/core'
 

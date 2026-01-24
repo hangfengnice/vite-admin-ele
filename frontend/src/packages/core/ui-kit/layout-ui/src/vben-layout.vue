@@ -10,9 +10,9 @@ import {
   useLayoutFooterStyle,
   useLayoutHeaderStyle,
 } from '@/packages/core/composables'
-import { IconifyIcon } from '@/packages/core/base/icons/src'
+import { IconifyIcon } from '@/packages/icons'
 import { SUIIconButton } from '@/packages/core/ui-kit/shadcn-ui'
-import { ELEMENT_ID_MAIN_CONTENT } from '@/packages/core/base/shared/src/constants'
+import { ELEMENT_ID_MAIN_CONTENT } from '@/packages/constants'
 
 import { useMouse, useScroll, useThrottleFn } from '@vueuse/core'
 

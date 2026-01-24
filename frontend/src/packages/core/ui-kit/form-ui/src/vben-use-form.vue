@@ -7,12 +7,7 @@ import type { ExtendedFormApi, VbenFormProps } from './types'
 import { nextTick, onMounted, watch } from 'vue'
 
 import { useForwardPriorityValues } from '@/packages/core/composables'
-import {
-  cloneDeep,
-  get,
-  isEqual,
-  set,
-} from '@/packages/core/base/shared/src/utils'
+import { cloneDeep, get, isEqual, set } from '@/utils'
 
 import { useDebounceFn } from '@vueuse/core'
 

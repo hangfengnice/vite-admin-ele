@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 const props = defineProps<{
   class?: any
@@ -11,7 +11,7 @@ const props = defineProps<{
     :class="
       cn(
         'rounded-xl border border-border bg-card text-card-foreground',
-        props.class
+        props.class,
       )
     "
   >

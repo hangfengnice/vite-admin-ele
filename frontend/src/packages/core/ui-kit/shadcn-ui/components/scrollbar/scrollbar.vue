@@ -3,7 +3,7 @@ import type { ClassType } from '@/packages/core/base/typings'
 
 import { computed, ref } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { ScrollArea, ScrollBar } from '../../ui'
 

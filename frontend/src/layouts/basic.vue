@@ -15,8 +15,9 @@ import {
   UserDropdown,
 } from '@/packages/effects/layouts'
 import { preferences } from '@/packages/core/preferences/src'
-import { useAccessStore, useUserStore } from '@/stores'
-import { openWindow } from '@/packages/utils'
+import { useUserStore } from '@/stores/modules/user'
+import { useAccessStore } from '@/stores/modules/access'
+import { openWindow } from '@/utils'
 
 import { $t } from '@/locales'
 import { useAuthStore } from '@/stores/auth'

@@ -1,1 +1,1 @@
-export * from '@tanstack/vue-store';
+export * from '@tanstack/vue-store'

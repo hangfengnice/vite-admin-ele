@@ -33,8 +33,6 @@ function handleChange(isDark: boolean | undefined) {
 
 const { isDark } = usePreferences()
 
-console.log(isDark.value, 'isDark.value')
-
 const PRESETS = [
   {
     icon: Sun,

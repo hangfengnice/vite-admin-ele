@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { AvatarVariants } from './avatar'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { AvatarRoot } from 'reka-ui'
 
@@ -16,7 +16,7 @@ const props = withDefaults(
   {
     shape: 'circle',
     size: 'sm',
-  }
+  },
 )
 </script>
 

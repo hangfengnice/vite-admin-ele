@@ -7,7 +7,7 @@ import { computed, ref, watch } from 'vue'
 import { UserRoundPen } from '@/packages/icons'
 import { $t } from '@/locales'
 import { BUILT_IN_THEME_PRESETS } from '@/packages/core/preferences/src'
-import { convertToHsl, TinyColor } from '@/packages/utils'
+import { convertToHsl, TinyColor } from '@/utils/color'
 
 import { useThrottleFn } from '@vueuse/core'
 

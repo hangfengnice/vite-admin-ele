@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'vue'
 
-import type { VisibleDomRect } from '@/packages/core/base/shared/src/utils'
+import type { VisibleDomRect } from '@/utils'
 
 import { computed, onMounted, onUnmounted, ref } from 'vue'
 
@@ -9,8 +9,8 @@ import {
   CSS_VARIABLE_LAYOUT_CONTENT_WIDTH,
   CSS_VARIABLE_LAYOUT_FOOTER_HEIGHT,
   CSS_VARIABLE_LAYOUT_HEADER_HEIGHT,
-} from '@/packages/core/base/shared/src/constants'
-import { getElementVisibleRect } from '@/packages/core/base/shared/src/utils'
+} from '@/packages/constants'
+import { getElementVisibleRect } from '@/utils'
 
 import { useCssVar, useDebounceFn } from '@vueuse/core'
 
@@ -42,7 +42,7 @@ export function useLayoutContentStyle() {
       contentHeight.value = `${visibleDomRect.value.height}px`
       contentWidth.value = `${visibleDomRect.value.width}px`
     },
-    16
+    16,
   )
 
   onMounted(() => {

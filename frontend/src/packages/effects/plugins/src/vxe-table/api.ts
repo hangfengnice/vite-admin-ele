@@ -13,7 +13,7 @@ import {
   isFunction,
   mergeWithArrayOverride,
   StateHandler,
-} from '@/packages/core/base/shared/src/utils'
+} from '@/utils'
 
 function getDefaultState(): VxeGridProps {
   return {

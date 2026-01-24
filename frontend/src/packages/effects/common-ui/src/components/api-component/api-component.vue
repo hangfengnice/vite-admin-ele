@@ -7,12 +7,7 @@ import { computed, nextTick, ref, unref, useAttrs, watch } from 'vue'
 
 import { LoaderCircle } from '@/packages/icons'
 
-import {
-  cloneDeep,
-  get,
-  isEqual,
-  isFunction,
-} from '@/packages/core/base/shared/src/utils'
+import { cloneDeep, get, isEqual, isFunction } from '@/utils'
 
 import { objectOmit } from '@vueuse/core'
 
@@ -238,7 +233,7 @@ watch(
     }
     fetchApi()
   },
-  { deep: true, immediate: props.immediate }
+  { deep: true, immediate: props.immediate },
 )
 
 function emitChange() {
@@ -280,7 +275,7 @@ defineExpose({
   /** 获取当前值 */
   getValue: () => unref(modelValue),
   /** 获取被包装的组件实例 */
-  getComponentRef: <T = any>() => componentRef.value as T,
+  getComponentRef: <T = any,>() => componentRef.value as T,
   /** 更新Api参数 */
   updateParam(newParams: Record<string, any>) {
     innerParams.value = newParams

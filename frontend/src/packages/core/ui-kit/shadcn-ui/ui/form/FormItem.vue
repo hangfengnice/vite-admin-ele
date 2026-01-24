@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { provide, useId } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { FORM_ITEM_INJECTION_KEY } from './injectionKeys'
 

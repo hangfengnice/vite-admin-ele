@@ -5,8 +5,8 @@ import type { PageProps } from './types'
 
 import { computed, nextTick, onMounted, ref, useTemplateRef } from 'vue'
 
-import { CSS_VARIABLE_LAYOUT_CONTENT_HEIGHT } from '@/packages/core/base/shared/src/constants'
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { CSS_VARIABLE_LAYOUT_CONTENT_HEIGHT } from '@/packages/constants'
+import { cn } from '@/utils'
 
 defineOptions({
   name: 'Page',
@@ -66,7 +66,7 @@ onMounted(() => {
       :class="
         cn(
           'bg-card border-border relative flex items-end border-b px-6 py-4',
-          headerClass
+          headerClass,
         )
       "
     >

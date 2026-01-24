@@ -7,14 +7,14 @@ import type {
   ZodTypeAny,
 } from 'zod'
 
-import { isObject, isString } from '@/packages/core/base/shared/src/utils'
+import { isObject, isString } from '@/utils'
 
 /**
  * Get the lowest level Zod type.
  * This will unpack optionals, refinements, etc.
  */
 export function getBaseRules<
-  ChildType extends AnyZodObject | ZodTypeAny = ZodTypeAny
+  ChildType extends AnyZodObject | ZodTypeAny = ZodTypeAny,
 >(schema: ChildType | ZodEffects<ChildType>): ChildType | null {
   if (!schema || isString(schema)) return null
   if ('innerType' in schema._def)
@@ -40,12 +40,12 @@ export function getDefaultValueInZodStack(schema: ZodTypeAny): any {
 
   if ('innerType' in typedSchema._def) {
     return getDefaultValueInZodStack(
-      typedSchema._def.innerType as unknown as ZodTypeAny
+      typedSchema._def.innerType as unknown as ZodTypeAny,
     )
   }
   if ('schema' in typedSchema._def) {
     return getDefaultValueInZodStack(
-      (typedSchema._def as any).schema as ZodTypeAny
+      (typedSchema._def as any).schema as ZodTypeAny,
     )
   }
 

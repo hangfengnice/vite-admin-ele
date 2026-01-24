@@ -17,7 +17,7 @@ import {
   usePriorityValues,
   useSimpleLocale,
 } from '@/packages/core/composables'
-import { Expand, Shrink } from '@/packages/core/base/icons/src'
+import { Expand, Shrink } from '@/packages/icons'
 import {
   Dialog,
   DialogContent,
@@ -31,9 +31,9 @@ import {
   SUILoading,
   VisuallyHidden,
 } from '@/packages/core/ui-kit/shadcn-ui'
-import { ELEMENT_ID_MAIN_CONTENT } from '@/packages/core/base/shared/src/constants'
+import { ELEMENT_ID_MAIN_CONTENT } from '@/packages/constants'
 import { globalShareState } from '@/packages/core/base/shared/src/global-state'
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { useModalDraggable } from './use-modal-draggable'
 

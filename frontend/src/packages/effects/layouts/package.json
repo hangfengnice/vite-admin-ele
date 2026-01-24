@@ -26,7 +26,7 @@
     "@/packages/core/preferences": "workspace:*",
     "@/stores": "workspace:*",
     "@/packages/types": "workspace:*",
-    "@/packages/utils": "workspace:*",
+    "@/utils": "workspace:*",
     "@vueuse/core": "catalog:"
   }
 }

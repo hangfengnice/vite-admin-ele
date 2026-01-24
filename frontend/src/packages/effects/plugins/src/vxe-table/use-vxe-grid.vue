@@ -35,7 +35,7 @@ import {
   isBoolean,
   isEqual,
   mergeWithArrayOverride,
-} from '@/packages/utils'
+} from '@/utils'
 
 import { VbenHelpTooltip, SUILoading } from '@/packages/core/ui-kit/shadcn-ui'
 

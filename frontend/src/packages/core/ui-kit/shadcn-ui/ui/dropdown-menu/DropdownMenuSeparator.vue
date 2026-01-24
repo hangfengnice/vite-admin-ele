@@ -3,7 +3,7 @@ import type { DropdownMenuSeparatorProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { DropdownMenuSeparator } from 'reka-ui'
 

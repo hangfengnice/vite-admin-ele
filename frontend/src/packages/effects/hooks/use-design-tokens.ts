@@ -1,7 +1,8 @@
 import { watch } from 'vue'
 
 import { preferences, usePreferences } from '@/packages/core/preferences/src'
-import { convertToRgb, updateCSSVariables } from '@/packages/utils'
+import { updateCSSVariables } from '@/utils'
+import { convertToRgb } from '@/utils/color'
 
 export function useElementPlusDesignTokens() {
   const { isDark } = usePreferences()

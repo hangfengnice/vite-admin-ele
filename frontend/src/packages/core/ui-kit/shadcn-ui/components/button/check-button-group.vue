@@ -5,12 +5,8 @@ import type { ValueType, SUIButtonGroupProps } from './button'
 
 import { computed, ref, watch } from 'vue'
 
-import {
-  Circle,
-  CircleCheckBig,
-  LoaderCircle,
-} from '@/packages/core/base/icons/src'
-import { cn, isFunction } from '@/packages/core/base/shared/src/utils'
+import { Circle, CircleCheckBig, LoaderCircle } from '@/packages/icons'
+import { cn, isFunction } from '@/utils'
 
 import { objectOmit } from '@vueuse/core'
 

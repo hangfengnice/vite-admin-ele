@@ -8,7 +8,7 @@ import { h, nextTick, ref, render } from 'vue'
 
 import { useSimpleLocale } from '@/packages/core/composables'
 import { Input, VbenRenderContent } from '@/packages/core/ui-kit/shadcn-ui'
-import { isFunction, isString } from '@/packages/core/base/shared/src/utils'
+import { isFunction, isString } from '@/utils'
 
 import Alert from './alert.vue'
 

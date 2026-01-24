@@ -1,4 +1,4 @@
-import { DEFAULT_NAMESPACE } from '@/packages/core/base/shared/src/constants'
+import { DEFAULT_NAMESPACE } from '@/packages/constants'
 
 /**
  * @see copy https://github.com/element-plus/element-plus/blob/dev/packages/hooks/use-namespace/index.ts
@@ -11,7 +11,7 @@ const _bem = (
   block: string,
   blockSuffix: string,
   element: string,
-  modifier: string
+  modifier: string,
 ) => {
   let cls = `${namespace}-${block}`
   if (blockSuffix) {

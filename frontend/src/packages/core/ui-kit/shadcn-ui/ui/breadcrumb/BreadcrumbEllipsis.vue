@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { MoreHorizontal } from 'lucide-vue-next'
 

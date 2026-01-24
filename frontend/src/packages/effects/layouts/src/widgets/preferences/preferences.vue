@@ -4,7 +4,7 @@ import { computed } from 'vue'
 import { Settings } from '@/packages/icons'
 import { $t, loadLocaleMessages } from '@/locales'
 import { preferences, updatePreferences } from '@/packages/core/preferences/src'
-import { capitalizeFirstLetter } from '@/packages/utils'
+import { capitalizeFirstLetter } from '@/utils'
 
 import { useVbenDrawer } from '@/packages/core/ui-kit/popup-ui/src'
 import { SUIButton } from '@/packages/core/ui-kit/shadcn-ui'

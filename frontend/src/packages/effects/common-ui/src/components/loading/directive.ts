@@ -3,7 +3,7 @@ import type { App, Directive, DirectiveBinding } from 'vue'
 import { h, render } from 'vue'
 
 import { SUILoading, VbenSpinner } from '@/packages/core/ui-kit/shadcn-ui'
-import { isString } from '@/packages/core/base/shared/src/utils'
+import { isString } from '@/utils'
 
 const LOADING_INSTANCE_KEY = Symbol('loading')
 const SPINNER_INSTANCE_KEY = Symbol('spinner')

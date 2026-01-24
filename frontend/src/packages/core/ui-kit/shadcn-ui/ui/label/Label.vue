@@ -3,7 +3,7 @@ import type { LabelProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { Label } from 'reka-ui'
 
@@ -22,7 +22,7 @@ const delegatedProps = computed(() => {
     :class="
       cn(
         'text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70',
-        props.class
+        props.class,
       )
     "
   >

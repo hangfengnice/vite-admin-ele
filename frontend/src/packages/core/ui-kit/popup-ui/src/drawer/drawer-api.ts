@@ -1,7 +1,7 @@
 import type { DrawerApiOptions, DrawerState } from './drawer'
 
 import { Store } from '@/packages/core/base/shared/src/store'
-import { bindMethods, isFunction } from '@/packages/core/base/shared/src/utils'
+import { bindMethods, isFunction } from '@/utils'
 
 export class DrawerApi {
   // 共享数据
@@ -71,7 +71,7 @@ export class DrawerApi {
             this.api.onOpenChange?.(!!state?.isOpen)
           }
         },
-      }
+      },
     )
     this.state = this.store.state
     this.api = {
@@ -163,7 +163,7 @@ export class DrawerApi {
   setState(
     stateOrFn:
       | ((prev: DrawerState) => Partial<DrawerState>)
-      | Partial<DrawerState>
+      | Partial<DrawerState>,
   ) {
     if (isFunction(stateOrFn)) {
       this.store.setState(stateOrFn)

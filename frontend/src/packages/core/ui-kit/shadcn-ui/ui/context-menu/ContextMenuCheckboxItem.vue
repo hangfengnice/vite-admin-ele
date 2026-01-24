@@ -6,7 +6,7 @@ import type {
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { Check } from 'lucide-vue-next'
 import {

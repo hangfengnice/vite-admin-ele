@@ -6,7 +6,7 @@ import type { MenuRecordRaw } from '@/packages/types'
 import { onBeforeMount } from 'vue'
 import { useRoute } from 'vue-router'
 
-import { findMenuByPath } from '@/packages/utils'
+import { findMenuByPath } from '@/utils'
 
 import { NormalMenu } from '@/packages/core/ui-kit/menu-ui/src'
 

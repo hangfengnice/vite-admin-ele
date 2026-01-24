@@ -3,7 +3,7 @@ import type { CountToProps } from './types'
 
 import { computed, onMounted, ref, watch } from 'vue'
 
-import { isString } from '@/packages/core/base/shared/src/utils'
+import { isString } from '@/utils'
 
 import { TransitionPresets, useTransition } from '@vueuse/core'
 
@@ -29,7 +29,7 @@ watch(
   () => props.endVal,
   (val) => {
     lastValue.value = val
-  }
+  },
 )
 
 const currentValue = useTransition(lastValue, {

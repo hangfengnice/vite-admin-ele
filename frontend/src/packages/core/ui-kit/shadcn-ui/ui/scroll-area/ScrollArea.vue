@@ -3,7 +3,7 @@ import type { ScrollAreaRootProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { ScrollAreaCorner, ScrollAreaRoot, ScrollAreaViewport } from 'reka-ui'
 
@@ -19,7 +19,7 @@ const props = withDefaults(
   >(),
   {
     onScroll: () => {},
-  }
+  },
 )
 
 const delegatedProps = computed(() => {

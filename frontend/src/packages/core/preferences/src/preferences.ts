@@ -4,8 +4,8 @@ import type { InitialOptions, Preferences } from './types'
 
 import { markRaw, reactive, readonly, watch } from 'vue'
 
-import { StorageManager } from '@/packages/core/base/shared/src/cache'
-import { isMacOs, merge } from '@/packages/core/base/shared/src/utils'
+import { StorageManager } from '@/utils/cache'
+import { isMacOs, merge } from '@/utils'
 
 import {
   breakpointsTailwind,

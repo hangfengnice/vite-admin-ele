@@ -3,7 +3,7 @@ import type { SelectSeparatorProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { SelectSeparator } from 'reka-ui'
 

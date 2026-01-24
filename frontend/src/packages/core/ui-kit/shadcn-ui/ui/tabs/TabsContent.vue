@@ -3,7 +3,7 @@ import type { TabsContentProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { TabsContent } from 'reka-ui'
 
@@ -21,7 +21,7 @@ const delegatedProps = computed(() => {
     :class="
       cn(
         'mt-2 ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2',
-        props.class
+        props.class,
       )
     "
     v-bind="delegatedProps"

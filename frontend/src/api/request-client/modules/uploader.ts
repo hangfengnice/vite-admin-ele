@@ -1,7 +1,7 @@
 import type { RequestClient } from '../request-client'
 import type { RequestClientConfig } from '../types'
 
-import { isUndefined } from '@/packages/utils'
+import { isUndefined } from '@/utils'
 
 class FileUploader {
   private client: RequestClient
@@ -13,7 +13,7 @@ class FileUploader {
   public async upload<T = any>(
     url: string,
     data: Record<string, any> & { file: Blob | File },
-    config?: RequestClientConfig
+    config?: RequestClientConfig,
   ): Promise<T> {
     const formData = new FormData()
 

@@ -4,7 +4,7 @@ import type { ToggleGroupItemProps } from 'reka-ui'
 
 import { computed, inject } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { ToggleGroupItem, useForwardProps } from 'reka-ui'
 
@@ -39,7 +39,7 @@ const forwardedProps = useForwardProps(delegatedProps)
           variant: context?.variant || variant,
           size: context?.size || size,
         }),
-        props.class
+        props.class,
       )
     "
   >

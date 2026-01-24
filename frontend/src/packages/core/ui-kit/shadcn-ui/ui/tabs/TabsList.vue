@@ -3,7 +3,7 @@ import type { TabsListProps } from 'reka-ui'
 
 import { computed } from 'vue'
 
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { cn } from '@/utils'
 
 import { TabsList } from 'reka-ui'
 
@@ -22,7 +22,7 @@ const delegatedProps = computed(() => {
     :class="
       cn(
         'inline-flex h-9 items-center justify-center rounded-md bg-muted p-1 text-muted-foreground',
-        props.class
+        props.class,
       )
     "
   >

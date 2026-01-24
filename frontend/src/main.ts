@@ -1,5 +1,5 @@
 import { initPreferences } from '@/packages/core/preferences/src'
-import { unmountGlobalLoading } from '@/packages/utils'
+import { unmountGlobalLoading } from '@/utils'
 import { overridesPreferences } from './preferences'
 
 // name用于指定项目唯一标识

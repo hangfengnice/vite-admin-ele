@@ -12,12 +12,7 @@ import type {
 import { computed } from 'vue'
 
 import { Form } from '@/packages/core/ui-kit/shadcn-ui'
-import {
-  cn,
-  isFunction,
-  isString,
-  mergeWithArrayOverride,
-} from '@/packages/core/base/shared/src/utils'
+import { cn, isFunction, isString, mergeWithArrayOverride } from '@/utils'
 
 import { provideFormRenderProps } from './context'
 import { useExpandable } from './expandable'
@@ -34,7 +29,7 @@ const props = withDefaults(
     globalCommonConfig: () => ({}),
     showCollapseButton: false,
     wrapperClass: 'grid-cols-1 sm:grid-cols-2 md:grid-cols-3',
-  }
+  },
 )
 
 const emits = defineEmits<{
@@ -159,12 +154,12 @@ const computedSchema = computed(
           'flex-shrink-0',
           { hidden },
           formItemClass,
-          resolvedSchemaFormItemClass
+          resolvedSchemaFormItemClass,
         ),
         labelClass: cn(labelClass, schema.labelClass),
       }
     })
-  }
+  },
 )
 </script>
 

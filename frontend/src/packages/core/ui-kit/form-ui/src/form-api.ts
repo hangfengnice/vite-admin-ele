@@ -24,7 +24,7 @@ import {
   isObject,
   mergeWithArrayOverride,
   StateHandler,
-} from '@/packages/core/base/shared/src/utils'
+} from '@/utils'
 
 function getDefaultState(): VbenFormProps {
   return {
@@ -86,7 +86,7 @@ export class FormApi {
           this.state = this.store.state
           this.updateState()
         },
-      }
+      },
     )
 
     this.state = this.store.state
@@ -100,7 +100,7 @@ export class FormApi {
    * @returns 组件实例
    */
   getFieldComponentRef<T = ComponentPublicInstance>(
-    fieldName: string
+    fieldName: string,
   ): T | undefined {
     let target = this.componentRefMap.has(fieldName)
       ? (this.componentRefMap.get(fieldName) as ComponentPublicInstance)
@@ -190,7 +190,7 @@ export class FormApi {
                   }
                   const rawValues = toRaw((await api.getValues()) || {})
                   return rawValues
-                })
+                }),
               )
               if (needMerge) {
                 const mergedResults = Object.assign({}, ...results)
@@ -241,7 +241,7 @@ export class FormApi {
    */
   async resetForm(
     state?: Partial<FormState<GenericObject>> | undefined,
-    opts?: Partial<ResetFormOpts>
+    opts?: Partial<ResetFormOpts>,
   ) {
     const form = await this.getForm()
     return form.resetForm(state, opts)
@@ -269,7 +269,7 @@ export class FormApi {
     }
 
     let el = document.querySelector(
-      `[name="${firstErrorFieldName}"]`
+      `[name="${firstErrorFieldName}"]`,
     ) as HTMLElement
 
     // 如果通过 name 属性找不到，尝试通过组件引用查找, 正常情况下不会走到这，怕哪天 vee-validate 改了 name 属性有个兜底的
@@ -302,7 +302,7 @@ export class FormApi {
   setState(
     stateOrFn:
       | ((prev: VbenFormProps) => Partial<VbenFormProps>)
-      | Partial<VbenFormProps>
+      | Partial<VbenFormProps>,
   ) {
     if (isFunction(stateOrFn)) {
       this.store.setState((prev) => {
@@ -322,7 +322,7 @@ export class FormApi {
   async setValues(
     fields: Record<string, any>,
     filterFields: boolean = true,
-    shouldValidate: boolean = false
+    shouldValidate: boolean = false,
   ) {
     const form = await this.getForm()
     if (!filterFields) {
@@ -374,12 +374,12 @@ export class FormApi {
   updateSchema(schema: Partial<FormSchema>[]) {
     const updated: Partial<FormSchema>[] = [...schema]
     const hasField = updated.every(
-      (item) => Reflect.has(item, 'fieldName') && item.fieldName
+      (item) => Reflect.has(item, 'fieldName') && item.fieldName,
     )
 
     if (!hasField) {
       console.error(
-        'All items in the schema array must have a valid `fieldName` property to be updated'
+        'All items in the schema array must have a valid `fieldName` property to be updated',
       )
       return
     }
@@ -398,7 +398,7 @@ export class FormApi {
       if (updatedData) {
         currentSchema[index] = mergeWithArrayOverride(
           updatedData,
-          schema
+          schema,
         ) as FormSchema
       }
     })
@@ -475,7 +475,7 @@ export class FormApi {
           // 处理复杂分隔符的情况
           const escapedSeparator = sep.replaceAll(
             /[.*+?^${}()|[\]\\]/g,
-            String.raw`\$&`
+            String.raw`\$&`,
           )
           return value.split(new RegExp(escapedSeparator))
         } else {
@@ -503,7 +503,7 @@ export class FormApi {
         // 根据类型定义，fields 应该始终是字符串数组
         if (!Array.isArray(fields)) {
           console.warn(
-            `Invalid field configuration: fields should be an array of strings, got ${typeof fields}`
+            `Invalid field configuration: fields should be an array of strings, got ${typeof fields}`,
           )
           return
         }
@@ -557,7 +557,7 @@ export class FormApi {
         }
         // delete values[field];
         Reflect.deleteProperty(values, field)
-      }
+      },
     )
     return values
   }
@@ -566,7 +566,7 @@ export class FormApi {
     fields: string[],
     separator: string,
     originValues: Record<string, any>,
-    transformFn: (value: any, separator: string) => any
+    transformFn: (value: any, separator: string) => any,
   ) => {
     fields.forEach((field) => {
       const value = originValues[field]
@@ -584,7 +584,7 @@ export class FormApi {
     if (currentSchema.length < prevSchema.length) {
       const currentFields = new Set(currentSchema.map((item) => item.fieldName))
       const deletedSchema = prevSchema.filter(
-        (item) => !currentFields.has(item.fieldName)
+        (item) => !currentFields.has(item.fieldName),
       )
       for (const schema of deletedSchema) {
         this.form?.setFieldValue?.(schema.fieldName, undefined)

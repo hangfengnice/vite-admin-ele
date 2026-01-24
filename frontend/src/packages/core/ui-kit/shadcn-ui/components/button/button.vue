@@ -3,8 +3,8 @@ import type { SUIButtonProps } from './button'
 
 import { computed } from 'vue'
 
-import { LoaderCircle } from '@/packages/core/base/icons/src'
-import { cn } from '@/packages/core/base/shared/src/utils'
+import { LoaderCircle } from '@/packages/icons'
+import { cn } from '@/utils'
 
 import { Primitive } from 'reka-ui'
 
