@@ -1,26 +1,10 @@
 import type { Config } from 'tailwindcss'
-
 import path from 'node:path'
-
 import { addDynamicIconSelectors } from '@iconify/tailwind'
-import { getPackagesSync } from '@manypkg/get-packages'
 import typographyPlugin from '@tailwindcss/typography'
 import animate from 'tailwindcss-animate'
 
-import { enterAnimationPlugin } from './plugins/entry'
-
 // import defaultTheme from 'tailwindcss/defaultTheme';
-
-const { packages } = getPackagesSync(process.cwd())
-
-const tailwindPackages: string[] = []
-
-packages.forEach((pkg) => {
-  // apps目录下和 @vben-core/tailwind-ui 包需要使用到 tailwindcss ui
-  // if (fs.existsSync(path.join(pkg.dir, 'tailwind.config.mjs'))) {
-  tailwindPackages.push(pkg.dir)
-  // }
-})
 
 const shadcnUiColors = {
   accent: {
@@ -117,18 +101,11 @@ const customColors = {
 
 export default {
   content: [
-    './index.html',
-    ...tailwindPackages.map((item) =>
-      path.join(item, 'src/**/*.{vue,js,ts,jsx,tsx,svelte,astro,html}')
-    ),
+    path.resolve(__dirname, 'index.html'),
+    path.resolve(__dirname, 'src/**/*.{vue,js,ts,jsx,tsx,html}'),
   ],
   darkMode: 'selector',
-  plugins: [
-    animate,
-    typographyPlugin,
-    addDynamicIconSelectors(),
-    enterAnimationPlugin,
-  ],
+  plugins: [animate, typographyPlugin, addDynamicIconSelectors()],
   prefix: '',
   theme: {
     container: {

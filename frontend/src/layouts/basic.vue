@@ -4,7 +4,7 @@ import type { NotificationItem } from '@/packages/effects/layouts'
 import { computed, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { AuthenticationLoginExpiredModal } from '@/views/_core/authentication/login-expired-modal.vue'
+import AuthenticationLoginExpiredModal from '@/views/_core/authentication/login-expired-modal.vue'
 import { VBEN_DOC_URL, VBEN_GITHUB_URL } from '@/packages/constants'
 import { useWatermark } from '@/packages/effects/hooks'
 import { BookOpenText, CircleHelp, SvgGithubIcon } from '@/packages/icons'

@@ -159,3 +159,88 @@ html.invert-mode {
 html.grayscale-mode {
   @apply grayscale;
 }
+
+@layer utilities {
+  /* keyframes */
+  @keyframes enter-x {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes enter-y {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* base state */
+  .enter-x,
+  .-enter-x,
+  .enter-y,
+  .-enter-y {
+    opacity: 0;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
+  .enter-x {
+    transform: translateX(50px);
+    animation-name: enter-x;
+  }
+
+  .-enter-x {
+    transform: translateX(-50px);
+    animation-name: enter-x;
+  }
+
+  .enter-y {
+    transform: translateY(50px);
+    animation-name: enter-y;
+  }
+
+  .-enter-y {
+    transform: translateY(-50px);
+    animation-name: enter-y;
+  }
+
+  /* stagger */
+  .enter-x:nth-child(1),
+  .enter-y:nth-child(1),
+  .-enter-x:nth-child(1),
+  .-enter-y:nth-child(1) {
+    animation-delay: 0.1s;
+  }
+
+  .enter-x:nth-child(2),
+  .enter-y:nth-child(2),
+  .-enter-x:nth-child(2),
+  .-enter-y:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .enter-x:nth-child(3),
+  .enter-y:nth-child(3),
+  .-enter-x:nth-child(3),
+  .-enter-y:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  .enter-x:nth-child(4),
+  .enter-y:nth-child(4),
+  .-enter-x:nth-child(4),
+  .-enter-y:nth-child(4) {
+    animation-delay: 0.4s;
+  }
+
+  .enter-x:nth-child(5),
+  .enter-y:nth-child(5),
+  .-enter-x:nth-child(5),
+  .-enter-y:nth-child(5) {
+    animation-delay: 0.5s;
+  }
+}
+

@@ -78,10 +78,5 @@
       }
     }
   },
-  "dependencies": {
-    "@ctrl/tinycolor": "catalog:",
-    "@vue/shared": "catalog:",
-    "defu": "catalog:"
-  },
   "devDependencies": {}
 }

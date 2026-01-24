@@ -1,11 +1,13 @@
 #!/bin/bash
 
 # ==== 配置部分 ====
-SERVER_IP="你的公网ip"              # ECS 公网 IP
-SERVER_USER="root"                     # 登录用户名
+SERVER_IP="112.124.38.17"              # ECS 公网 IP
+SERVER_USER="root"                     # 数据库用户名
 FRONTEND_DIR="frontend"                # 本地前端目录
-BACKEND_DIR="backend"                  # 本地后端目录
-LOCAL_BUILD_DIR="$FRONTEND_DIR/dist"   # 打包输出目录（Vue）或 build（React）
+
+ROOT_DIR="$(pwd)"
+BACKEND_DIR="$ROOT_DIR/backend"                  # 本地后端目录
+LOCAL_BUILD_DIR="$ROOT_DIR/$FRONTEND_DIR/dist"   # 打包输出目录（Vue）或 build（React）
 REMOTE_FRONTEND_DIR="/var/www/html"    # 服务器前端目录
 REMOTE_BACKEND_DIR="/var/www/node-api" # 服务器后端目录
 BACKEND_PORT=3000                       # Node.js 后端端口
@@ -14,8 +16,7 @@ REMOTE_LOG_FILE="/var/log/deploy.log"  # 部署日志文件
 
 # ==== 1. 打包前端 ====
 echo "🚀 打包前端..."
-cd $FRONTEND_DIR
-npm run build
+pnpm --filter frontend run build
 if [ $? -ne 0 ]; then
   echo "❌ 前端打包失败，退出"
   exit 1

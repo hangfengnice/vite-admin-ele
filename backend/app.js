@@ -113,14 +113,13 @@ app.delete('/api/users/:id', (req, res) => {
   R.success(res, { message: 'ok' })
 })
 
-// 登录
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body
 
   console.log(req, res, 'rs')
 
   const user = users.find(
-    (u) => u.username === username && u.password === password
+    (u) => u.username === username && u.password === password,
   )
   if (!user) return res.status(401).json({ message: '用户名或密码错误' })
 

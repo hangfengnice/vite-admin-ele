@@ -32,11 +32,11 @@ class PreferenceManager {
   constructor() {
     this.cache = new StorageManager()
     this.state = reactive<Preferences>(
-      this.loadFromCache() || { ...defaultPreferences }
+      this.loadFromCache() || { ...defaultPreferences },
     )
     this.debouncedSave = useDebounceFn(
       (preference) => this.saveToCache(preference),
-      150
+      150,
     )
   }
 
@@ -67,7 +67,7 @@ class PreferenceManager {
    * @param options.namespace - 命名空间，用于隔离不同应用的配置
    * @param options.overrides - 要覆盖的偏好设置
    */
-  initPreferences = async ({ namespace, overrides }: InitialOptions) => {
+  initPreferences = ({ namespace, overrides }: InitialOptions) => {
     // 防止重复初始化
     if (this.isInitialized) {
       return
@@ -84,7 +84,7 @@ class PreferenceManager {
     const mergedPreference = merge(
       {},
       cachedPreferences,
-      this.initialPreferences
+      this.initialPreferences,
     )
 
     // 更新偏好设置
@@ -195,7 +195,7 @@ class PreferenceManager {
           app: { isMobile: val },
         })
       },
-      { immediate: true }
+      { immediate: true },
     )
 
     // 监听系统主题偏好设置变化

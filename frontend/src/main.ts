@@ -9,7 +9,7 @@ const appVersion = import.meta.env.VITE_APP_VERSION
 const namespace = `${import.meta.env.VITE_APP_NAMESPACE}-${appVersion}-${env}`
 
 // app偏好设置初始化
-await initPreferences({
+initPreferences({
   namespace,
   overrides: overridesPreferences,
 })
