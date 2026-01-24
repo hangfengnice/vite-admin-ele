@@ -4,19 +4,12 @@
  */
 
 import type { Component } from 'vue'
-
 import type { BaseFormComponentType } from '@/packages/effects/common-ui/src'
 import type { Recordable } from '@/packages/types'
 
 import { defineAsyncComponent, defineComponent, h, ref } from 'vue'
-
-import {
-  ApiComponent,
-  globalShareState,
-  IconPicker,
-} from '@/packages/effects/common-ui/src'
-import { $t } from '@/locales'
-
+import { ApiComponent, IconPicker } from '@/packages/effects/common-ui/src'
+import { globalShareState } from '@/packages/core/base/shared/src/global-state'
 import { ElNotification } from 'element-plus'
 
 const ElButton = defineAsyncComponent(() =>
@@ -174,7 +167,7 @@ export type ComponentType =
   | 'Upload'
   | BaseFormComponentType
 
-async function initComponentAdapter() {
+function initComponentAdapter() {
   const components: Partial<Record<ComponentType, Component>> = {
     // 如果你的组件体积比较大，可以使用异步加载
     // Button: () =>

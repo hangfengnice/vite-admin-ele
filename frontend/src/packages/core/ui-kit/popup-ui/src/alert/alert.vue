@@ -5,7 +5,7 @@ import type { AlertProps } from './alert'
 
 import { computed, h, nextTick, ref } from 'vue'
 
-import { useSimpleLocale } from '@/packages/core/composables/src'
+import { useSimpleLocale } from '@/packages/core/composables'
 import {
   CircleAlert,
   CircleCheckBig,
@@ -22,7 +22,7 @@ import {
   AlertDialogDescription,
   AlertDialogTitle,
   SUIButton,
-  VbenLoading,
+  SUILoading,
   VbenRenderContent,
 } from '@/packages/core/ui-kit/shadcn-ui'
 import { globalShareState } from '@/packages/core/base/shared/src/global-state'
@@ -177,7 +177,7 @@ async function handleOpenChange(val: boolean) {
           <div class="m-4 min-h-[30px]">
             <VbenRenderContent :content="content" render-br />
           </div>
-          <VbenLoading v-if="loading && contentMasking" :spinning="loading" />
+          <SUILoading v-if="loading && contentMasking" :spinning="loading" />
         </AlertDialogDescription>
         <div
           class="flex items-center justify-end gap-x-2"

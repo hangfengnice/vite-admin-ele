@@ -22,7 +22,7 @@ import {
   X,
 } from '@/packages/icons'
 import { $t, useI18n } from '@/locales'
-import { getTabKey, useAccessStore, useTabbarStore } from '@/packages/stores'
+import { getTabKey, useAccessStore, useTabbarStore } from '@/stores'
 import { filterTree } from '@/packages/utils'
 
 export function useTabbar() {

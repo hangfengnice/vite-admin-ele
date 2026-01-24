@@ -9,7 +9,7 @@ import { computed } from 'vue'
 import { RouterView } from 'vue-router'
 
 import { preferences, usePreferences } from '@/packages/core/preferences/src'
-import { getTabKey, storeToRefs, useTabbarStore } from '@/packages/stores'
+import { getTabKey, storeToRefs, useTabbarStore } from '@/stores'
 
 import { IFrameRouterView } from '../../iframe'
 

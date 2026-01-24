@@ -9,7 +9,7 @@ import {
   SCROLL_FIXED_CLASS,
   useLayoutFooterStyle,
   useLayoutHeaderStyle,
-} from '@/packages/core/composables/src'
+} from '@/packages/core/composables'
 import { IconifyIcon } from '@/packages/core/base/icons/src'
 import { SUIIconButton } from '@/packages/core/ui-kit/shadcn-ui'
 import { ELEMENT_ID_MAIN_CONTENT } from '@/packages/core/base/shared/src/constants'

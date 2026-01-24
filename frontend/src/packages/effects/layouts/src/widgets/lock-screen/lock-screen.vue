@@ -3,9 +3,9 @@ import { computed, reactive, ref } from 'vue'
 
 import { LockKeyhole } from '@/packages/icons'
 import { $t, useI18n } from '@/locales'
-import { storeToRefs, useAccessStore } from '@/packages/stores'
+import { storeToRefs, useAccessStore } from '@/stores'
 
-import { useScrollLock } from '@/packages/core/composables/src'
+import { useScrollLock } from '@/packages/core/composables'
 import { useVbenForm, z } from '@/packages/core/ui-kit/form-ui/src'
 import { VbenAvatar, SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 

@@ -9,7 +9,7 @@ import { useHoverToggle } from '@/packages/effects/hooks'
 import { LockKeyhole, LogOut } from '@/packages/icons'
 import { $t } from '@/locales'
 import { preferences, usePreferences } from '@/packages/core/preferences/src'
-import { useAccessStore } from '@/packages/stores'
+import { useAccessStore } from '@/stores'
 import { isWindowsOs } from '@/packages/utils'
 
 import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'

@@ -24,7 +24,7 @@
     "@/packages/effects/hooks": "workspace:*",
     "@/locales": "workspace:*",
     "@/packages/core/preferences": "workspace:*",
-    "@/packages/stores": "workspace:*",
+    "@/stores": "workspace:*",
     "@/packages/types": "workspace:*",
     "@/packages/utils": "workspace:*",
     "@vueuse/core": "catalog:"

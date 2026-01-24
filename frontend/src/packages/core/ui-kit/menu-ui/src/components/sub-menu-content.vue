@@ -3,7 +3,7 @@ import type { MenuItemProps } from '../types'
 
 import { computed } from 'vue'
 
-import { useNamespace } from '@/packages/core/composables/src'
+import { useNamespace } from '@/packages/core/composables'
 import { ChevronDown, ChevronRight } from '@/packages/core/base/icons/src'
 import { SUIIcon } from '@/packages/core/ui-kit/shadcn-ui'
 

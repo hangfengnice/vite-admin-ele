@@ -7,7 +7,7 @@ import {
   useIsMobile,
   usePriorityValues,
   useSimpleLocale,
-} from '@/packages/core/composables/src'
+} from '@/packages/core/composables'
 import { X } from '@/packages/core/base/icons/src'
 import {
   Separator,
@@ -21,7 +21,7 @@ import {
   SUIButton,
   VbenHelpTooltip,
   SUIIconButton,
-  VbenLoading,
+  SUILoading,
   VisuallyHidden,
 } from '@/packages/core/ui-kit/shadcn-ui'
 import { ELEMENT_ID_MAIN_CONTENT } from '@/packages/core/base/shared/src/constants'
@@ -282,7 +282,7 @@ const getForceMount = computed(() => {
       >
         <slot></slot>
       </div>
-      <VbenLoading v-if="showLoading || submitting" spinning />
+      <SUILoading v-if="showLoading || submitting" spinning />
       <SheetFooter
         v-if="showFooter"
         :class="

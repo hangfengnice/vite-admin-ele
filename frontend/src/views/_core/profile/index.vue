@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 
 import { Profile } from '@/packages/effects/common-ui/src'
-import { useUserStore } from '@/packages/stores'
+import { useUserStore } from '@/stores'
 
 import ProfileBase from './base-setting.vue'
 import ProfileNotificationSetting from './notification-setting.vue'

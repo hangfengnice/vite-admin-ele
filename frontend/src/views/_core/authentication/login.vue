@@ -8,7 +8,7 @@ import type { AuthenticationProps } from './components/types'
 
 import { markRaw, onMounted, reactive, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
-import { useAuthStore } from '@/store'
+import { useAuthStore } from '@/stores'
 import { $t } from '@/locales'
 import { SliderCaptcha, z } from '@/packages/effects/common-ui/src'
 import Title from './components/auth-title.vue'

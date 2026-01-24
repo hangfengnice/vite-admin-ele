@@ -3,7 +3,7 @@ import { createApp, watchEffect } from 'vue'
 import { registerAccessDirective } from './packages/effects/access'
 import { registerLoadingDirective } from '@/packages/effects/common-ui/src'
 import { preferences } from './packages/core/preferences/src'
-import { initStores } from './packages/stores'
+import { initStores } from './stores'
 import './packages/styles/src/ele/index.css'
 import '@/style/tailwind.css'
 import './packages/styles/src/index'
@@ -12,6 +12,7 @@ import './packages/styles/src/index'
 
 import { useTitle } from '@vueuse/core'
 import { ElLoading } from 'element-plus'
+import 'element-plus/theme-chalk/el-loading.css'
 
 import { $t, setupI18nEle } from './locales'
 
@@ -22,10 +23,10 @@ import { router } from './router'
 
 async function bootstrap(namespace: string) {
   // 初始化组件适配器
-  await initComponentAdapter()
+  initComponentAdapter()
 
   // 初始化表单组件
-  await initSetupVbenForm()
+  initSetupVbenForm()
 
   // // 设置弹窗的默认配置
   // setDefaultModalProps({

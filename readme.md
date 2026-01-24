@@ -8,6 +8,8 @@
 
 这是一个前后端分离的 monorepo 示例项目，使用 **pnpm workspace** 管理前端（Vite + Tailwind + shadcn-ui）和后端（Node/Express 或自定义后端）。
 
+[当前项目公网地址](http://112.124.38.17/auth/login)
+
 ## 项目结构
 
 ```

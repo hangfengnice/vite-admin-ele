@@ -37,7 +37,7 @@ import {
   mergeWithArrayOverride,
 } from '@/packages/utils'
 
-import { VbenHelpTooltip, VbenLoading } from '@/packages/core/ui-kit/shadcn-ui'
+import { VbenHelpTooltip, SUILoading } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { VxeButton } from 'vxe-pc-ui'
 import { VxeGrid, VxeUI } from 'vxe-table'
@@ -464,7 +464,7 @@ onUnmounted(() => {
       <!-- loading -->
       <template #loading>
         <slot name="loading">
-          <VbenLoading :spinning="true" />
+          <SUILoading :spinning="true" />
         </slot>
       </template>
       <!-- 统一控状态 -->

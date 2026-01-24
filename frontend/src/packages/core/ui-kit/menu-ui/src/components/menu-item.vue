@@ -3,7 +3,7 @@ import type { MenuItemProps, MenuItemRegistered } from '../types'
 
 import { computed, onBeforeUnmount, onMounted, reactive, useSlots } from 'vue'
 
-import { useNamespace } from '@/packages/core/composables/src'
+import { useNamespace } from '@/packages/core/composables'
 import { SUIIcon, VbenTooltip } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { MenuBadge } from '../components'

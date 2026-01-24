@@ -5,7 +5,7 @@ import { computed, ref } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { preferences } from '@/packages/core/preferences/src'
-import { useTabbarStore } from '@/packages/stores'
+import { useTabbarStore } from '@/stores'
 
 import { VbenSpinner } from '@/packages/core/ui-kit/shadcn-ui'
 

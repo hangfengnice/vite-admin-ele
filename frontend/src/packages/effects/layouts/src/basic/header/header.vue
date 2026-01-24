@@ -4,7 +4,7 @@ import { computed, useSlots } from 'vue'
 import { useRefresh } from '@/packages/effects/hooks'
 import { RotateCw } from '@/packages/icons'
 import { preferences, usePreferences } from '@/packages/core/preferences/src'
-import { useAccessStore } from '@/packages/stores'
+import { useAccessStore } from '@/stores'
 
 import { VbenFullScreen, SUIIconButton } from '@/packages/core/ui-kit/shadcn-ui'
 

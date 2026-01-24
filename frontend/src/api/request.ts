@@ -10,11 +10,11 @@ import {
   errorMessageResponseInterceptor,
   RequestClient,
 } from './request-client'
-import { useAccessStore } from '@/packages/stores'
+import { useAccessStore } from '@/stores'
 
 import { ElMessage } from 'element-plus'
 
-import { useAuthStore } from '@/store'
+import { useAuthStore } from '@/stores'
 
 import { refreshTokenApi } from './core'
 

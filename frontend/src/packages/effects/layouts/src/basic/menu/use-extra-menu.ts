@@ -6,7 +6,7 @@ import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { preferences } from '@/packages/core/preferences/src'
-import { useAccessStore } from '@/packages/stores'
+import { useAccessStore } from '@/stores'
 import { findRootMenuByPath } from '@/packages/utils'
 
 import { useNavigation } from './use-navigation'

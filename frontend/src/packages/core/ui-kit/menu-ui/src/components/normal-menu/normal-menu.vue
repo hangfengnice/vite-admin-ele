@@ -3,7 +3,7 @@ import type { MenuRecordRaw } from '@/packages/core/base/typings'
 
 import type { NormalMenuProps } from './normal-menu'
 
-import { useNamespace } from '@/packages/core/composables/src'
+import { useNamespace } from '@/packages/core/composables'
 import { SUIIcon } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props extends NormalMenuProps {}

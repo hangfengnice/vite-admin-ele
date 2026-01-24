@@ -2,7 +2,7 @@ import type { App, Directive, DirectiveBinding } from 'vue'
 
 import { h, render } from 'vue'
 
-import { VbenLoading, VbenSpinner } from '@/packages/core/ui-kit/shadcn-ui'
+import { SUILoading, VbenSpinner } from '@/packages/core/ui-kit/shadcn-ui'
 import { isString } from '@/packages/core/base/shared/src/utils'
 
 const LOADING_INSTANCE_KEY = Symbol('loading')
@@ -12,7 +12,7 @@ const CLASS_NAME_RELATIVE = 'spinner-parent--relative'
 
 const loadingDirective: Directive = {
   mounted(el, binding) {
-    const instance = h(VbenLoading, getOptions(binding))
+    const instance = h(SUILoading, getOptions(binding))
     render(instance, el)
 
     el.classList.add(CLASS_NAME_RELATIVE)
@@ -100,7 +100,7 @@ type loadingDirectiveParams = {
  */
 export function registerLoadingDirective(
   app: App,
-  params?: loadingDirectiveParams
+  params?: loadingDirectiveParams,
 ) {
   // 注入一个样式供指令使用，确保容器是相对定位
   const style = document.createElement('style')
@@ -114,13 +114,13 @@ export function registerLoadingDirective(
   if (params?.loading !== false) {
     app.directive(
       isString(params?.loading) ? params.loading : 'loading',
-      loadingDirective
+      loadingDirective,
     )
   }
   if (params?.spinning !== false) {
     app.directive(
       isString(params?.spinning) ? params.spinning : 'spinning',
-      spinningDirective
+      spinningDirective,
     )
   }
 }

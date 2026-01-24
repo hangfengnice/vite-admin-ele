@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, toRaw, unref, watch } from 'vue'
 
-import { useSimpleLocale } from '@/packages/core/composables/src'
+import { useSimpleLocale } from '@/packages/core/composables'
 import { VbenExpandableArrow } from '@/packages/core/ui-kit/shadcn-ui'
 import {
   cn,

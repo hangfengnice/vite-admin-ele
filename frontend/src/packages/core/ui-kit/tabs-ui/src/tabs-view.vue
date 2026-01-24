@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { TabsEmits, TabsProps } from './types'
 
-import { useForwardPropsEmits } from '@/packages/core/composables/src'
+import { useForwardPropsEmits } from '@/packages/core/composables'
 import { ChevronLeft, ChevronRight } from '@/packages/core/base/icons/src'
 import { VbenScrollbar } from '@/packages/core/ui-kit/shadcn-ui'
 

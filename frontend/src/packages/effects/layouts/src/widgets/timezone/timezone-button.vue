@@ -3,7 +3,7 @@ import { ref, unref } from 'vue'
 
 import { createIconifyIcon } from '@/packages/icons'
 import { $t } from '@/locales'
-import { useTimezoneStore } from '@/packages/stores'
+import { useTimezoneStore } from '@/stores'
 
 import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 import {

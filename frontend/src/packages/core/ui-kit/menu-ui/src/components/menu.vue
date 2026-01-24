@@ -21,7 +21,7 @@ import {
   watchEffect,
 } from 'vue'
 
-import { useNamespace } from '@/packages/core/composables/src'
+import { useNamespace } from '@/packages/core/composables'
 import { Ellipsis } from '@/packages/core/base/icons/src'
 
 import { useResizeObserver } from '@vueuse/core'

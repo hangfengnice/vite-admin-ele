@@ -6,7 +6,7 @@ import type { ExtendedFormApi, VbenFormProps } from './types'
 // import { toRaw, watch } from 'vue';
 import { nextTick, onMounted, watch } from 'vue'
 
-import { useForwardPriorityValues } from '@/packages/core/composables/src'
+import { useForwardPriorityValues } from '@/packages/core/composables'
 import {
   cloneDeep,
   get,

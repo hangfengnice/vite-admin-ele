@@ -16,7 +16,7 @@ import {
   useIsMobile,
   usePriorityValues,
   useSimpleLocale,
-} from '@/packages/core/composables/src'
+} from '@/packages/core/composables'
 import { Expand, Shrink } from '@/packages/core/base/icons/src'
 import {
   Dialog,
@@ -28,7 +28,7 @@ import {
   SUIButton,
   VbenHelpTooltip,
   SUIIconButton,
-  VbenLoading,
+  SUILoading,
   VisuallyHidden,
 } from '@/packages/core/ui-kit/shadcn-ui'
 import { ELEMENT_ID_MAIN_CONTENT } from '@/packages/core/base/shared/src/constants'
@@ -313,7 +313,7 @@ function handleClosed() {
       >
         <slot></slot>
       </div>
-      <VbenLoading v-if="showLoading || submitting" spinning />
+      <SUILoading v-if="showLoading || submitting" spinning />
       <SUIIconButton
         v-if="fullscreenButton"
         class="flex-center absolute right-10 top-3 hidden size-6 rounded-full px-1 text-lg text-foreground/80 opacity-70 transition-opacity hover:bg-accent hover:text-accent-foreground hover:opacity-100 focus:outline-none disabled:pointer-events-none sm:block"

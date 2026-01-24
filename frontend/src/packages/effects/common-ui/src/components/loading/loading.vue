@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-import { VbenLoading } from '@/packages/core/ui-kit/shadcn-ui'
+defineOptions({ name: 'Loading' })
+
+import { SUILoading } from '@/packages/core/ui-kit/shadcn-ui'
 import { cn } from '@/packages/core/base/shared/src/utils'
 
 interface LoadingProps {
@@ -20,13 +22,12 @@ interface LoadingProps {
   text?: string
 }
 
-defineOptions({ name: 'Loading' })
 const props = defineProps<LoadingProps>()
 </script>
 <template>
   <div :class="cn('relative min-h-20', props.class)">
     <slot></slot>
-    <VbenLoading
+    <SUILoading
       :min-loading-time="props.minLoadingTime"
       :spinning="props.spinning"
       :text="props.text"
@@ -34,6 +35,6 @@ const props = defineProps<LoadingProps>()
       <template v-if="$slots.icon" #icon>
         <slot name="icon"></slot>
       </template>
-    </VbenLoading>
+    </SUILoading>
   </div>
 </template>

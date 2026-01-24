@@ -3,7 +3,7 @@ import type { MenuRecordRaw } from '@/packages/core/base/typings'
 
 import type { MenuProps } from './types'
 
-import { useForwardProps } from '@/packages/core/composables/src'
+import { useForwardProps } from '@/packages/core/composables'
 
 import { Menu } from './components'
 import SubMenu from './sub-menu.vue'

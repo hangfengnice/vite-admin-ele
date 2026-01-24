@@ -25,7 +25,7 @@ export {
   VbenCountToAnimator,
   VbenFullScreen,
   VbenInputPassword,
-  VbenLoading,
+  SUILoading,
   VbenLogo,
   VbenPinInput,
   VbenSelect,
@@ -33,4 +33,3 @@ export {
 } from '@/packages/core/ui-kit/shadcn-ui'
 
 export type { FlattenedItem } from '@/packages/core/ui-kit/shadcn-ui'
-export { globalShareState } from '@/packages/core/base/shared/src/global-state'

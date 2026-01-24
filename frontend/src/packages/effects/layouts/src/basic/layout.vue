@@ -14,11 +14,7 @@ import {
   updatePreferences,
   usePreferences,
 } from '@/packages/core/preferences/src'
-import {
-  useAccessStore,
-  useTabbarStore,
-  useTimezoneStore,
-} from '@/packages/stores'
+import { useAccessStore, useTabbarStore, useTimezoneStore } from '@/stores'
 import { cloneDeep, mapTree } from '@/packages/utils'
 
 import { VbenAdminLayout } from '@/packages/core/ui-kit/layout-ui/src'

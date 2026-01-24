@@ -5,7 +5,7 @@ import type { MenuItemRegistered, MenuProvider, SubMenuProps } from '../types'
 
 import { computed, onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 
-import { useNamespace } from '@/packages/core/composables/src'
+import { useNamespace } from '@/packages/core/composables'
 import { VbenHoverCard } from '@/packages/core/ui-kit/shadcn-ui'
 
 import {
