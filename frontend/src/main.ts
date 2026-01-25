@@ -1,6 +1,6 @@
 import { initPreferences } from '@/packages/core/preferences/src'
 import { unmountGlobalLoading } from '@/utils'
-import { overridesPreferences } from './preferences'
+import { overridesPreferences } from './utils/preferences'
 
 // name用于指定项目唯一标识
 // 用于区分不同项目的偏好设置以及存储数据的key前缀以及其他一些需要隔离的数据

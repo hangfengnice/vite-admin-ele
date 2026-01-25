@@ -5,9 +5,9 @@ import { registerLoadingDirective } from '@/packages/effects/common-ui/src'
 import { preferences } from './packages/core/preferences/src'
 import { initStores } from './stores'
 
-import '@/style/tailwind.css'
+import './packages/style/tailwind.css'
 import './packages/core/base/design/src/index'
-import './style/ele.css'
+import './packages/style/ele.css'
 
 // import '@/packages/icons/register'
 
@@ -17,8 +17,8 @@ import 'element-plus/theme-chalk/el-loading.css'
 
 import { $t, setupI18nEle } from './locales'
 
-import { initComponentAdapter } from './adapter/component'
-import { initSetupVbenForm } from './adapter/form'
+import { initComponentAdapter } from './packages/adapter/component'
+import { initSetupVbenForm } from './packages/adapter/form'
 import App from './app.vue'
 import { router } from './router'
 

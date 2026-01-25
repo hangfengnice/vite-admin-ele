@@ -12,7 +12,7 @@ import { useAuthStore } from '@/stores'
 import { $t } from '@/locales'
 import { SliderCaptcha, z } from '@/packages/effects/common-ui/src'
 import Title from './components/auth-title.vue'
-import ThirdPartyLogin from './third-party-login.vue'
+import ThirdPartyLogin from './components/third-party-login.vue'
 import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
 import { SUIButton, VbenCheckbox } from '@/packages/core/ui-kit/shadcn-ui'
 

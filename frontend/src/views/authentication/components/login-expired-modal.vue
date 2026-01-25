@@ -3,7 +3,7 @@ defineOptions({
   name: 'LoginExpiredModal',
 })
 
-import type { AuthenticationProps } from './components/types'
+import type { AuthenticationProps } from './types'
 import { computed, watch } from 'vue'
 import { $t } from '@/locales'
 import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
