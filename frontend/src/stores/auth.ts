@@ -12,7 +12,8 @@ import { useAccessStore } from '@/stores/modules/access'
 import { ElNotification } from 'element-plus'
 import { defineStore } from 'pinia'
 
-import { getAccessCodesApi, getUserInfoApi, loginApi, logoutApi } from '@/api'
+import { getUserInfoApi } from '@/api/core/user'
+import { getAccessCodesApi, loginApi, logoutApi } from '@/api/core/auth'
 import { $t } from '@/locales'
 
 export const useAuthStore = defineStore('auth', () => {
@@ -35,23 +36,29 @@ export const useAuthStore = defineStore('auth', () => {
     let userInfo: null | UserInfo = null
     try {
       loginLoading.value = true
-      const { accessToken } = await loginApi(params)
-
-      // 如果成功获取到 accessToken
-      if (accessToken) {
+      const user = await loginApi(params)
+      let { token } = user
+      // 如果成功获取到 token
+      if (token) {
         // 将 accessToken 存储到 accessStore 中
-        accessStore.setAccessToken(accessToken)
+        accessStore.setAccessToken(token)
 
         // 获取用户信息并存储到 accessStore 中
-        const [fetchUserInfoResult, accessCodes] = await Promise.all([
-          fetchUserInfo(),
-          getAccessCodesApi(),
-        ])
+        // const [fetchUserInfoResult, accessCodes] = await Promise.all([
+        //   fetchUserInfo(),
+        //   getAccessCodesApi(),
+        // ])
 
-        userInfo = fetchUserInfoResult
+        userInfo = user
 
         userStore.setUserInfo(userInfo)
-        accessStore.setAccessCodes(accessCodes)
+        // accessStore.setAccessCodes(accessCodes)
+        accessStore.setAccessCodes([
+          'AC_100100',
+          'AC_100110',
+          'AC_100120',
+          'AC_100010',
+        ])
 
         if (accessStore.loginExpired) {
           accessStore.setLoginExpired(false)
@@ -59,7 +66,7 @@ export const useAuthStore = defineStore('auth', () => {
           onSuccess
             ? await onSuccess?.()
             : await router.push(
-                userInfo.homePath || preferences.app.defaultHomePath,
+                userInfo?.homePath || preferences.app.defaultHomePath,
               )
         }
 

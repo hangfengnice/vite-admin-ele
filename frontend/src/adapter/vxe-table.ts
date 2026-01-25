@@ -1,11 +1,8 @@
-import type { VxeTableGridOptions } from '@/packages/effects/plugins/vxe-table'
+import type { VxeTableGridOptions } from '@/packages/plugins/vxe-table'
 
 import { h } from 'vue'
 
-import {
-  setupVbenVxeTable,
-  useVbenVxeGrid,
-} from '@/packages/effects/plugins/vxe-table'
+import { setupVbenVxeTable, useVbenVxeGrid } from '@/packages/plugins/vxe-table'
 
 import { ElButton, ElImage } from 'element-plus'
 
@@ -58,7 +55,7 @@ setupVbenVxeTable({
         return h(
           ElButton,
           { size: 'small', link: true },
-          { default: () => props?.text }
+          { default: () => props?.text },
         )
       },
     })
@@ -71,4 +68,4 @@ setupVbenVxeTable({
 
 export { useVbenVxeGrid }
 
-export type * from '@/packages/effects/plugins/vxe-table'
+export type * from '@/packages/plugins/vxe-table'

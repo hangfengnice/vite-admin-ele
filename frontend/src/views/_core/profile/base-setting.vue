@@ -7,7 +7,7 @@ import { computed, onMounted, ref } from 'vue'
 
 import { ProfileBaseSetting } from '@/packages/effects/common-ui/src'
 
-import { getUserInfoApi } from '@/api'
+import { getUserInfoApi } from '@/api/core/user'
 
 const profileBaseSettingRef = ref()
 

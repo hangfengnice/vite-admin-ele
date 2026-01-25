@@ -202,7 +202,7 @@ function resume() {
     ref="wrapperRef"
     :class="
       cn(
-        'border-border bg-background-deep relative flex h-10 w-full items-center overflow-hidden rounded-md border text-center',
+        'border-border user select-none bg-background-deep relative flex h-10 w-full items-center overflow-hidden rounded-md border text-center',
         props.class,
       )
     "

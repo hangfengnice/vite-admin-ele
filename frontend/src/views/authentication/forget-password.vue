@@ -9,7 +9,7 @@ import Title from './components/auth-title.vue'
 import { computed, ref, reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
-import { SUIButton } from '@/packages/core/ui-kit/shadcn-ui/src'
+import { SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 const loading = ref(false)
 

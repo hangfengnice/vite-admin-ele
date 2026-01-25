@@ -18,7 +18,7 @@ import { useAccessStore, useTabbarStore, useTimezoneStore } from '@/stores'
 import { cloneDeep, mapTree } from '@/utils'
 
 import { VbenAdminLayout } from '@/packages/core/ui-kit/layout-ui/src'
-import { VbenBackTop, VbenLogo } from '@/packages/core/ui-kit/shadcn-ui/src'
+import { VbenBackTop, VbenLogo } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { Breadcrumb, CheckUpdates, Preferences } from '../widgets'
 import { LayoutContent, LayoutContentSpinner } from './content'

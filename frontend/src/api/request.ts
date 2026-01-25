@@ -13,12 +13,13 @@ import {
 import { useAccessStore } from '@/stores'
 
 import { ElMessage } from 'element-plus'
+import 'element-plus/theme-chalk/el-message.css'
 
 import { useAuthStore } from '@/stores'
 
 import { refreshTokenApi } from './core'
 
-const apiURL = '/api'
+let { VITE_GLOB_API_URL } = import.meta.env
 
 function createRequestClient(baseURL: string, options?: RequestClientOptions) {
   const client = new RequestClient({
@@ -105,8 +106,10 @@ function createRequestClient(baseURL: string, options?: RequestClientOptions) {
   return client
 }
 
-export const requestClient = createRequestClient(apiURL, {
+export const request = createRequestClient(VITE_GLOB_API_URL, {
   responseReturn: 'data',
 })
 
-export const baseRequestClient = new RequestClient({ baseURL: apiURL })
+export const baseRequestClient = new RequestClient({
+  baseURL: VITE_GLOB_API_URL,
+})

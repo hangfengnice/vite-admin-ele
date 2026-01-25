@@ -1,5 +1,5 @@
 {
-  "name": "node-api",
+  "name": "backend",
   "version": "1.0.0",
   "description": "Node.js Express 示例项目",
   "main": "index.js",

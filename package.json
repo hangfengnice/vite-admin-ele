@@ -2,7 +2,7 @@
   "name": "vite-admin-ele",
   "scripts": {
     "dev": "pnpm --filter frontend dev",
-    "back": "pnpm --filter backend dev",
+    "back": "pnpm --filter backend start",
     "all": "pnpm -r run dev",
     "build": "pnpm -r run build",
     "install:all": "pnpm install"

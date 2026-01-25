@@ -8,7 +8,7 @@ import { preferences } from '@/packages/core/preferences/src'
 
 import { ElMessage } from 'element-plus'
 
-import { getAllMenusApi } from '@/api'
+import { getAllMenusApi } from '@/api/core/menu'
 import { BasicLayout, IFrameView } from '@/layouts'
 import { $t } from '@/locales'
 

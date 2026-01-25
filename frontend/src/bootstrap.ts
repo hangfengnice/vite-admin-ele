@@ -66,7 +66,7 @@ async function bootstrap(namespace: string) {
   app.use(router)
 
   // 配置Motion插件
-  const { MotionPlugin } = await import('@/packages/effects/plugins/src/motion')
+  const { MotionPlugin } = await import('@/packages/plugins/motion')
   app.use(MotionPlugin)
 
   // 动态更新标题

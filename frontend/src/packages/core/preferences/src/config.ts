@@ -65,8 +65,7 @@ const defaultPreferences: Preferences = {
   logo: {
     enable: true,
     fit: 'contain',
-    source: 'vscode-icons:file-type-nest-filter-ts',
-    // source: '',
+    source: 'ep:element-plus',
   },
   navigation: {
     accordion: true,

@@ -139,6 +139,8 @@ async function handleSubmit() {
       REMEMBER_ME_KEY,
       rememberMe.value ? values?.username : '',
     )
+    console.log(values, 'values')
+
     authStore.authLogin(values)
   }
 }

@@ -33,7 +33,7 @@ fi
 
 # ==== 3. 上传后端到服务器（增量上传） ====
 echo "📤 上传后端到服务器..."
-rsync -avz --delete $BACKEND_DIR/ $SERVER_USER@$SERVER_IP:$REMOTE_BACKEND_DIR/
+rsync -avz --delete $BACKEND_DIR/ --exclude 'node_modules/' --exclude 'package-lock.json' $SERVER_USER@$SERVER_IP:$REMOTE_BACKEND_DIR/
 if [ $? -ne 0 ]; then
   echo "❌ 上传后端失败，退出"
   exit 1
@@ -66,6 +66,10 @@ cd $REMOTE_BACKEND_DIR
 # ==== 生成版本号 ====
 VERSION=$(date +%Y%m%d%H%M%S)
 PM2_APP_NAME="${PM2_APP_BASE}-v${VERSION}"
+
+# ==== 增量安装依赖（只安装新增/缺失依赖） ====
+
+# npm install --omit=dev
 
 # ==== 自动清理旧 PM2 进程 ====
 EXISTING=$(pm2 jlist | jq -r '.[].name' 2>/dev/null || echo "")

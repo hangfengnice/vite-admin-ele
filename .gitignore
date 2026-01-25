@@ -44,3 +44,5 @@ Thumbs.db
 # =========================
 .cache/
 turbo/
+
+backend/utils/db.js

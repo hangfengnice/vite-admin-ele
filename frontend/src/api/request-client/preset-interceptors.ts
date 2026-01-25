@@ -125,6 +125,7 @@ export const errorMessageResponseInterceptor = (
       } else if (error?.message?.includes?.('timeout')) {
         errMsg = $t('ui.fallback.http.requestTimeout')
       }
+
       if (errMsg) {
         makeErrorMessage?.(errMsg, error)
         return Promise.reject(error)

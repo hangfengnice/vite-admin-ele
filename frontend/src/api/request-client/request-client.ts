@@ -95,15 +95,18 @@ class RequestClient {
   /**
    * DELETE请求方法
    */
-  public delete<T = any>(config?: RequestClientConfig): Promise<T> {
-    return this.request<T>({ ...config, method: 'DELETE' })
+  public delete<T = any>(
+    url: string,
+    config?: RequestClientConfig,
+  ): Promise<T> {
+    return this.request<T>(url, { ...config, method: 'DELETE' })
   }
 
   /**
    * GET请求方法
    */
-  public get<T = any>(config?: RequestClientConfig): Promise<T> {
-    return this.request<T>({ ...config, method: 'GET' })
+  public get<T = any>(url: string, config?: RequestClientConfig): Promise<T> {
+    return this.request<T>(url, { ...config, method: 'GET' })
   }
 
   /**
@@ -116,28 +119,41 @@ class RequestClient {
   /**
    * POST请求方法
    */
-  public post<T = any>(data?: any, config?: RequestClientConfig): Promise<T> {
-    return this.request<T>({ ...config, data, method: 'POST' })
+  public post<T = any>(
+    url: string,
+    data?: any,
+    config?: RequestClientConfig,
+  ): Promise<T> {
+    return this.request<T>(url, { ...config, data, method: 'POST' })
   }
 
   /**
    * PUT请求方法
    */
-  public put<T = any>(data?: any, config?: RequestClientConfig): Promise<T> {
-    return this.request<T>({ ...config, data, method: 'PUT' })
+  public put<T = any>(
+    url: string,
+    data?: any,
+    config?: RequestClientConfig,
+  ): Promise<T> {
+    return this.request<T>(url, { ...config, data, method: 'PUT' })
   }
 
   /**
    * 通用的请求方法
    */
-  public async request<T>(config: RequestClientConfig): Promise<T> {
+  public async request<T>(
+    url: string,
+    config: RequestClientConfig,
+  ): Promise<T> {
     try {
       const response: AxiosResponse<T> = await this.instance({
+        url,
         ...config,
         ...(config.paramsSerializer
           ? { paramsSerializer: getParamsSerializer(config.paramsSerializer) }
           : {}),
       })
+
       return response as T
     } catch (error: any) {
       throw error.response ? error.response.data : error
