@@ -1,4 +1,7 @@
 <script lang="ts" setup>
+defineOptions({ name: 'BasicLayout' })
+import { VbenAdminLayout } from '@/packages/core/ui-kit/layout-ui/src'
+
 import type { SetupContext } from 'vue'
 import type { RouteLocationNormalizedLoaded } from 'vue-router'
 
@@ -17,7 +20,6 @@ import {
 import { useAccessStore, useTabbarStore, useTimezoneStore } from '@/stores'
 import { cloneDeep, mapTree } from '@/utils'
 
-import { VbenAdminLayout } from '@/packages/core/ui-kit/layout-ui/src'
 import { VbenBackTop, VbenLogo } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { Breadcrumb, CheckUpdates, Preferences } from '../widgets'
@@ -33,8 +35,6 @@ import {
   useMixedMenu,
 } from './menu'
 import { LayoutTabbar } from './tabbar'
-
-defineOptions({ name: 'BasicLayout' })
 
 const emit = defineEmits<{ clearPreferencesAndLogout: []; clickLogo: [] }>()
 

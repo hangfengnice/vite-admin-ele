@@ -1,14 +1,14 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
-import type { ToolbarType } from './types'
+import type { ToolbarType } from './components/types'
 import { $t } from '@/locales'
 
 import { IconifyIcon } from '@/packages/icons'
 import { preferences, usePreferences } from '@/packages/core/preferences/src'
-import { Copyright } from '@/packages/effects/layouts/src/basic/copyright'
-import AuthenticationFormView from './form.vue'
+import { Copyright } from './components/basic/copyright'
+import AuthenticationFormView from './components/form.vue'
 import SloganIcon from './icons/slogan.vue'
-import Toolbar from './toolbar.vue'
+import Toolbar from './components/toolbar.vue'
 
 interface Props {
   appName?: string

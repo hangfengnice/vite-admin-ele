@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ToolbarType } from './types'
+import type { ToolbarType } from '../types'
 
 import { computed } from 'vue'
 
@@ -10,7 +10,7 @@ import {
   AuthenticationLayoutToggle,
   LanguageToggle,
   ThemeToggle,
-} from '@/packages/effects/layouts/src/widgets'
+} from './widgets'
 
 interface Props {
   toolbarList?: ToolbarType[]

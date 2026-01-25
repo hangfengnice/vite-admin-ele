@@ -1,26 +1,28 @@
 <script lang="ts" setup>
-import type { NotificationItem } from '@/packages/effects/layouts'
-
-import { computed, ref, watch } from 'vue'
-import { useRouter } from 'vue-router'
-
-import AuthenticationLoginExpiredModal from '@/views/authentication/login-expired-modal.vue'
-import { VBEN_DOC_URL, VBEN_GITHUB_URL } from '@/packages/constants'
-import { useWatermark } from '@/packages/effects/hooks'
-import { BookOpenText, CircleHelp, SvgGithubIcon } from '@/packages/icons'
+import type { NotificationItem } from '@/layouts/components'
 import {
   BasicLayout,
   LockScreen,
   Notification,
   UserDropdown,
-} from '@/packages/effects/layouts'
+} from './components'
+
+import AuthenticationLoginExpiredModal from '@/views/authentication/components/login-expired-modal.vue'
+import { VBEN_DOC_URL, VBEN_GITHUB_URL } from '@/packages/constants'
+
+import { BookOpenText, CircleHelp, SvgGithubIcon } from '@/packages/icons'
+
+import { computed, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 import { preferences } from '@/packages/core/preferences/src'
 import { useUserStore } from '@/stores/modules/user'
+import { useAuthStore } from '@/stores/auth'
 import { useAccessStore } from '@/stores/modules/access'
+import { useWatermark } from '@/packages/effects/hooks'
 import { openWindow } from '@/utils'
 
 import { $t } from '@/locales'
-import { useAuthStore } from '@/stores/auth'
+
 import LoginForm from '@/views/authentication/login.vue'
 
 const notifications = ref<NotificationItem[]>([

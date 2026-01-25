@@ -3,6 +3,8 @@ import { resetStaticRoutes } from '@/utils/helpers/reset-routes'
 import { createRouterGuard } from './guard'
 import { routes } from './routes'
 
+console.log(routes, 'routes')
+
 /**
  *  @zh_CN 创建vue-router实例
  */
