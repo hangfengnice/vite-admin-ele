@@ -2,6 +2,7 @@
   "name": "vite-admin-ele",
   "description": "fullstack",
   "private": true,
+  "version": "0.0.1",
   "scripts": {
     "dev": "pnpm --parallel run dev",
     "backend": "pnpm --filter backend run dev",
