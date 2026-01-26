@@ -1,10 +1,11 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "Node.js Express 示例项目",
+  "description": "Node.js Express example",
   "main": "index.js",
+  "private": true,
   "scripts": {
-    "start": "nodemon index.js"
+    "dev": "nodemon index.js"
   },
   "dependencies": {
     "cors": "^2.8.5",

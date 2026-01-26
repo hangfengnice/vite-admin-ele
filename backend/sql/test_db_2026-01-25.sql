@@ -23,6 +23,9 @@ SET NAMES utf8mb4;
 # 转储表 gen_table
 # ------------------------------------------------------------
 
+CREATE DATABASE IF NOT EXISTS test_db;
+USE test_db;
+
 DROP TABLE IF EXISTS `gen_table`;
 
 CREATE TABLE `gen_table` (

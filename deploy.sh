@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ==== 配置部分 ====
-SERVER_IP="112.124.38.17"              # ECS 公网 IP
+SERVER_IP="47.118.22.231"              # ECS 公网 IP
 SERVER_USER="root"                     # 数据库用户名
 FRONTEND_DIR="frontend"                # 本地前端目录
 
@@ -21,7 +21,9 @@ if [ $? -ne 0 ]; then
   echo "❌ 前端打包失败，退出"
   exit 1
 fi
-cd ..
+# ===== 1.1 确保远程目录存在 =====
+echo "📂 创建远程目录..."
+ssh $SERVER_USER@$SERVER_IP "mkdir -p $REMOTE_FRONTEND_DIR $REMOTE_BACKEND_DIR $(dirname $REMOTE_LOG_FILE)"
 
 # ==== 2. 上传前端到服务器（增量上传） ====
 echo "📤 上传前端到服务器..."
@@ -33,7 +35,13 @@ fi
 
 # ==== 3. 上传后端到服务器（增量上传） ====
 echo "📤 上传后端到服务器..."
-rsync -avz --delete $BACKEND_DIR/ --exclude 'node_modules/' --exclude 'package-lock.json' $SERVER_USER@$SERVER_IP:$REMOTE_BACKEND_DIR/
+# rsync -avz --delete $BACKEND_DIR/ $SERVER_USER@$SERVER_IP:$REMOTE_BACKEND_DIR/
+rsync -az --delete \
+  --exclude node_modules \
+  --exclude package-lock.json \
+  --exclude pnpm-lock.yaml \
+  $BACKEND_DIR/ \
+  $SERVER_USER@$SERVER_IP:$REMOTE_BACKEND_DIR/
 if [ $? -ne 0 ]; then
   echo "❌ 上传后端失败，退出"
   exit 1
@@ -69,16 +77,9 @@ PM2_APP_NAME="${PM2_APP_BASE}-v${VERSION}"
 
 # ==== 增量安装依赖（只安装新增/缺失依赖） ====
 
-# npm install --omit=dev
+npm install --omit=dev
 
-# ==== 自动清理旧 PM2 进程 ====
-EXISTING=$(pm2 jlist | jq -r '.[].name' 2>/dev/null || echo "")
-for name in $EXISTING; do
-  if [[ "$name" != "$PM2_APP_NAME" ]]; then
-    pm2 delete "$name" || true
-    echo "🗑 已删除旧 PM2 进程: $name"
-  fi
-done
+pm2 delete all
 
 # ==== 启动新后端应用 ====
 pm2 start index.js --name $PM2_APP_NAME

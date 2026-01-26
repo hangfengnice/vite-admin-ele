@@ -1,10 +1,10 @@
 {
   "name": "vite-admin-ele",
+  "description": "fullstack",
+  "private": true,
   "scripts": {
-    "dev": "pnpm --filter frontend dev",
-    "back": "pnpm --filter backend start",
-    "all": "pnpm -r run dev",
-    "build": "pnpm -r run build",
-    "install:all": "pnpm install"
+    "dev": "pnpm --parallel run dev",
+    "backend": "pnpm --filter backend run dev",
+    "frontend": "pnpm --filter frontend run dev"
   }
 }
