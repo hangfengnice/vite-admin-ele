@@ -1,5 +1,9 @@
 # vite-admin-ele
 
+## License
+
+MIT © 2026 hf
+
 > Vue3 + Node.js + MySQL 企业级后台管理系统  
 > 支持本地开发与一键部署上线，全流程可复现
 
