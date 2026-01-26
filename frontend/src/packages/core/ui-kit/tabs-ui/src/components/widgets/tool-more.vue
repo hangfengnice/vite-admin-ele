@@ -4,7 +4,9 @@ import type { DropdownMenuProps } from '@/packages/core/ui-kit/shadcn-ui'
 import { ChevronDown } from '@/packages/icons'
 import { VbenDropdownMenu } from '@/packages/core/ui-kit/shadcn-ui'
 
-defineProps()
+console.log(VbenDropdownMenu, 'DropdownMenuProps')
+
+defineProps<DropdownMenuProps>()
 </script>
 
 <template>

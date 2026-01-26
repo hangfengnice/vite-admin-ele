@@ -11,10 +11,6 @@ router.post('/login', async (req, res) => {
   console.log(req.body, 'req')
   const { username, password } = req.body
 
-  // selectAccount: 'vben',
-  //   username: 'root',
-  //   password: '123456',
-  //   captcha: true
   try {
     const [rows] = await db.query('SELECT * FROM sys_user')
 

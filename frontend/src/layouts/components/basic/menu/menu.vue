@@ -1,19 +1,15 @@
 <script lang="ts" setup>
 import type { MenuRecordRaw } from '@/packages/types'
 
-// import type { MenuProps } from '@/packages/core/ui-kit/menu-ui/src'
+import type { MenuProps } from '@/packages/core/ui-kit/menu-ui/src'
 
 import { Menu } from '@/packages/core/ui-kit/menu-ui/src'
 
-// interface Props extends MenuProps {
-//   menus?: MenuRecordRaw[]
-// }
+interface Props extends MenuProps {
+  menus?: MenuRecordRaw[]
+}
 
-// const props = withDefaults(defineProps<Props>(), {
-//   accordion: true,
-//   menus: () => [],
-// })
-const props = withDefaults(defineProps(), {
+const props = withDefaults(defineProps<Props>(), {
   accordion: true,
   menus: () => [],
 })

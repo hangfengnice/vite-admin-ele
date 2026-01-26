@@ -244,7 +244,7 @@ function navTo(nav: WorkbenchProjectItem | WorkbenchQuickNavItem) {
       <template #description>今日晴，20℃ - 32℃！</template>
     </WorkbenchHeader>
 
-    <div class="mt-5 flex flex-col lg:flex-row">
+    <!-- <div class="mt-5 flex flex-col lg:flex-row">
       <div class="mr-4 w-full lg:w-3/5">
         <WorkbenchProject :items="projectItems" title="项目" @click="navTo" />
         <WorkbenchTrends :items="trendItems" class="mt-5" title="最新动态" />
@@ -261,6 +261,6 @@ function navTo(nav: WorkbenchProjectItem | WorkbenchQuickNavItem) {
           <AnalyticsVisitsSource />
         </AnalysisChartCard>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>

@@ -9,7 +9,7 @@ const BasicLayout = () => import('@/layouts/basic.vue')
 const AuthPageLayout = () => import('@/layouts/auth.vue')
 /** 全局404页面 */
 const fallbackNotFoundRoute: RouteRecordRaw = {
-  component: () => import('@/views/_core/fallback/not-found.vue'),
+  component: () => import('@/views/fallback/not-found.vue'),
   meta: {
     hideInBreadcrumb: true,
     hideInMenu: true,

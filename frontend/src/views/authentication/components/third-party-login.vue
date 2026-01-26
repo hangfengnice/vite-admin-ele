@@ -9,6 +9,7 @@ import {
   SvgGoogleIcon,
   SvgQQChatIcon,
   SvgWeChatIcon,
+  SvgAvatarMan,
 } from '@/packages/icons'
 import { $t } from '@/locales'
 
@@ -32,18 +33,11 @@ const dingdingAuthConfig = ref({ corpId: '', clientId: '' })
 
     <div class="mt-4 flex flex-wrap justify-center">
       <SUIIconButton
-        :tooltip="$t('authentication.wechatLogin')"
+        :tooltip="$t('authentication.man')"
         tooltip-side="top"
         class="mb-3"
       >
-        <SvgWeChatIcon />
-      </SUIIconButton>
-      <SUIIconButton
-        :tooltip="$t('authentication.qqLogin')"
-        tooltip-side="top"
-        class="mb-3"
-      >
-        <SvgQQChatIcon />
+        <SvgAvatarMan />
       </SUIIconButton>
       <SUIIconButton
         :tooltip="$t('authentication.githubLogin')"
@@ -52,19 +46,13 @@ const dingdingAuthConfig = ref({ corpId: '', clientId: '' })
       >
         <SvgGithubIcon />
       </SUIIconButton>
-      <SUIIconButton
-        :tooltip="$t('authentication.googleLogin')"
-        tooltip-side="top"
-        class="mb-3"
-      >
-        <SvgGoogleIcon />
-      </SUIIconButton>
-      <DingdingLogin
+
+      <!-- <DingdingLogin
         v-if="dingdingAuthConfig"
         :corp-id="dingdingAuthConfig.corpId"
         :client-id="dingdingAuthConfig.clientId"
         class="mb-3"
-      />
+      /> -->
     </div>
   </div>
 </template>

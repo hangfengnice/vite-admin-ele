@@ -12,7 +12,6 @@ router.get('/info', async (req, res) => {
   if (!authHeader) return res.status(401).json({ message: '未登录' })
 
   const token = authHeader.split(' ')[1]
-  console.log(token, 'token')
 
   try {
     const payload = jwt.verify(token, SECRET)

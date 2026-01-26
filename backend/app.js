@@ -34,7 +34,6 @@ const router = express.Router()
 const R = require('./utils/response')
 
 app.get('/api/users', (req, res, next) => {
-  console.log(req, 'req')
   let {
     query: { keyword },
   } = req

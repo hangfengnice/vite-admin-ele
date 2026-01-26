@@ -66,7 +66,7 @@ const chartTabs: TabOption[] = [
 <template>
   <div class="p-5">
     <AnalysisOverview :items="overviewItems" />
-    <AnalysisChartsTabs :tabs="chartTabs" class="mt-5">
+    <!-- <AnalysisChartsTabs :tabs="chartTabs" class="mt-5">
       <template #trends>
         <AnalyticsTrends />
       </template>
@@ -85,6 +85,6 @@ const chartTabs: TabOption[] = [
       <AnalysisChartCard class="mt-5 md:mt-0 md:w-1/3" title="访问来源">
         <AnalyticsVisitsSales />
       </AnalysisChartCard>
-    </div>
+    </div> -->
   </div>
 </template>

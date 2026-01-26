@@ -13,6 +13,7 @@ interface Props {
   isMenuMore?: boolean
   isTopLevelMenuSubmenu: boolean
   level?: number
+  icon?: String
 }
 
 defineOptions({ name: 'SubMenuContent' })

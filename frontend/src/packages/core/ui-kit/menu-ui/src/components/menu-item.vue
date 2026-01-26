@@ -9,7 +9,7 @@ import { SUIIcon, VbenTooltip } from '@/packages/core/ui-kit/shadcn-ui'
 import { MenuBadge } from '../components'
 import { useMenu, useMenuContext, useSubMenuContext } from '../hooks'
 
-interface Props {}
+interface Props extends MenuItemProps {}
 
 defineOptions({ name: 'MenuItem' })
 

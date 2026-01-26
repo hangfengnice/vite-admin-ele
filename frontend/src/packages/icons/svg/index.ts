@@ -6,6 +6,7 @@ const SvgAvatar1Icon = createIconifyIcon('svg:avatar-1')
 const SvgAvatar2Icon = createIconifyIcon('svg:avatar-2')
 const SvgAvatar3Icon = createIconifyIcon('svg:avatar-3')
 const SvgAvatar4Icon = createIconifyIcon('svg:avatar-4')
+const SvgAvatarMan = createIconifyIcon('svg:man')
 const SvgDownloadIcon = createIconifyIcon('svg:download')
 const SvgCardIcon = createIconifyIcon('svg:card')
 const SvgBellIcon = createIconifyIcon('svg:bell')
@@ -24,6 +25,7 @@ export {
   SvgAvatar2Icon,
   SvgAvatar3Icon,
   SvgAvatar4Icon,
+  SvgAvatarMan,
   SvgBellIcon,
   SvgCakeIcon,
   SvgCardIcon,

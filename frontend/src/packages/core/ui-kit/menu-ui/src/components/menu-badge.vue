@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { MenuRecordBadgeRaw } from '@/packages/core/base/typings'
+import type { MenuRecordBadgeRaw } from '@/packages/types'
 
 import { computed } from 'vue'
 
@@ -7,8 +7,7 @@ import { isValidColor } from '@/utils/color'
 
 import BadgeDot from './menu-badge-dot.vue'
 
-// interface Props extends MenuRecordBadgeRaw {
-interface Props {
+interface Props extends MenuRecordBadgeRaw {
   hasChildren?: boolean
 }
 

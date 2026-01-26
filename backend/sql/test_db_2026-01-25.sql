@@ -767,7 +767,7 @@ INSERT INTO `sys_user` (`user_id`, `id`, `dept_id`, `login_name`, `user_name`, `
 VALUES
 	(1,NULL,103,'admin','若依','','00','','ry@163.com','15888888888','1','','29c67a30398638269fe600f73a054934','111111','0','0','127.0.0.1',NULL,NULL,'admin','2026-01-25 10:46:11','',NULL,'管理员'),
 	(2,NULL,105,'ry','若依','','00','','ry@qq.com','15666666666','1','','8e6d98b90472783cc73c17047ddccf36','222222','0','0','127.0.0.1',NULL,NULL,'admin','2026-01-25 10:46:11','',NULL,'测试员'),
-	(100,0,NULL,'vben','vben','Vben','00','super','','','0','','123456','','0','0','',NULL,NULL,'',NULL,'',NULL,NULL),
+	(100,0,NULL,'root','root','root','00','super','','','0','','123456','','0','0','',NULL,NULL,'',NULL,'',NULL,NULL),
 	(101,1,NULL,'admin','admin','Admin','00','admin','','','0','','123456','','0','0','',NULL,NULL,'',NULL,'',NULL,NULL),
 	(102,2,NULL,'jack','jack','Jack','00','user','','','0','','123456','','0','0','',NULL,NULL,'',NULL,'',NULL,NULL);
 
