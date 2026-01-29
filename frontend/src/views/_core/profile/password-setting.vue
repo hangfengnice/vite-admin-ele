@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { VbenFormSchema } from '#/adapter/form'
+import type { VbenFormSchema } from '@/packages/adapter/form'
 
 import { computed, ref } from 'vue'
 

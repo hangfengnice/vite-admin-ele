@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@ctrl/tinycolor": "^4.2.0",
+    "@tanstack/vue-query": "^5.92.9",
     "@tanstack/vue-store": "^0.8.0",
     "@vee-validate/zod": "^4.15.1",
     "@vue/shared": "^3.5.27",
@@ -42,6 +43,8 @@
     "vue-i18n": "^11.2.8",
     "vue-router": "^4.6.4",
     "vue-tippy": "^6.7.1",
+    "vxe-pc-ui": "^4.12.22",
+    "vxe-table": "^4.17.46",
     "watermark-js-plus": "^1.6.3",
     "zod": "^3.25.76",
     "zod-defaults": "^0.1.3"

@@ -63,7 +63,7 @@ function convertRoutes(
         route.component = pageMap[pageKey]
       } else {
         console.error(`route component is invalid: ${pageKey}`, route)
-        route.component = pageMap['/_core/fallback/not-found.vue']
+        route.component = pageMap['/fallback/not-found.vue']
       }
     }
 

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { AnalysisOverviewItem } from '@/packages/effects/common-ui/src'
-import type { TabOption } from '@vben/types'
+import type { TabOption } from '@/packages/types'
 
 import {
   AnalysisChartCard,
