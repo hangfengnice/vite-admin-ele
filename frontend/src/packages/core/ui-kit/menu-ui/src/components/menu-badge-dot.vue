@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import type { CSSProperties } from 'vue';
+import type { CSSProperties } from 'vue'
 
 interface Props {
-  dotClass?: string;
-  dotStyle?: CSSProperties;
+  dotClass?: string
+  dotStyle?: CSSProperties
 }
 
 withDefaults(defineProps<Props>(), {
   dotClass: '',
   dotStyle: () => ({}),
-});
+})
 </script>
 <template>
   <span class="relative mr-1 flex size-1.5">
@@ -17,8 +17,7 @@ withDefaults(defineProps<Props>(), {
       :class="dotClass"
       :style="dotStyle"
       class="absolute inline-flex h-full w-full animate-ping rounded-full opacity-75"
-    >
-    </span>
+    ></span>
     <span
       :class="dotClass"
       :style="dotStyle"
@@ -26,3 +25,5 @@ withDefaults(defineProps<Props>(), {
     ></span>
   </span>
 </template>
+wlesljdfl dfasœalsjfdasljfs ≈≈s≈≈≈≈. slajfksal;
+<fieldset></fieldset>

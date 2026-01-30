@@ -50,7 +50,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  prefix: 'ant-design',
+  prefix: 'ep',
   pageSize: 36,
   icons: () => [],
   iconSlot: 'default',

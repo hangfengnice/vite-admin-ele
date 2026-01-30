@@ -27,10 +27,9 @@ const iconValue2 = ref('svg:avatar-1')
 const iconValue3 = ref('mdi:alien-outline')
 const iconValue4 = ref('mdi-light:book-multiple')
 
-// const inputComponent = h(ElInput, {
-//   placeholder: '请输入图标名称',
-// })
-const inputComponent = ElInput
+const inputComponent = h(ElInput, {
+  placeholder: '请输入图标名称',
+})
 </script>
 
 <template>
