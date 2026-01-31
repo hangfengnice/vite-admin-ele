@@ -1,5 +1,9 @@
 import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
 import { viteInjectAppLoadingPlugin } from './src/packages/plugins/inject-app-loading/index'
 import path from 'path'
 
@@ -12,7 +16,17 @@ export default defineConfig(async ({ command, mode }) => {
     viteInjectAppLoadingPlugin(isBuild, env),
   ])
   return {
-    plugins: [vue(), loadingPlugin],
+    plugins: [
+      vue(),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      // 自动导入组件（<el-button />）
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
+      loadingPlugin,
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, './src'),

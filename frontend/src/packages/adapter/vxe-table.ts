@@ -4,8 +4,6 @@ import { h } from 'vue'
 
 import { setupVbenVxeTable, useVbenVxeGrid } from '@/packages/plugins/vxe-table'
 
-import { ElButton, ElImage } from 'element-plus'
-
 import { useVbenForm } from './form'
 
 setupVbenVxeTable({

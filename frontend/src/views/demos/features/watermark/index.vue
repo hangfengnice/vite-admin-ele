@@ -2,8 +2,6 @@
 import { Page } from '@/packages/effects/common-ui/src'
 import { useWatermark } from '@/packages/effects/hooks'
 
-import { ElButton, ElCard } from 'element-plus'
-
 const { destroyWatermark, updateWatermark, watermark } = useWatermark()
 
 async function recreateWaterMark() {
@@ -61,26 +59,26 @@ async function createWaterMark() {
       </div>
     </template>
 
-    <Card title="使用">
-      <Button
+    <ElCard header="使用">
+      <ElButton
         :disabled="!!watermark"
         class="mr-2"
         type="primary"
         @click="recreateWaterMark"
       >
         创建水印
-      </Button>
-      <Button
+      </ElButton>
+      <ElButton
         :disabled="!watermark"
         class="mr-2"
         type="primary"
         @click="createWaterMark"
       >
         更新水印
-      </Button>
-      <Button :disabled="!watermark" danger @click="destroyWatermark">
+      </ElButton>
+      <ElButton :disabled="!watermark" danger @click="destroyWatermark">
         移除水印
-      </Button>
-    </Card>
+      </ElButton>
+    </ElCard>
   </Page>
 </template>

@@ -12,9 +12,6 @@ import {
 } from './request-client'
 import { useAccessStore } from '@/stores'
 
-import { ElMessage } from 'element-plus'
-import 'element-plus/theme-chalk/el-message.css'
-
 import { useAuthStore } from '@/stores'
 
 import { refreshTokenApi } from './core'

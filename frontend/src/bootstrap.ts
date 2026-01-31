@@ -12,8 +12,6 @@ import './packages/style/ele.css'
 // import '@/packages/icons/register'
 
 import { useTitle } from '@vueuse/core'
-import { ElLoading } from 'element-plus'
-import 'element-plus/theme-chalk/el-loading.css'
 
 import { $t, setupI18nEle } from './locales'
 

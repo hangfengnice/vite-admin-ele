@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 defineOptions({ name: 'App' })
 
-import { ElConfigProvider } from 'element-plus'
 import { elementLocale } from './locales'
 import { useElementPlusDesignTokens } from '@/packages/effects/hooks'
 
