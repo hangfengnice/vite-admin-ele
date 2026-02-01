@@ -3,9 +3,9 @@ import { Page } from '@/packages/effects/common-ui/src'
 
 import { Card, message } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
-const [QueryForm] = useVbenForm({
+const [QueryForm] = useSchemaForm({
   // 默认展开
   collapsed: false,
   // 所有表单项共用，可单独在表单内覆盖
@@ -86,7 +86,7 @@ const [QueryForm] = useVbenForm({
   wrapperClass: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
 })
 
-const [InlineForm] = useVbenForm({
+const [InlineForm] = useSchemaForm({
   layout: 'inline',
   schema: [
     {
@@ -142,7 +142,7 @@ const [InlineForm] = useVbenForm({
   ],
 })
 
-const [QueryForm1] = useVbenForm({
+const [QueryForm1] = useSchemaForm({
   // 默认展开
   collapsed: true,
   collapsedRows: 2,
@@ -181,7 +181,7 @@ const [QueryForm1] = useVbenForm({
   wrapperClass: 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3',
 })
 
-const [QueryForm2] = useVbenForm({
+const [QueryForm2] = useSchemaForm({
   // 操作按钮组 newLine: 在新行显示。rowEnd: 在行内显示，靠右对齐（默认）。inline: 使用grid默认样式
   actionLayout: 'newLine',
   actionPosition: 'left', // 操作按钮组在左侧显示

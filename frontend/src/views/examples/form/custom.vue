@@ -5,11 +5,11 @@ import { Page } from '@/packages/effects/common-ui/src'
 
 import { Card, Input, message } from 'element-plus'
 
-import { useVbenForm, z } from '@/packages/adapter/form'
+import { useSchemaForm, z } from '@/packages/adapter/form'
 
 import TwoFields from './modules/two-fields.vue'
 
-const [Form] = useVbenForm({
+const [Form] = useSchemaForm({
   // 所有表单项共用，可单独在表单内覆盖
   commonConfig: {
     // 所有表单项

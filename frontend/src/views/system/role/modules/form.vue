@@ -12,7 +12,7 @@ import { IconifyIcon } from '@/packages/icons'
 
 import { Spin } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 import { getMenuList } from '@/api/system/menu'
 import { createRole, updateRole } from '@/api/system/role'
 import { $t } from '@/locales'
@@ -23,7 +23,7 @@ const emits = defineEmits(['success'])
 
 const formData = ref<SystemRoleApi.SystemRole>()
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useSchemaForm({
   schema: useFormSchema(),
   showDefaultActions: false,
 })

@@ -13,7 +13,7 @@ import { LoaderCircle, Square, SquareCheckBig } from '@/packages/icons'
 
 import { ElButton, ElCard, message } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
 const radioValue = ref<string | undefined>('a')
 const checkValue = ref(['a', 'b'])
@@ -55,7 +55,7 @@ const compProps = reactive({
   allowClear: false,
 } as Recordable<any>)
 
-const [Form] = useVbenForm({
+const [Form] = useSchemaForm({
   handleValuesChange(values) {
     Object.keys(values).forEach((k) => {
       if (k === 'beforeChange') {

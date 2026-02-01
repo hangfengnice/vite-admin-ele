@@ -73,6 +73,8 @@ export class FormApi {
   constructor(options: VbenFormProps = {}) {
     const { ...storeState } = options
 
+    console.log('FormApi options:', options, Object.assign({}, storeState))
+
     const defaultState = getDefaultState()
 
     this.store = new Store<VbenFormProps>(

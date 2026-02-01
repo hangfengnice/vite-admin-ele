@@ -7,7 +7,7 @@ import type { VbenFormSchema } from '@/packages/effects/common-ui/src'
 import type { Recordable } from '@/packages/types'
 import { z } from '@/packages/effects/common-ui/src'
 import { $t } from '@/locales'
-import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
+import { useSchemaForm } from '@/packages/core/ui-kit/form-ui/src'
 import { SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 import Title from './components/auth-title.vue'
 import { computed, ref, reactive } from 'vue'
@@ -96,7 +96,7 @@ const props = withDefaults(defineProps<Props>(), {
   title: '',
 })
 
-const [Form, formApi] = useVbenForm(
+const [Form, formApi] = useSchemaForm(
   reactive({
     commonConfig: {
       hideLabel: true,

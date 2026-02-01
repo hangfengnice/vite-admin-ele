@@ -5,7 +5,7 @@ import { Page } from '@/packages/effects/common-ui/src'
 
 import { ElButton, ElCard, Switch } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
 defineOptions({
   name: 'ScrollToErrorTest',
@@ -13,7 +13,7 @@ defineOptions({
 
 const scrollEnabled = ref(true)
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useSchemaForm({
   scrollToFirstError: scrollEnabled.value,
   schema: [
     {

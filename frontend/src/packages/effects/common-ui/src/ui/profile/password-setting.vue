@@ -5,7 +5,7 @@ import type { VbenFormSchema } from '@/packages/core/ui-kit/form-ui/src'
 
 import { computed, reactive } from 'vue'
 
-import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
+import { useSchemaForm } from '@/packages/core/ui-kit/form-ui/src'
 import { SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 interface Props {
@@ -20,7 +20,7 @@ const emit = defineEmits<{
   submit: [Recordable<any>]
 }>()
 
-const [Form, formApi] = useVbenForm(
+const [Form, formApi] = useSchemaForm(
   reactive({
     commonConfig: {
       // 所有表单项

@@ -5,11 +5,11 @@ import { useVbenDrawer } from '@/packages/effects/common-ui/src'
 
 import { Input, message } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
 const value = ref('')
 
-const [Form] = useVbenForm({
+const [Form] = useSchemaForm({
   schema: [
     {
       component: 'Input',

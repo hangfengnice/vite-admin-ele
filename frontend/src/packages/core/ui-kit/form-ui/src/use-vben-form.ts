@@ -4,15 +4,22 @@ import type {
   VbenFormProps,
 } from './types'
 
-import { defineComponent, h, isReactive, onBeforeUnmount, watch } from 'vue'
+import {
+  defineComponent,
+  h,
+  isReactive,
+  onBeforeUnmount,
+  unref,
+  watch,
+} from 'vue'
 
 import { useStore } from '@/packages/core/base/shared/src/store'
 
 import { FormApi } from './form-api'
 import VbenUseForm from './vben-use-form.vue'
 
-export function useVbenForm<
-  T extends BaseFormComponentType = BaseFormComponentType
+export function useSchemaForm<
+  T extends BaseFormComponentType = BaseFormComponentType,
 >(options: VbenFormProps<T>) {
   const IS_REACTIVE = isReactive(options)
   const api = new FormApi(options)
@@ -33,16 +40,16 @@ export function useVbenForm<
     {
       name: 'VbenUseForm',
       inheritAttrs: false,
-    }
+    },
   )
   // Add reactivity support
   if (IS_REACTIVE) {
     watch(
-      () => options.schema,
-      () => {
-        api.setState({ schema: options.schema })
+      () => unref((options as any).schema),
+      (schema) => {
+        api.setState({ schema })
       },
-      { immediate: true }
+      { immediate: true },
     )
   }
 

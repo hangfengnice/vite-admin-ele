@@ -14,7 +14,7 @@ import { getPopupContainer } from '@/utils'
 
 import { breakpointsTailwind, useBreakpoints } from '@vueuse/core'
 
-import { useVbenForm, z } from '@/packages/adapter/form'
+import { useSchemaForm, z } from '@/packages/adapter/form'
 import {
   createMenu,
   getMenuList,
@@ -433,7 +433,7 @@ const schema: VbenFormSchema[] = [
 const breakpoints = useBreakpoints(breakpointsTailwind)
 const isHorizontal = computed(() => breakpoints.greaterOrEqual('md').value)
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useSchemaForm({
   commonConfig: {
     colon: true,
     formItemClass: 'col-span-2 md:col-span-1',

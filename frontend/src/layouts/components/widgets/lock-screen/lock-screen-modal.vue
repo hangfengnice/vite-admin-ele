@@ -5,7 +5,7 @@ import { computed, reactive } from 'vue'
 
 import { $t } from '@/locales'
 
-import { useVbenForm, z } from '@/packages/core/ui-kit/form-ui/src'
+import { useSchemaForm, z } from '@/packages/core/ui-kit/form-ui/src'
 import { useVbenModal } from '@/packages/core/ui-kit/popup-ui/src'
 import { VbenAvatar, SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 
@@ -28,7 +28,7 @@ const emit = defineEmits<{
 }>()
 
 const [Form, { resetForm, validate, getValues, getFieldComponentRef }] =
-  useVbenForm(
+  useSchemaForm(
     reactive({
       commonConfig: {
         hideLabel: true,

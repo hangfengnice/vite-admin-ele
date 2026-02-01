@@ -9,7 +9,7 @@ import { z } from '@/packages/effects/common-ui/src'
 import { $t } from '@/locales'
 import { computed, reactive, h, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
+import { useSchemaForm } from '@/packages/core/ui-kit/form-ui/src'
 import { SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 import Title from './components/auth-title.vue'
 
@@ -120,7 +120,7 @@ const props = withDefaults(defineProps<Props>(), {
   title: '',
 })
 
-const [Form, formApi] = useVbenForm(
+const [Form, formApi] = useSchemaForm(
   reactive({
     commonConfig: {
       hideLabel: true,

@@ -3,9 +3,9 @@ import { Page } from '@/packages/effects/common-ui/src'
 
 import { ElButton, ElCard, message } from 'element-plus'
 
-import { useVbenForm, z } from '@/packages/adapter/form'
+import { useSchemaForm, z } from '@/packages/adapter/form'
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useSchemaForm({
   // 所有表单项共用，可单独在表单内覆盖
   commonConfig: {
     // 所有表单项

@@ -9,7 +9,7 @@ import { MenuBadge } from '@/packages/core/ui-kit/menu-ui/src'
 
 import { ElButton, ElCard, Radio, RadioGroup } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
 const colors = [
   { label: '预设：默认', value: 'default' },
@@ -28,7 +28,7 @@ const badgeProps = reactive({
   badgeVariants: menu?.badgeVariants as string,
 })
 
-const [Form] = useVbenForm({
+const [Form] = useSchemaForm({
   handleValuesChange(values) {
     badgeProps.badge = values.badge
     badgeProps.badgeType = values.badgeType

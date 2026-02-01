@@ -9,7 +9,7 @@ import { useDebounceFn } from '@vueuse/core'
 import { ElButton, ElCard, message, Spin, Tag } from 'element-plus'
 import dayjs from 'dayjs'
 
-import { useVbenForm, z } from '@/packages/adapter/form'
+import { useSchemaForm, z } from '@/packages/adapter/form'
 import { getAllMenusApi } from '@/api'
 import { upload_file } from '@/api/examples/upload'
 import { $t } from '@/locales'
@@ -33,7 +33,7 @@ function fetchRemoteOptions({ keyword = '选项' }: Record<string, any>) {
   })
 }
 
-const [BaseForm, baseFormApi] = useVbenForm({
+const [BaseForm, baseFormApi] = useSchemaForm({
   // 所有表单项共用，可单独在表单内覆盖
   commonConfig: {
     // 在label后显示一个冒号

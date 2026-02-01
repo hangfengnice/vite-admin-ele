@@ -10,6 +10,7 @@ import type { Recordable } from '@/packages/types'
 import { defineAsyncComponent, defineComponent, h, ref } from 'vue'
 import { ApiComponent, IconPicker } from '@/packages/effects/common-ui/src'
 import { globalShareState } from '@/packages/core/base/shared/src/global-state'
+import { $t } from '@/locales'
 import { ElNotification } from 'element-plus'
 
 const ElButton = defineAsyncComponent(() =>

@@ -3,9 +3,9 @@ import { Page } from '@/packages/effects/common-ui/src'
 
 import { ElButton, ElCard, message } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useSchemaForm({
   // 提交函数
   handleSubmit: onSubmit,
   schema: [
@@ -163,7 +163,7 @@ const [Form, formApi] = useVbenForm({
   wrapperClass: 'grid-cols-1 md:grid-cols-3 lg:grid-cols-4',
 })
 
-const [SyncForm] = useVbenForm({
+const [SyncForm] = useSchemaForm({
   handleSubmit: onSubmit,
   schema: [
     {

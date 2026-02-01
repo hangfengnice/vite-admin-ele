@@ -7,7 +7,7 @@ import { useVbenModal } from '@/packages/effects/common-ui/src'
 
 import { Button } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 import { createDept, updateDept } from '@/api/system/dept'
 import { $t } from '@/locales'
 
@@ -21,7 +21,7 @@ const getTitle = computed(() => {
     : $t('ui.actionTitle.create', [$t('system.dept.name')])
 })
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useSchemaForm({
   layout: 'vertical',
   schema: useSchema(),
   showDefaultActions: false,

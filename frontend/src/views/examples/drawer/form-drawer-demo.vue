@@ -1,13 +1,13 @@
 <script lang="ts" setup>
 import { useVbenDrawer } from '@/packages/effects/common-ui/src'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
 defineOptions({
   name: 'FormDrawerDemo',
 })
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useSchemaForm({
   schema: [
     {
       component: 'Input',

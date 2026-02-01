@@ -7,7 +7,7 @@ import { Page, Tippy } from '@/packages/effects/common-ui/src'
 
 import { ElButton, ElCard, Flex } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
 const tippyProps = reactive<TippyProps>({
   animation: 'shift-away',
@@ -38,7 +38,7 @@ function parseBoolean(value: string) {
   }
 }
 
-const [Form] = useVbenForm({
+const [Form] = useSchemaForm({
   handleValuesChange(values) {
     Object.assign(tippyProps, {
       ...values,

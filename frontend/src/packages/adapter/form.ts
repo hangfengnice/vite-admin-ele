@@ -7,7 +7,7 @@ import type { ComponentType } from './component'
 
 import {
   setupVbenForm,
-  useVbenForm as useForm,
+  useSchemaForm as useForm,
   z,
 } from '@/packages/effects/common-ui/src'
 import { $t } from '@/locales'
@@ -37,9 +37,9 @@ async function initSetupVbenForm() {
   })
 }
 
-const useVbenForm = useForm<ComponentType>
+const useSchemaForm = useForm<ComponentType>
 
-export { initSetupVbenForm, useVbenForm, z }
+export { initSetupVbenForm, useSchemaForm, z }
 
 export type VbenFormSchema = FormSchema<ComponentType>
 export type { VbenFormProps }

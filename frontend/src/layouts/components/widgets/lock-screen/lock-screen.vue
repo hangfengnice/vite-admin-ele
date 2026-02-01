@@ -6,7 +6,7 @@ import { $t, useI18n } from '@/locales'
 import { storeToRefs, useAccessStore } from '@/stores'
 
 import { useScrollLock } from '@/packages/core/composables'
-import { useVbenForm, z } from '@/packages/core/ui-kit/form-ui/src'
+import { useSchemaForm, z } from '@/packages/core/ui-kit/form-ui/src'
 import { VbenAvatar, SUIButton } from '@/packages/core/ui-kit/shadcn-ui'
 
 import { useDateFormat, useNow } from '@vueuse/core'
@@ -37,7 +37,7 @@ const date = useDateFormat(now, 'YYYY-MM-DD dddd', { locales: locale.value })
 const showUnlockForm = ref(false)
 const { lockScreenPassword } = storeToRefs(accessStore)
 
-const [Form, { form, validate, getFieldComponentRef }] = useVbenForm(
+const [Form, { form, validate, getFieldComponentRef }] = useSchemaForm(
   reactive({
     commonConfig: {
       hideLabel: true,

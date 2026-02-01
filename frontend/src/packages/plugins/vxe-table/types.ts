@@ -16,7 +16,7 @@ import type {
 
 import type { VxeGridApi } from './api'
 
-import { useVbenForm } from '@/packages/core/ui-kit/form-ui/src'
+import { useSchemaForm } from '@/packages/core/ui-kit/form-ui/src'
 
 export interface VxePaginationInfo {
   currentPage: number
@@ -92,5 +92,5 @@ export type ExtendedVxeGridApi<
 
 export interface SetupVxeTable {
   configVxeTable: (ui: VxeUIExport) => void
-  useVbenForm: typeof useVbenForm
+  useSchemaForm: typeof useSchemaForm
 }

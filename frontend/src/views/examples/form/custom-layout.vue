@@ -5,11 +5,11 @@ import { Page } from '@/packages/effects/common-ui/src'
 
 import { Card } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
 import DocButton from '../doc-button.vue'
 
-const [CustomLayoutForm] = useVbenForm({
+const [CustomLayoutForm] = useSchemaForm({
   // 所有表单项共用，可单独在表单内覆盖
   commonConfig: {
     // 所有表单项

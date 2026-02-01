@@ -3,7 +3,7 @@ import type { Recordable } from '@/packages/types'
 
 import { useQuery } from '@tanstack/vue-query'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 import { getMenuList } from '@/api'
 
 const queryKey = ['demo', 'api', 'options']
@@ -45,7 +45,7 @@ for (let i = 0; i < count; i++) {
   })
 }
 
-const [Form] = useVbenForm({
+const [Form] = useSchemaForm({
   schema,
   showDefaultActions: false,
 })

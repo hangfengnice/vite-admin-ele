@@ -3,13 +3,13 @@ import { useVbenModal } from '@/packages/effects/common-ui/src'
 
 import { message } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
 defineOptions({
   name: 'FormModelDemo',
 })
 
-const [Form, formApi] = useVbenForm({
+const [Form, formApi] = useSchemaForm({
   handleSubmit: onSubmit,
   schema: [
     {

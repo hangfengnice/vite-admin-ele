@@ -7,11 +7,11 @@ import { Page } from '@/packages/effects/common-ui/src'
 
 import { ElButton, ElCard, message, Space } from 'element-plus'
 
-import { useVbenForm } from '@/packages/adapter/form'
+import { useSchemaForm } from '@/packages/adapter/form'
 
 const isReverseActionButtons = ref(false)
 
-const [BaseForm, formApi] = useVbenForm({
+const [BaseForm, formApi] = useSchemaForm({
   // 翻转操作按钮的位置
   actionButtonsReverse: isReverseActionButtons.value,
   // 所有表单项共用，可单独在表单内覆盖
