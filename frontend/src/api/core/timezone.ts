@@ -1,4 +1,4 @@
-import { requestClient } from '@/api/request'
+import { request as requestClient } from '@/api/request'
 
 /**
  * 获取系统支持的时区列表

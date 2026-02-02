@@ -13,7 +13,7 @@ import type { FormActions, FormSchema, VbenFormProps } from './types'
 
 import { isRef, toRaw } from 'vue'
 
-import { Store } from '@/packages/core/base/shared/src/store'
+import { Store } from '@tanstack/vue-store'
 import {
   bindMethods,
   createMerge,
@@ -72,8 +72,6 @@ export class FormApi {
 
   constructor(options: VbenFormProps = {}) {
     const { ...storeState } = options
-
-    console.log('FormApi options:', options, Object.assign({}, storeState))
 
     const defaultState = getDefaultState()
 

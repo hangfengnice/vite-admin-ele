@@ -6,7 +6,6 @@ import type { IProducts } from './typing'
 import { ref } from 'vue'
 
 import { keepPreviousData, useQuery } from '@tanstack/vue-query'
-import { Button } from 'element-plus'
 
 const LIMIT = 10
 const fetcher = async (page: Ref<number>): Promise<IProducts> => {
@@ -35,9 +34,9 @@ const nextPage = () => {
 
 <template>
   <div class="flex gap-4">
-    <Button size="small" @click="prevPage">上一页</Button>
+    <ElButton size="small" @click="prevPage">上一页</ElButton>
     <p>当前页: {{ page }}</p>
-    <Button size="small" @click="nextPage">下一页</Button>
+    <ElButton size="small" @click="nextPage">下一页</ElButton>
   </div>
   <div class="p-4">
     <div v-if="isPending">加载中...</div>

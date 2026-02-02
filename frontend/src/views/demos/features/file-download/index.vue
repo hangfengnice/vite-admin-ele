@@ -9,8 +9,6 @@ import {
   downloadFileFromUrl,
 } from '@/utils'
 
-import { ElButton, ElCard } from 'element-plus'
-
 import { downloadFile1, downloadFile2 } from '@/api/examples/download'
 
 import imageBase64 from './base64'
@@ -32,8 +30,8 @@ function getResponse() {
 
 <template>
   <Page title="文件下载示例">
-    <Card title="根据文件地址下载文件">
-      <Button
+    <ElCard title="根据文件地址下载文件">
+      <ElButton
         type="primary"
         @click="
           downloadFileFromUrl({
@@ -44,11 +42,11 @@ function getResponse() {
         "
       >
         Download File
-      </Button>
-    </Card>
+      </ElButton>
+    </ElCard>
 
-    <Card class="my-5" title="根据地址下载图片">
-      <Button
+    <ElCard class="my-5" title="根据地址下载图片">
+      <ElButton
         type="primary"
         @click="
           downloadFileFromImageUrl({
@@ -59,11 +57,11 @@ function getResponse() {
         "
       >
         Download File
-      </Button>
-    </Card>
+      </ElButton>
+    </ElCard>
 
-    <Card class="my-5" title="base64流下载">
-      <Button
+    <ElCard class="my-5" title="base64流下载">
+      <ElButton
         type="primary"
         @click="
           downloadFileFromBase64({
@@ -73,10 +71,10 @@ function getResponse() {
         "
       >
         Download Image
-      </Button>
-    </Card>
-    <Card class="my-5" title="文本下载">
-      <Button
+      </ElButton>
+    </ElCard>
+    <ElCard class="my-5" title="文本下载">
+      <ElButton
         type="primary"
         @click="
           downloadFileFromBlobPart({
@@ -86,15 +84,15 @@ function getResponse() {
         "
       >
         Download TxT
-      </Button>
-    </Card>
+      </ElButton>
+    </ElCard>
 
-    <Card class="my-5" title="Request download">
-      <Button type="primary" @click="getBlob">获取Blob</Button>
-      <Button type="primary" class="ml-4" @click="getResponse">
+    <ElCard class="my-5" title="Request download">
+      <ElButton type="primary" @click="getBlob">获取Blob</ElButton>
+      <ElButton type="primary" class="ml-4" @click="getResponse">
         获取Response
-      </Button>
+      </ElButton>
       <div class="mt-4">{{ downloadResult }}</div>
-    </Card>
+    </ElCard>
   </Page>
 </template>

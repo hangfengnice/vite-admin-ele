@@ -4,7 +4,6 @@ import { ref } from 'vue'
 import { Page } from '@/packages/effects/common-ui/src'
 
 import { useFullscreen } from '@vueuse/core'
-import { ElButton, ElCard } from 'element-plus'
 
 const domRef = ref<HTMLElement>()
 
@@ -16,32 +15,34 @@ const { isFullscreen: isDomFullscreen, toggle: toggleDom } =
 
 <template>
   <Page title="全屏示例">
-    <Card title="Window Full Screen">
+    <ElCard title="Window Full Screen">
       <div class="flex flex-wrap items-center gap-4">
-        <Button :disabled="isFullscreen" type="primary" @click="enter">
+        <ElButton :disabled="isFullscreen" type="primary" @click="enter">
           Enter Window Full Screen
-        </Button>
-        <Button @click="toggle">Toggle Window Full Screen</Button>
+        </ElButton>
+        <ElButton @click="toggle">Toggle Window Full Screen</ElButton>
 
-        <Button :disabled="!isFullscreen" danger @click="exit">
+        <ElButton :disabled="!isFullscreen" danger @click="exit">
           Exit Window Full Screen
-        </Button>
+        </ElButton>
 
         <span class="text-nowrap">Current State: {{ isFullscreen }}</span>
       </div>
-    </Card>
+    </ElCard>
 
-    <Card class="mt-5" title="Dom Full Screen">
-      <Button type="primary" @click="toggleDom">Enter Dom Full Screen</Button>
-    </Card>
+    <ElCard class="mt-5" title="Dom Full Screen">
+      <ElButton type="primary" @click="toggleDom">
+        Enter Dom Full Screen
+      </ElButton>
+    </ElCard>
 
     <div
       ref="domRef"
       class="mx-auto mt-10 flex h-64 w-1/2 items-center justify-center rounded-md bg-yellow-400"
     >
-      <Button class="mr-2" type="primary" @click="toggleDom">
+      <ElButton class="mr-2" type="primary" @click="toggleDom">
         {{ isDomFullscreen ? 'Exit Dom Full Screen' : 'Enter Dom Full Screen' }}
-      </Button>
+      </ElButton>
     </div>
   </Page>
 </template>

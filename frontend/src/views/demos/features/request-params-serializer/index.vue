@@ -3,8 +3,6 @@ import { computed, ref, watchEffect } from 'vue'
 
 import { Page } from '@/packages/effects/common-ui/src'
 
-import { Card, Radio, RadioGroup } from 'element-plus'
-
 import { getParamsData } from '@/api/examples/params'
 
 const params = { ids: [2512, 3241, 4255] }
@@ -29,13 +27,13 @@ watchEffect(() => {
     title="请求参数序列化"
     description="不同的后台接口可能对数组类型的GET参数的解析方式不同，我们预置了几种数组序列化方式，通过配置 paramsSerializer 来实现不同的序列化方式"
   >
-    <Card>
-      <RadioGroup v-model:value="paramsSerializer" name="paramsSerializer">
-        <Radio value="brackets">brackets</Radio>
-        <Radio value="comma">comma</Radio>
-        <Radio value="indices">indices</Radio>
-        <Radio value="repeat">repeat</Radio>
-      </RadioGroup>
+    <ElCard>
+      <ElRadioGroup v-model:value="paramsSerializer" name="paramsSerializer">
+        <ElRadio value="brackets">brackets</ElRadio>
+        <ElRadio value="comma">comma</ElRadio>
+        <ElRadio value="indices">indices</ElRadio>
+        <ElRadio value="repeat">repeat</ElRadio>
+      </ElRadioGroup>
       <div class="mt-4 flex flex-col gap-4">
         <div>
           <h3>需要提交的参数</h3>
@@ -56,6 +54,6 @@ watchEffect(() => {
           </div>
         </template>
       </div>
-    </Card>
+    </ElCard>
   </Page>
 </template>

@@ -13,7 +13,7 @@ import {
   watch,
 } from 'vue'
 
-import { useStore } from '@/packages/core/base/shared/src/store'
+import { useStore } from '@tanstack/vue-store'
 
 import { FormApi } from './form-api'
 import VbenUseForm from './vben-use-form.vue'

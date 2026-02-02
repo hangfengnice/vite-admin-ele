@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { ModalApi } from '../modal-api'
 
-vi.mock('@/packages/core/base/shared/src/store', () => {
+vi.mock('@tanstack/vue-store', () => {
   return {
     isFunction: (fn: any) => typeof fn === 'function',
     Store: class {

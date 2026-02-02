@@ -2,7 +2,6 @@
 import { ref } from 'vue'
 
 import { useQuery } from '@tanstack/vue-query'
-import { Button } from 'element-plus'
 
 const count = ref(-1)
 async function fetchApi() {
@@ -28,7 +27,7 @@ const onClick = async () => {
 </script>
 
 <template>
-  <Button :loading="isFetching" @click="onClick">发起错误重试</Button>
+  <ElButton :loading="isFetching" @click="onClick">发起错误重试</ElButton>
   <p v-if="count > 0" class="my-3">重试次数{{ count }}</p>
   <p>{{ error }}</p>
 </template>

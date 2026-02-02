@@ -1,4 +1,4 @@
-import { requestClient } from '@/api/request'
+import { request as requestClient } from '@/api/request'
 
 export namespace DemoTableApi {
   export interface PageFetchParams {

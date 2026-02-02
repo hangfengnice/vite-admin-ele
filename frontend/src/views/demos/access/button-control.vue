@@ -7,9 +7,8 @@ import { AccessControl, useAccess } from '@/packages/effects/access'
 import { Page } from '@/packages/effects/common-ui/src'
 import { resetAllStores, useUserStore } from '@/stores'
 
-import { ElButton, ElCard } from 'element-plus'
-
 import { useAuthStore } from '@/stores'
+import { ElButton } from 'element-plus'
 
 const accounts: Record<string, Recordable<any>> = {
   admin: {
@@ -55,7 +54,7 @@ async function changeAccount(role: string) {
     :title="`${accessMode === 'frontend' ? '前端' : '后端'}按钮访问权限演示`"
     description="切换不同的账号，观察按钮变化。"
   >
-    <Card class="mb-5">
+    <ElCard class="mb-5">
       <template #title>
         <span class="font-semibold">当前角色:</span>
         <span class="mx-4 text-lg text-primary">
@@ -63,95 +62,102 @@ async function changeAccount(role: string) {
         </span>
       </template>
 
-      <Button :type="roleButtonType('super')" @click="changeAccount('super')">
+      <ElButton :type="roleButtonType('super')" @click="changeAccount('super')">
         切换为 Super 账号
-      </Button>
+      </ElButton>
 
-      <Button
+      <ElButton
         :type="roleButtonType('admin')"
         class="mx-4"
         @click="changeAccount('admin')"
       >
         切换为 Admin 账号
-      </Button>
-      <Button :type="roleButtonType('user')" @click="changeAccount('user')">
+      </ElButton>
+      <ElButton :type="roleButtonType('user')" @click="changeAccount('user')">
         切换为 User 账号
-      </Button>
-    </Card>
+      </ElButton>
+    </ElCard>
 
-    <Card class="mb-5" title="组件形式控制 - 权限码">
+    <ElCard class="mb-5" title="组件形式控制 - 权限码">
       <AccessControl :codes="['AC_100100']" type="code">
-        <Button class="mr-4">Super 账号可见 ["AC_100100"]</Button>
+        <ElButton class="mr-4">Super 账号可见 ["AC_100100"]</ElButton>
       </AccessControl>
       <AccessControl :codes="['AC_100030']" type="code">
-        <Button class="mr-4">Admin 账号可见 ["AC_100030"]</Button>
+        <ElButton class="mr-4">Admin 账号可见 ["AC_100030"]</ElButton>
       </AccessControl>
       <AccessControl :codes="['AC_1000001']" type="code">
-        <Button class="mr-4">User 账号可见 ["AC_1000001"]</Button>
+        <ElButton class="mr-4">User 账号可见 ["AC_1000001"]</ElButton>
       </AccessControl>
       <AccessControl :codes="['AC_100100', 'AC_100030']" type="code">
-        <Button class="mr-4">
+        <ElButton class="mr-4">
           Super & Admin 账号可见 ["AC_100100","AC_100030"]
-        </Button>
+        </ElButton>
       </AccessControl>
-    </Card>
+    </ElCard>
 
-    <Card
+    <ElCard
       v-if="accessMode === 'frontend'"
       class="mb-5"
       title="组件形式控制 - 角色"
     >
       <AccessControl :codes="['super']" type="role">
-        <Button class="mr-4">Super 角色可见</Button>
+        <ElButton class="mr-4">Super 角色可见</ElButton>
       </AccessControl>
       <AccessControl :codes="['admin']" type="role">
-        <Button class="mr-4">Admin 角色可见</Button>
+        <ElButton class="mr-4">Admin 角色可见</ElButton>
       </AccessControl>
       <AccessControl :codes="['user']" type="role">
-        <Button class="mr-4">User 角色可见</Button>
+        <ElButton class="mr-4">User 角色可见</ElButton>
       </AccessControl>
       <AccessControl :codes="['super', 'admin']" type="role">
-        <Button class="mr-4">Super & Admin 角色可见</Button>
+        <ElButton class="mr-4">Super & Admin 角色可见</ElButton>
       </AccessControl>
-    </Card>
+    </ElCard>
 
-    <Card class="mb-5" title="函数形式控制">
-      <Button v-if="hasAccessByCodes(['AC_100100'])" class="mr-4">
+    <ElCard class="mb-5" title="函数形式控制">
+      <ElButton v-if="hasAccessByCodes(['AC_100100'])" class="mr-4">
         Super 账号可见 ["AC_100100"]
-      </Button>
-      <Button v-if="hasAccessByCodes(['AC_100030'])" class="mr-4">
+      </ElButton>
+      <ElButton v-if="hasAccessByCodes(['AC_100030'])" class="mr-4">
         Admin 账号可见 ["AC_100030"]
-      </Button>
-      <Button v-if="hasAccessByCodes(['AC_1000001'])" class="mr-4">
+      </ElButton>
+      <ElButton v-if="hasAccessByCodes(['AC_1000001'])" class="mr-4">
         User 账号可见 ["AC_1000001"]
-      </Button>
-      <Button v-if="hasAccessByCodes(['AC_100100', 'AC_100030'])" class="mr-4">
+      </ElButton>
+      <ElButton
+        v-if="hasAccessByCodes(['AC_100100', 'AC_100030'])"
+        class="mr-4"
+      >
         Super & Admin 账号可见 ["AC_100100","AC_100030"]
-      </Button>
-    </Card>
+      </ElButton>
+    </ElCard>
 
-    <Card class="mb-5" title="指令方式 - 权限码">
-      <Button class="mr-4" v-access:code="['AC_100100']">
+    <ElCard class="mb-5" title="指令方式 - 权限码">
+      <ElButton class="mr-4" v-access:code="['AC_100100']">
         Super 账号可见 ["AC_100100"]
-      </Button>
-      <Button class="mr-4" v-access:code="['AC_100030']">
+      </ElButton>
+      <ElButton class="mr-4" v-access:code="['AC_100030']">
         Admin 账号可见 ["AC_100030"]
-      </Button>
-      <Button class="mr-4" v-access:code="['AC_1000001']">
+      </ElButton>
+      <ElButton class="mr-4" v-access:code="['AC_1000001']">
         User 账号可见 ["AC_1000001"]
-      </Button>
-      <Button class="mr-4" v-access:code="['AC_100100', 'AC_100030']">
+      </ElButton>
+      <ElButton class="mr-4" v-access:code="['AC_100100', 'AC_100030']">
         Super & Admin 账号可见 ["AC_100100","AC_100030"]
-      </Button>
-    </Card>
+      </ElButton>
+    </ElCard>
 
-    <Card v-if="accessMode === 'frontend'" class="mb-5" title="指令方式 - 角色">
-      <Button class="mr-4" v-access:role="['super']">Super 角色可见</Button>
-      <Button class="mr-4" v-access:role="['admin']">Admin 角色可见</Button>
-      <Button class="mr-4" v-access:role="['user']">User 角色可见</Button>
-      <Button class="mr-4" v-access:role="['super', 'admin']">
+    <ElCard
+      v-if="accessMode === 'frontend'"
+      class="mb-5"
+      title="指令方式 - 角色"
+    >
+      <ElButton class="mr-4" v-access:role="['super']">Super 角色可见</ElButton>
+      <ElButton class="mr-4" v-access:role="['admin']">Admin 角色可见</ElButton>
+      <ElButton class="mr-4" v-access:role="['user']">User 角色可见</ElButton>
+      <ElButton class="mr-4" v-access:role="['super', 'admin']">
         Super & Admin 角色可见
-      </Button>
-    </Card>
+      </ElButton>
+    </ElCard>
   </Page>
 </template>

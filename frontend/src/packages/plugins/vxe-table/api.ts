@@ -6,7 +6,7 @@ import type { VxeGridProps } from './types'
 
 import { toRaw } from 'vue'
 
-import { Store } from '@/packages/core/base/shared/src/store'
+import { Store } from '@tanstack/vue-store'
 import {
   bindMethods,
   isBoolean,

@@ -1,4 +1,4 @@
-import { requestClient } from '@/api/request'
+import { request as requestClient } from '@/api/request'
 
 /**
  * 模拟任意状态码

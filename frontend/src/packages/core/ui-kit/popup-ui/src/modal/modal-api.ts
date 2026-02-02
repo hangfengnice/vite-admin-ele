@@ -1,6 +1,6 @@
 import type { ModalApiOptions, ModalState } from './modal'
 
-import { Store } from '@/packages/core/base/shared/src/store'
+import { Store } from '@tanstack/vue-store'
 import { bindMethods, isFunction } from '@/utils'
 
 export class ModalApi {

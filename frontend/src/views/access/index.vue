@@ -7,8 +7,6 @@ import { useAccess } from '@/packages/effects/access'
 import { Page } from '@/packages/effects/common-ui/src'
 import { resetAllStores, useUserStore } from '@/stores'
 
-import { ElButton, ElCard } from 'element-plus'
-
 import { useAuthStore } from '@/stores'
 
 const accounts: Record<string, Recordable<any>> = {

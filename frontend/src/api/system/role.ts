@@ -1,6 +1,6 @@
 import type { Recordable } from '@/packages/types'
 
-import { requestClient } from '@/api/request'
+import { request as requestClient } from '@/api/request'
 
 export namespace SystemRoleApi {
   export interface SystemRole {

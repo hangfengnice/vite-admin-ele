@@ -1,9 +1,5 @@
 # vite-admin-ele
 
-## License
-
-MIT © 2026 hf
-
 > Vue3 + Node.js + MySQL 企业级后台管理系统  
 > 支持本地开发与一键部署上线，全流程可复现
 
@@ -135,6 +131,10 @@ mysql -u root -p < test_db_2026-01-25.sql
 
 本项目配套完整从零部署教程：
 [https://juejin.cn/post/7598447519823183913](https://juejin.cn/post/7598447519823183913)
+
+## License
+
+MIT © 2026 hf
 
 🤝 参考项目
 

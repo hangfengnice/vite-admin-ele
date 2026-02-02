@@ -1,6 +1,6 @@
-import type { RequestResponse } from '@vben/request';
+import type { RequestResponse } from '../request-client'
 
-import { requestClient } from '../request';
+import { request as requestClient } from '../request'
 
 /**
  * 下载文件，获取Blob
@@ -9,7 +9,7 @@ import { requestClient } from '../request';
 async function downloadFile1() {
   return requestClient.download<Blob>(
     'https://unpkg.com/@vbenjs/static-source@0.1.7/source/logo-v1.webp',
-  );
+  )
 }
 
 /**
@@ -22,7 +22,7 @@ async function downloadFile2() {
     {
       responseReturn: 'raw',
     },
-  );
+  )
 }
 
-export { downloadFile1, downloadFile2 };
+export { downloadFile1, downloadFile2 }
