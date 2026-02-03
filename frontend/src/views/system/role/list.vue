@@ -10,14 +10,13 @@ import type { SystemRoleApi } from '@/api'
 import { Page, useVbenDrawer } from '@/packages/effects/common-ui/src'
 import { Plus } from '@/packages/icons'
 
-import { Button, message, Modal } from 'element-plus'
-
 import { useVbenVxeGrid } from '@/packages/adapter/vxe-table'
 import { deleteRole, getRoleList, updateRole } from '@/api'
 import { $t } from '@/locales'
 
 import { useColumns, useGridFormSchema } from './data'
 import Form from './modules/form.vue'
+import { ElMessage, ElDialog } from 'element-plus'
 
 const [FormDrawer, formDrawerApi] = useVbenDrawer({
   connectedComponent: Form,
@@ -79,7 +78,7 @@ function onActionClick(e: OnActionClickParams<SystemRoleApi.SystemRole>) {
  */
 function confirm(content: string, title: string) {
   return new Promise((reslove, reject) => {
-    Modal.confirm({
+    ElDialog.confirm({
       content,
       onCancel() {
         reject(new Error('已取消'))
@@ -123,14 +122,14 @@ function onEdit(row: SystemRoleApi.SystemRole) {
 }
 
 function onDelete(row: SystemRoleApi.SystemRole) {
-  const hideLoading = message.loading({
+  const hideLoading = ElMessage.loading({
     content: $t('ui.actionMessage.deleting', [row.name]),
     duration: 0,
     key: 'action_process_msg',
   })
   deleteRole(row.id)
     .then(() => {
-      message.success({
+      ElMessage.success({
         content: $t('ui.actionMessage.deleteSuccess', [row.name]),
         key: 'action_process_msg',
       })
@@ -152,12 +151,12 @@ function onCreate() {
 <template>
   <Page auto-content-height>
     <FormDrawer @success="onRefresh" />
-    <Grid :table-title="$t('system.role.list')">
+    <Grid :header="$t('system.role.list')">
       <template #toolbar-tools>
-        <Button type="primary" @click="onCreate">
+        <ElButton type="primary" @click="onCreate">
           <Plus class="size-5" />
           {{ $t('ui.actionTitle.create', [$t('system.role.name')]) }}
-        </Button>
+        </ElButton>
       </template>
     </Grid>
   </Page>

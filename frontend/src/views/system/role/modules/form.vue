@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import type { DataNode } from 'ant-design-vue/es/tree'
-
 import type { Recordable } from '@/packages/types'
 
 import type { SystemRoleApi } from '@/api/system/role'
@@ -9,8 +7,6 @@ import { computed, nextTick, ref } from 'vue'
 
 import { Tree, useVbenDrawer } from '@/packages/effects/common-ui/src'
 import { IconifyIcon } from '@/packages/icons'
-
-import { Spin } from 'element-plus'
 
 import { useSchemaForm } from '@/packages/adapter/form'
 import { getMenuList } from '@/api/system/menu'
@@ -28,7 +24,7 @@ const [Form, formApi] = useSchemaForm({
   showDefaultActions: false,
 })
 
-const permissions = ref<DataNode[]>([])
+const permissions = ref<[]>([])
 const loadingPermissions = ref(false)
 
 const id = ref()
@@ -101,7 +97,7 @@ function getNodeClass(node: Recordable<any>) {
   <Drawer :title="getDrawerTitle">
     <Form>
       <template #permissions="slotProps">
-        <Spin :spinning="loadingPermissions" wrapper-class-name="w-full">
+        <ElLoading :spinning="loadingPermissions" wrapper-class-name="w-full">
           <Tree
             :tree-data="permissions"
             multiple
@@ -118,7 +114,7 @@ function getNodeClass(node: Recordable<any>) {
               {{ $t(value.meta.title) }}
             </template>
           </Tree>
-        </Spin>
+        </ElLoading>
       </template>
     </Form>
   </Drawer>

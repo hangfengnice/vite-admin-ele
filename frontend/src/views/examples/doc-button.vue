@@ -2,8 +2,6 @@
 import { VBEN_DOC_URL } from '@/packages/constants'
 import { openWindow } from '@/utils'
 
-import { Button } from 'element-plus'
-
 const props = defineProps<{ path: string }>()
 
 function handleClick() {
@@ -18,5 +16,5 @@ function handleClick() {
 </script>
 
 <template>
-  <Button @click="handleClick">查看组件文档</Button>
+  <ElButton @click="handleClick">查看组件文档</ElButton>
 </template>

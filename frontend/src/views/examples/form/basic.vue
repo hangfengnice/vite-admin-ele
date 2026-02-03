@@ -6,7 +6,6 @@ import { h, ref, toRaw } from 'vue'
 import { Page } from '@/packages/effects/common-ui/src'
 
 import { useDebounceFn } from '@vueuse/core'
-import { ElButton, ElCard, message, Spin, Tag } from 'element-plus'
 import dayjs from 'dayjs'
 
 import { useSchemaForm, z } from '@/packages/adapter/form'
@@ -488,11 +487,13 @@ function handleSetFormValue() {
     <template #extra>
       <DocButton class="mb-2" path="/components/common-ui/vben-form" />
     </template>
-    <Card title="基础示例">
+    <ElCard header="基础示例">
       <template #extra>
-        <Button type="primary" @click="handleSetFormValue">设置表单值</Button>
+        <ElButton type="primary" @click="handleSetFormValue">
+          设置表单值
+        </ElButton>
       </template>
       <BaseForm />
-    </Card>
+    </ElCard>
   </Page>
 </template>
