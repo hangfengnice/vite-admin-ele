@@ -2,7 +2,7 @@ import type { AxiosInstance, AxiosResponse } from 'axios'
 
 import type { RequestClientConfig, RequestClientOptions } from './types'
 
-import { bindMethods, isString, merge } from '@/utils'
+import { isString, merge } from '@/utils'
 
 import axios from 'axios'
 import qs from 'qs'
@@ -12,146 +12,81 @@ import { InterceptorManager } from './modules/interceptor'
 import { SSE } from './modules/sse'
 import { FileUploader } from './modules/uploader'
 
+const paramsSerializerMap = {
+  brackets: (params: any) => qs.stringify(params, { arrayFormat: 'brackets' }),
+  comma: (params: any) => qs.stringify(params, { arrayFormat: 'comma' }),
+  indices: (params: any) => qs.stringify(params, { arrayFormat: 'indices' }),
+  repeat: (params: any) => qs.stringify(params, { arrayFormat: 'repeat' }),
+} as const
+
 function getParamsSerializer(
   paramsSerializer: RequestClientOptions['paramsSerializer'],
 ) {
   if (isString(paramsSerializer)) {
-    switch (paramsSerializer) {
-      case 'brackets': {
-        return (params: any) =>
-          qs.stringify(params, { arrayFormat: 'brackets' })
-      }
-      case 'comma': {
-        return (params: any) => qs.stringify(params, { arrayFormat: 'comma' })
-      }
-      case 'indices': {
-        return (params: any) => qs.stringify(params, { arrayFormat: 'indices' })
-      }
-      case 'repeat': {
-        return (params: any) => qs.stringify(params, { arrayFormat: 'repeat' })
-      }
-    }
+    return paramsSerializerMap[paramsSerializer]
   }
   return paramsSerializer
 }
 
-class RequestClient {
-  public addRequestInterceptor: InterceptorManager['addRequestInterceptor']
-
-  public addResponseInterceptor: InterceptorManager['addResponseInterceptor']
-  public download: FileDownloader['download']
-
-  public readonly instance: AxiosInstance
-  // 是否正在刷新token
-  public isRefreshing = false
-  public postSSE: SSE['postSSE']
-  // 刷新token队列
-  public refreshTokenQueue: ((token: string) => void)[] = []
-  public requestSSE: SSE['requestSSE']
-  public upload: FileUploader['upload']
-
-  /**
-   * 构造函数，用于创建Axios实例
-   * @param options - Axios请求配置，可选
-   */
-  constructor(options: RequestClientOptions = {}) {
-    // 合并默认配置和传入的配置
-    const defaultConfig: RequestClientOptions = {
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8',
-      },
-      responseReturn: 'raw',
-      // 默认超时时间
-      timeout: 10_000,
-    }
-    const { ...axiosConfig } = options
-    const requestConfig = merge(axiosConfig, defaultConfig)
-    requestConfig.paramsSerializer = getParamsSerializer(
-      requestConfig.paramsSerializer,
-    )
-    this.instance = axios.create(requestConfig)
-
-    bindMethods(this)
-
-    // 实例化拦截器管理器
-    const interceptorManager = new InterceptorManager(this.instance)
-    this.addRequestInterceptor =
-      interceptorManager.addRequestInterceptor.bind(interceptorManager)
-    this.addResponseInterceptor =
-      interceptorManager.addResponseInterceptor.bind(interceptorManager)
-
-    // 实例化文件上传器
-    const fileUploader = new FileUploader(this)
-    this.upload = fileUploader.upload.bind(fileUploader)
-    // 实例化文件下载器
-    const fileDownloader = new FileDownloader(this)
-    this.download = fileDownloader.download.bind(fileDownloader)
-    // 实例化SSE模块
-    const sse = new SSE(this)
-    this.postSSE = sse.postSSE.bind(sse)
-    this.requestSSE = sse.requestSSE.bind(sse)
-  }
-
-  /**
-   * DELETE请求方法
-   */
-  public delete<T = any>(
-    url: string,
-    config?: RequestClientConfig,
-  ): Promise<T> {
-    return this.request<T>(url, { ...config, method: 'DELETE' })
-  }
-
-  /**
-   * GET请求方法
-   */
-  public get<T = any>(url: string, config?: RequestClientConfig): Promise<T> {
-    return this.request<T>(url, { ...config, method: 'GET' })
-  }
-
-  /**
-   * 获取基础URL
-   */
-  public getBaseUrl() {
-    return this.instance.defaults.baseURL
-  }
-
-  /**
-   * POST请求方法
-   */
-  public post<T = any>(
+type RequestClient = {
+  addRequestInterceptor: InterceptorManager['addRequestInterceptor']
+  addResponseInterceptor: InterceptorManager['addResponseInterceptor']
+  download: FileDownloader['download']
+  instance: AxiosInstance
+  isRefreshing: boolean
+  postSSE: SSE['postSSE']
+  refreshTokenQueue: ((token: string) => void)[]
+  requestSSE: SSE['requestSSE']
+  upload: FileUploader['upload']
+  delete: <T = any>(url: string, config?: RequestClientConfig) => Promise<T>
+  get: <T = any>(url: string, config?: RequestClientConfig) => Promise<T>
+  getBaseUrl: () => string | undefined
+  post: <T = any>(
     url: string,
     data?: any,
     config?: RequestClientConfig,
-  ): Promise<T> {
-    return this.request<T>(url, { ...config, data, method: 'POST' })
-  }
-
-  /**
-   * PUT请求方法
-   */
-  public put<T = any>(
+  ) => Promise<T>
+  put: <T = any>(
     url: string,
     data?: any,
     config?: RequestClientConfig,
-  ): Promise<T> {
-    return this.request<T>(url, { ...config, data, method: 'PUT' })
-  }
+  ) => Promise<T>
+  request: <T = any>(url: string, config: RequestClientConfig) => Promise<T>
+}
 
-  /**
-   * 通用的请求方法
-   */
-  public async request<T>(
+function createRequestClient(options: RequestClientOptions = {}): RequestClient {
+  const defaultConfig: RequestClientOptions = {
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8',
+    },
+    responseReturn: 'raw',
+    timeout: 10_000,
+  }
+  const { ...axiosConfig } = options
+  const requestConfig = merge(axiosConfig, defaultConfig)
+  requestConfig.paramsSerializer = getParamsSerializer(
+    requestConfig.paramsSerializer,
+  )
+  const instance = axios.create(requestConfig)
+
+  const interceptorManager = new InterceptorManager(instance)
+  const addRequestInterceptor =
+    interceptorManager.addRequestInterceptor.bind(interceptorManager)
+  const addResponseInterceptor =
+    interceptorManager.addResponseInterceptor.bind(interceptorManager)
+
+  const request = async <T = any>(
     url: string,
     config: RequestClientConfig,
-  ): Promise<T> {
+  ): Promise<T> => {
     try {
-      const response: AxiosResponse<T> = await this.instance({
+      const paramsSerializer = config.paramsSerializer
+        ? getParamsSerializer(config.paramsSerializer)
+        : undefined
+      const response: AxiosResponse<T> = await instance({
         url,
         ...config,
-        ...(config.paramsSerializer
-          ? { paramsSerializer: getParamsSerializer(config.paramsSerializer) }
-          : {}),
+        ...(paramsSerializer ? { paramsSerializer } : {}),
       })
 
       return response as T
@@ -159,6 +94,39 @@ class RequestClient {
       throw error.response ? error.response.data : error
     }
   }
+
+  const client: RequestClient = {
+    instance,
+    isRefreshing: false,
+    refreshTokenQueue: [],
+    addRequestInterceptor,
+    addResponseInterceptor,
+    getBaseUrl: () => instance.defaults.baseURL,
+    delete: (url, config) => request(url, { ...config, method: 'DELETE' }),
+    get: (url, config) => request(url, { ...config, method: 'GET' }),
+    post: (url, data, config) =>
+      request(url, { ...config, data, method: 'POST' }),
+    put: (url, data, config) =>
+      request(url, { ...config, data, method: 'PUT' }),
+    request,
+    upload: undefined as unknown as FileUploader['upload'],
+    download: undefined as unknown as FileDownloader['download'],
+    postSSE: undefined as unknown as SSE['postSSE'],
+    requestSSE: undefined as unknown as SSE['requestSSE'],
+  }
+
+  const fileUploader = new FileUploader(client)
+  client.upload = fileUploader.upload.bind(fileUploader)
+
+  const fileDownloader = new FileDownloader(client)
+  client.download = fileDownloader.download.bind(fileDownloader)
+
+  const sse = new SSE(client)
+  client.postSSE = sse.postSSE.bind(sse)
+  client.requestSSE = sse.requestSSE.bind(sse)
+
+  return client
 }
 
-export { RequestClient }
+export { createRequestClient }
+export type { RequestClient }

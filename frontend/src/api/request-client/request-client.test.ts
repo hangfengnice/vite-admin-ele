@@ -2,7 +2,7 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
-import { RequestClient } from './request-client';
+import { createRequestClient, type RequestClient } from './request-client';
 
 describe('requestClient', () => {
   let mock: MockAdapter;
@@ -10,7 +10,7 @@ describe('requestClient', () => {
 
   beforeEach(() => {
     mock = new MockAdapter(axios);
-    requestClient = new RequestClient();
+    requestClient = createRequestClient();
   });
 
   afterEach(() => {
