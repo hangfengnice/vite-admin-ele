@@ -26,6 +26,13 @@ router.get('/info', async (req, res) => {
     user.roles = [user.roles]
     R.success(res, user)
   } catch (err) {
+    // Token 过期或无效，返回 401 触发前端刷新 token 逻辑
+    if (err.name === 'TokenExpiredError') {
+      return res.status(401).json({ code: 401, message: 'Token 已过期' })
+    }
+    if (err.name === 'JsonWebTokenError') {
+      return res.status(401).json({ code: 401, message: 'Token 无效' })
+    }
     R.error(res, String(err), 500)
   }
 })
